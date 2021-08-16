@@ -48,7 +48,7 @@ abstract: |
 keywords          : "keywords"
 wordcount         : "X"
 
-bibliography      : ["r-references.bib"]
+bibliography      : ["r-references.bib", "jdr.bib", "jobdemands_resources_bibtex.bib"]
 
 floatsintext      : no
 figurelist        : no
@@ -73,7 +73,11 @@ r_refs("r-references.bib")
 set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
+@bakker2017job
 
+and @cavanaugh2000empirical
+
+and @sonnega_comparison_2018
 
 
 # Methods
