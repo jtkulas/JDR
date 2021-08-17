@@ -1,27 +1,23 @@
 ---
-title             : "The title"
+title             : "The subjective experience of O*NET work experiences as demands and resources"
 shorttitle        : "Title"
 
 author: 
-  - name          : "First Author"
+  - name          : "Alicia Stachowski"
     affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
-    address       : "Postal address"
+    address       : "Menomenie, WI"
     email         : "my@email.com"
-    role:         # Contributorship roles (e.g., CRediT, https://casrai.org/credit/)
-      - Conceptualization
-      - Writing - Original Draft Preparation
-      - Writing - Review & Editing
-  - name          : "Ernst-August Doelle"
-    affiliation   : "1,2"
-    role:
-      - Writing - Review & Editing
+  - name          : "Renata Garcia Prieto Palacios Roji"
+    affiliation   : "2"
+  - name          : "John Kulas"
+    affiliation   : "2"
 
 affiliation:
   - id            : "1"
-    institution   : "Wilhelm-Wundt-University"
+    institution   : "University of Wisconsin - Stout"
   - id            : "2"
-    institution   : "Konstanz Business School"
+    institution   : "Montclair State University"
 
 authornote: |
   Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
@@ -29,19 +25,7 @@ authornote: |
   Enter author note here.
 
 abstract: |
-  One or two sentences providing a **basic introduction** to the field,  comprehensible to a scientist in any discipline.
-  
-  Two to three sentences of **more detailed background**, comprehensible  to scientists in related disciplines.
-  
-  One sentence clearly stating the **general problem** being addressed by  this particular study.
-  
-  One sentence summarizing the main result (with the words "**here we show**" or their equivalent).
-  
-  Two or three sentences explaining what the **main result** reveals in direct comparison to what was thought to be the case previously, or how the  main result adds to previous knowledge.
-  
-  One or two sentences to put the results into a more **general context**.
-  
-  Two or three sentences to provide a **broader perspective**, readily comprehensible to a scientist in any discipline.
+  O*NET work characteristics were rated in terms of relevance, perception of demand, and perception as resource. 
   
   <!-- https://tinyurl.com/ybremelq -->
   
@@ -79,6 +63,7 @@ and @cavanaugh2000empirical
 
 and @sonnega_comparison_2018
 
+@bakker2017job state that, "...research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context" (p. 278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and *resource*. 
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
