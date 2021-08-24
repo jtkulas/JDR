@@ -5,13 +5,14 @@
 \documentclass[
   english,
   man]{apa6}
-\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
+\usepackage{amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
+  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -128,10 +129,7 @@
   \usepackage{polyglossia}
   \setmainlanguage[]{english}
 \else
-  \usepackage[main=english]{babel}
-% get rid of language-specific shorthands (see #6817):
-\let\LanguageShortHands\languageshorthands
-\def\languageshorthands#1{}
+  \usepackage[shorthands=off,main=english]{babel}
 \fi
 \ifluatex
   \usepackage{selnolig}  % disable illegal ligatures
@@ -183,41 +181,45 @@ O*NET work characteristics were rated in terms of relevance, perception of deman
 \begin{document}
 \maketitle
 
-The job demands-resources model (Demerouti, Bakker, Nachreiner, \& Schaufeli, 2001) and later job demands-resources theory (Bakker and Demerouti (2017)) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
+The job demands-resources model (Demerouti, Bakker, Nachreiner, and Schaufeli (2001)) and later job demands-resources theory (Bakker and Demerouti (2017)) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
 
-STUDY 1: The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand.
+The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand.
 
-\#The Stress Process and Challenge-Hinderance Framework
-Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (Demerouti et al., 2001). Demerouti et al.~(2001) define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain. Cavanaugh, Boswell, Roehling, and Boudreau (2000) delineated two forms of demands -- that of challenge and hinderance demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., cite). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals.
+\hypertarget{the-stress-process-and-challenge-hinderance-framework}{%
+\subsection{The Stress Process and Challenge-Hinderance Framework}\label{the-stress-process-and-challenge-hinderance-framework}}
+
+Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (Demerouti, Bakker, Nachreiner, and Schaufeli (2001)). Demerouti, Bakker, Nachreiner, and Schaufeli (2001) define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain. Cavanaugh, Boswell, Roehling, and Boudreau (2000) delineated two forms of demands -- that of challenge and hinderance demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., cite). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals.
 
 \hypertarget{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}{%
 \subsection{Objective vs.~Subjective Nature of Demands and Resources: The Role of Appraisal}\label{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}}
 
-(\textbf{article?})\{searle2015merits note that the majority of the research on challenge and hinderance framework is based on apriori classifications of demands. However, the stress experience or process described early on by Lazarus and Folkman (1984) is grounded in the notion that individual appraisals of stressors/demands vary. This suggests that classifying a job demand as a challenge, or as a hinderance, might be subject to individual differences in appraisal. Some more resent researching, in fact, points to that conclusion. Webster et al.~(2011), for example, studied workload, role ambiguity, and role conflict demands, and found while that each could be appraised primarily as challenges or hindrances, they could also simultaneously be perceived as being both to different degrees.
+Searle and Auton (2015) note that the majority of the research on challenge and hinderance framework is based on apriori classifications of demands. However, the stress experience or process described early on by Lazarus and Folkman (1984) is grounded in the notion that individual appraisals of stressors/demands vary. This suggests that classifying a job demand as a challenge, or as a hinderance, might be subject to individual differences in appraisal. Some more recent research, in fact, points to that conclusion. Webster, Beehr, and Love (2011), for example, studied workload, role ambiguity, and role conflict demands, and found while that each could be appraised primarily as challenges or hindrances, they could also simultaneously be perceived as being both a challenge and hinderance to different degrees.
 
--Describe original job-demands resources backdrop based on objective-other-rated level of demands (1/2 to 1 page)
-- Add empirical findings paragraph (1/2 to 1 page)
+\hypertarget{add-empirical-findings-paragraph-12-to-1-page-list-of-articles}{%
+\subsection{Add empirical findings paragraph (1/2 to 1 page): LIST OF ARTICLES}\label{add-empirical-findings-paragraph-12-to-1-page-list-of-articles}}
+
+Sonnega, Helppie-McFall, Hudomiet, Willis, and Fisher (2018)
+Hess, Smith, and Sharifian (2016)
+Schmitz, McCluney, Sonnega, and Hicken (2019)
+Downes, Reeves, McCormick, Boswell, and Butts (2021)
+Bakker and Demerouti (2014)
+Bakker and Demerouti (2018)
+LePine, Podsakoff, and LePine (2005)
 
 \#\#Current Study and Research Questions
 
-\begin{itemize}
-\tightlist
-\item
-  study 1 (1/2 page)
-  The purpose of this study is to
-\item
-  study 2 (1/2 page)
-\item
-  study 3 (1/2 page)
-\end{itemize}
-
+Study 1 (1/2 page)
+Study 2 (1/2 page)
+Study 3 (1/2 page)
+=======
 Bakker and Demerouti (2017)
 
 and Cavanaugh, Boswell, Roehling, and Boudreau (2000)
 
 and Sonnega, Helppie-McFall, Hudomiet, Willis, and Fisher (2018)
 
-Bakker and Demerouti (2017) state that, ``\ldots research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context.'' We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and \emph{resource}.
+Bakker and Demerouti (2017) state that, ``\ldots research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context'' (p.~278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and \emph{resource}.
+\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater{} 1a8b1622f7e6e904629adfff00c9ce9df1533ca0
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
@@ -243,7 +245,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R {[}Version 4.0.5; R Core Team (2020){]} and the R-package \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]} for all our analyses.
+We used R {[}Version 4.0.3; R Core Team (2020){]} and the R-package \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]} for all our analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -265,17 +267,47 @@ We used R {[}Version 4.0.5; R Core Team (2020){]} and the R-package \emph{papaja
 \leavevmode\hypertarget{ref-R-papaja}{}%
 Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
 
+\leavevmode\hypertarget{ref-bakker2014job}{}%
+Bakker, A. B., \& Demerouti, E. (2014). Job demands--resources theory. \emph{Wellbeing: A Complete Reference Guide}, 1--28.
+
 \leavevmode\hypertarget{ref-bakker2017job}{}%
 Bakker, A. B., \& Demerouti, E. (2017). Job demands--resources theory: Taking stock and looking forward. \emph{Journal of Occupational Health Psychology}, \emph{22}(3), 273.
+
+\leavevmode\hypertarget{ref-bakker2018multiple}{}%
+Bakker, A. B., \& Demerouti, E. (2018). Multiple levels in job demands-resources theory: Implications for employee well-being and performance. \emph{Handbook of Well-Being}.
 
 \leavevmode\hypertarget{ref-cavanaugh2000empirical}{}%
 Cavanaugh, M. A., Boswell, W. R., Roehling, M. V., \& Boudreau, J. W. (2000). An empirical examination of self-reported work stress among US managers. \emph{Journal of Applied Psychology}, \emph{85}(1), 65.
 
+\leavevmode\hypertarget{ref-demerouti2001job}{}%
+Demerouti, E., Bakker, A. B., Nachreiner, F., \& Schaufeli, W. B. (2001). The job demands-resources model of burnout. \emph{Journal of Applied Psychology}, \emph{86}(3), 499.
+
+\leavevmode\hypertarget{ref-downes2021incorporating}{}%
+Downes, P. E., Reeves, C. J., McCormick, B. W., Boswell, W. R., \& Butts, M. M. (2021). Incorporating job demand variability into job demands theory: A meta-analysis. \emph{Journal of Management}, \emph{47}(6), 1630--1656.
+
+\leavevmode\hypertarget{ref-hess_aging_2016}{}%
+Hess, T. M., Smith, B. T., \& Sharifian, N. (2016). Aging and effort expenditure: {The} impact of subjective perceptions of task demands. \emph{Psychology and Aging}, \emph{31}(7), 653--660. \url{https://doi.org/10.1037/pag0000127}
+
+\leavevmode\hypertarget{ref-lazarus1984stress}{}%
+Lazarus, R. S., \& Folkman, S. (1984). \emph{Stress, appraisal, and coping}. Springer publishing company.
+
+\leavevmode\hypertarget{ref-lepine2005meta}{}%
+LePine, J. A., Podsakoff, N. P., \& LePine, M. A. (2005). A meta-analytic test of the challenge stressor--hindrance stressor framework: An explanation for inconsistent relationships among stressors and performance. \emph{Academy of Management Journal}, \emph{48}(5), 764--775.
+
 \leavevmode\hypertarget{ref-R-base}{}%
 R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
+\leavevmode\hypertarget{ref-schmitz_interpreting_2019}{}%
+Schmitz, L. L., McCluney, C. L., Sonnega, A., \& Hicken, M. T. (2019). Interpreting {Subjective} and {Objective} {Measures} of {Job} {Resources}: {The} {Importance} of {Sociodemographic} {Context}. \emph{International Journal of Environmental Research and Public Health}, \emph{16}(17), 3058. \url{https://doi.org/10.3390/ijerph16173058}
+
+\leavevmode\hypertarget{ref-searle2015merits}{}%
+Searle, B. J., \& Auton, J. C. (2015). The merits of measuring challenge and hindrance appraisals. \emph{Anxiety, Stress, \& Coping}, \emph{28}(2), 121--143.
+
 \leavevmode\hypertarget{ref-sonnega_comparison_2018}{}%
 Sonnega, A., Helppie-McFall, B., Hudomiet, P., Willis, R. J., \& Fisher, G. G. (2018). A {Comparison} of {Subjective} and {Objective} {Job} {Demands} and {Fit} {With} {Personal} {Resources} as {Predictors} of {Retirement} {Timing} in a {National} {U}.{S}. {Sample}. \emph{Work, Aging and Retirement}, \emph{4}(1), 37--51. \url{https://doi.org/10.1093/workar/wax016}
+
+\leavevmode\hypertarget{ref-webster2011extending}{}%
+Webster, J. R., Beehr, T. A., \& Love, K. (2011). Extending the challenge-hindrance model of occupational stress: The role of appraisal. \emph{Journal of Vocational Behavior}, \emph{79}(2), 505--516.
 
 \end{CSLReferences}
 

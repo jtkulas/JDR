@@ -58,17 +58,17 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-  The job demands-resources model (@demerouti2001job) and later job demands-resources theory (@bakker2017job) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands. 
+  The job demands-resources model (@demerouti2001job) and later job demands-resources theory (@bakker2017job) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
+
+   The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand. 
+    
+## The Stress Process and Challenge-Hinderance Framework
+  Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (@demerouti2001job). @demerouti2001job define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain. @cavanaugh2000empirical delineated two forms of demands – that of challenge and hinderance demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., cite). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals.
   
-  The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand. 
-  
-#The Stress Process and Challenge-Hinderance Framework
-  Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (@demerouti2001job). @demerouti2001job define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain. @cavanaugh2000empirical delineated two forms of demands – that of challenge and hinderance demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., cite). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals. 
-	
 ## Objective vs. Subjective Nature of Demands and Resources: The Role of Appraisal
   @searle2015merits note that the majority of the research on challenge and hinderance framework is based on apriori classifications of demands. However, the stress experience or process described early on by @lazarus1984stress is grounded in the notion that individual appraisals of stressors/demands vary. This suggests that classifying a job demand as a challenge, or as a hinderance, might be subject to individual differences in appraisal. Some more recent research, in fact, points to that conclusion. @webster2011extending, for example, studied workload, role ambiguity, and role conflict demands, and found while that each could be appraised primarily as challenges or hindrances, they could also simultaneously be perceived as being both a challenge and hinderance to different degrees. 
-
-- Add empirical findings paragraph (1/2 to 1 page)
+  
+## Add empirical findings paragraph (1/2 to 1 page): LIST OF ARTICLES
 @sonnega_comparison_2018
 @hess_aging_2016
 @schmitz_interpreting_2019
@@ -79,10 +79,9 @@ knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 
 ##Current Study and Research Questions
 
-- study 1 (1/2 page)
-  The purpose of this study is to 
-- study 2 (1/2 page)
-- study 3 (1/2 page)
+Study 1 (1/2 page)
+Study 2 (1/2 page)
+Study 3 (1/2 page)
 =======
 @bakker2017job
 
