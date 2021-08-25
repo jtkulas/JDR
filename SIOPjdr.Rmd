@@ -59,7 +59,7 @@ set.seed(42)
 knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
 ```
 
-  The job demands-resources model (@demerouti2001job) and later job demands-resources theory (@bakker2017job) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
+The job demands-resources model (@demerouti2001job) and later job demands-resources theory (@bakker2017job) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
 
    The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand. 
     
