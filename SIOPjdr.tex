@@ -1,0 +1,319 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man]{apa6}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={The subjective experience of O*NET work experiences as demands and resources},
+  pdfauthor={Alicia Stachowski1, Renata Garcia Prieto Palacios Roji2, \& John Kulas2},
+  pdflang={en-EN},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\centering\begin{threeparttable}}
+%   {\end{threeparttable}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Title}
+\keywords{keywords\newline\indent Word count: X}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{lineno}
+
+\linenumbers
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[main=english]{babel}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\fi
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
+  % set entry spacing
+  \ifnum #2 > 0
+  \setlength{\parskip}{#2\baselineskip}
+  \fi
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\title{The subjective experience of O*NET work experiences as demands and resources}
+\author{Alicia Stachowski\textsuperscript{1}, Renata Garcia Prieto Palacios Roji\textsuperscript{2}, \& John Kulas\textsuperscript{2}}
+\date{}
+
+
+\authornote{
+
+Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
+
+Enter author note here.
+
+Correspondence concerning this article should be addressed to Alicia Stachowski, Menomenie, WI. E-mail: \href{mailto:my@email.com}{\nolinkurl{my@email.com}}
+
+}
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} University of Wisconsin - Stout\\\textsuperscript{2} Montclair State University}
+
+\abstract{
+O*NET work characteristics were rated in terms of relevance, perception of demand, and perception as resource.
+}
+
+
+
+\begin{document}
+\maketitle
+
+The job demands-resources model (Demerouti, Bakker, Nachreiner, and Schaufeli (2001)) and later job demands-resources theory (Bakker and Demerouti (2017)) have inspired a plethora a study on the process and experience of job stress and burnout in recent decades. In this project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job demands.
+
+The purpose of this project is to expand on our small body of research on whether job demands can accurately be assigned as a challenge or hinderance demand, or whether, as the literature argues, there is much more individual difference in the appraisal of job demands. Further, we document whether job demands can simultaneously be classified as a resource and a demand.
+
+\hypertarget{the-stress-process-and-challenge-hinderance-framework}{%
+\subsection{The Stress Process and Challenge-Hinderance Framework}\label{the-stress-process-and-challenge-hinderance-framework}}
+
+Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (Demerouti, Bakker, Nachreiner, and Schaufeli (2001)). Demerouti, Bakker, Nachreiner, and Schaufeli (2001) define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain. Cavanaugh, Boswell, Roehling, and Boudreau (2000) delineated two forms of demands -- that of challenge and hinderance demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., cite). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals.
+
+\hypertarget{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}{%
+\subsection{Objective vs.~Subjective Nature of Demands and Resources: The Role of Appraisal}\label{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}}
+
+Searle and Auton (2015) note that the majority of the research on challenge and hinderance framework is based on apriori classifications of demands. However, the stress experience or process described early on by Lazarus and Folkman (1984) is grounded in the notion that individual appraisals of stressors/demands vary. This suggests that classifying a job demand as a challenge, or as a hinderance, might be subject to individual differences in appraisal. Some more recent research, in fact, points to that conclusion. Webster, Beehr, and Love (2011), for example, studied workload, role ambiguity, and role conflict demands, and found while that each could be appraised primarily as challenges or hindrances, they could also simultaneously be perceived as being both a challenge and hinderance to different degrees.
+
+\hypertarget{add-empirical-findings-paragraph-12-to-1-page-list-of-articles}{%
+\subsection{Add empirical findings paragraph (1/2 to 1 page): LIST OF ARTICLES}\label{add-empirical-findings-paragraph-12-to-1-page-list-of-articles}}
+
+Sonnega, Helppie-McFall, Hudomiet, Willis, and Fisher (2018)
+Hess, Smith, and Sharifian (2016)
+Schmitz, McCluney, Sonnega, and Hicken (2019)
+Downes, Reeves, McCormick, Boswell, and Butts (2021)
+Bakker and Demerouti (2014)
+Bakker and Demerouti (2018)
+LePine, Podsakoff, and LePine (2005)
+
+\#\#Current Study and Research Questions
+
+Study 1 (1/2 page)
+Study 2 (1/2 page)
+Study 3 (1/2 page)
+=======
+Bakker and Demerouti (2017)
+
+and Cavanaugh, Boswell, Roehling, and Boudreau (2000)
+
+and Sonnega, Helppie-McFall, Hudomiet, Willis, and Fisher (2018)
+
+Bakker and Demerouti (2017) state that, ``\ldots research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context'' (p.~278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and \emph{resource}.
+\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater{} 1a8b1622f7e6e904629adfff00c9ce9df1533ca0
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+\#\#Study 1
+top 15 demands and resources, divided by skilled versus knowledge workers,
+\#\#Study 2
+burnout and stress components (correlations),
+\#\#Study 3
+integration of JDR with O*Net categories (morphs into descriptives).
+
+We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study.
+
+\hypertarget{participants}{%
+\subsection{Participants}\label{participants}}
+
+\hypertarget{material}{%
+\subsection{Material}\label{material}}
+
+\hypertarget{procedure}{%
+\subsection{Procedure}\label{procedure}}
+
+\hypertarget{data-analysis}{%
+\subsection{Data analysis}\label{data-analysis}}
+
+We used R {[}Version 4.0.5; R Core Team (2020){]} and the R-package \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]} for all our analyses.
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
+\leavevmode\hypertarget{ref-R-papaja}{}%
+Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
+
+\leavevmode\hypertarget{ref-bakker2014job}{}%
+Bakker, A. B., \& Demerouti, E. (2014). Job demands--resources theory. \emph{Wellbeing: A Complete Reference Guide}, 1--28.
+
+\leavevmode\hypertarget{ref-bakker2017job}{}%
+Bakker, A. B., \& Demerouti, E. (2017). Job demands--resources theory: Taking stock and looking forward. \emph{Journal of Occupational Health Psychology}, \emph{22}(3), 273.
+
+\leavevmode\hypertarget{ref-bakker2018multiple}{}%
+Bakker, A. B., \& Demerouti, E. (2018). Multiple levels in job demands-resources theory: Implications for employee well-being and performance. \emph{Handbook of Well-Being}.
+
+\leavevmode\hypertarget{ref-cavanaugh2000empirical}{}%
+Cavanaugh, M. A., Boswell, W. R., Roehling, M. V., \& Boudreau, J. W. (2000). An empirical examination of self-reported work stress among US managers. \emph{Journal of Applied Psychology}, \emph{85}(1), 65.
+
+\leavevmode\hypertarget{ref-demerouti2001job}{}%
+Demerouti, E., Bakker, A. B., Nachreiner, F., \& Schaufeli, W. B. (2001). The job demands-resources model of burnout. \emph{Journal of Applied Psychology}, \emph{86}(3), 499.
+
+\leavevmode\hypertarget{ref-downes2021incorporating}{}%
+Downes, P. E., Reeves, C. J., McCormick, B. W., Boswell, W. R., \& Butts, M. M. (2021). Incorporating job demand variability into job demands theory: A meta-analysis. \emph{Journal of Management}, \emph{47}(6), 1630--1656.
+
+\leavevmode\hypertarget{ref-hess_aging_2016}{}%
+Hess, T. M., Smith, B. T., \& Sharifian, N. (2016). Aging and effort expenditure: {The} impact of subjective perceptions of task demands. \emph{Psychology and Aging}, \emph{31}(7), 653--660. \url{https://doi.org/10.1037/pag0000127}
+
+\leavevmode\hypertarget{ref-lazarus1984stress}{}%
+Lazarus, R. S., \& Folkman, S. (1984). \emph{Stress, appraisal, and coping}. Springer publishing company.
+
+\leavevmode\hypertarget{ref-lepine2005meta}{}%
+LePine, J. A., Podsakoff, N. P., \& LePine, M. A. (2005). A meta-analytic test of the challenge stressor--hindrance stressor framework: An explanation for inconsistent relationships among stressors and performance. \emph{Academy of Management Journal}, \emph{48}(5), 764--775.
+
+\leavevmode\hypertarget{ref-R-base}{}%
+R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
+
+\leavevmode\hypertarget{ref-schmitz_interpreting_2019}{}%
+Schmitz, L. L., McCluney, C. L., Sonnega, A., \& Hicken, M. T. (2019). Interpreting {Subjective} and {Objective} {Measures} of {Job} {Resources}: {The} {Importance} of {Sociodemographic} {Context}. \emph{International Journal of Environmental Research and Public Health}, \emph{16}(17), 3058. \url{https://doi.org/10.3390/ijerph16173058}
+
+\leavevmode\hypertarget{ref-searle2015merits}{}%
+Searle, B. J., \& Auton, J. C. (2015). The merits of measuring challenge and hindrance appraisals. \emph{Anxiety, Stress, \& Coping}, \emph{28}(2), 121--143.
+
+\leavevmode\hypertarget{ref-sonnega_comparison_2018}{}%
+Sonnega, A., Helppie-McFall, B., Hudomiet, P., Willis, R. J., \& Fisher, G. G. (2018). A {Comparison} of {Subjective} and {Objective} {Job} {Demands} and {Fit} {With} {Personal} {Resources} as {Predictors} of {Retirement} {Timing} in a {National} {U}.{S}. {Sample}. \emph{Work, Aging and Retirement}, \emph{4}(1), 37--51. \url{https://doi.org/10.1093/workar/wax016}
+
+\leavevmode\hypertarget{ref-webster2011extending}{}%
+Webster, J. R., Beehr, T. A., \& Love, K. (2011). Extending the challenge-hindrance model of occupational stress: The role of appraisal. \emph{Journal of Vocational Behavior}, \emph{79}(2), 505--516.
+
+\end{CSLReferences}
+
+\endgroup
+
+
+\end{document}
