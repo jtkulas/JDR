@@ -7,7 +7,7 @@ author:
     affiliation   : "1"
     corresponding : yes    # Define only one corresponding author
     address       : "Menomenie, WI"
-    email         : "my@email.com"
+    email         : "stachowskia@uwstout.edu"
   - name          : "Renata Garcia Prieto Palacios Roji"
     affiliation   : "2"
   - name          : "John Kulas"
@@ -19,15 +19,8 @@ affiliation:
   - id            : "2"
     institution   : "Montclair State University"
 
-authornote: |
-  Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-  Enter author note here.
-
 abstract: |
   O*NET work characteristics were rated in terms of relevance, perception of demand, and perception as resource. 
-  
-  <!-- https://tinyurl.com/ybremelq -->
   
 keywords          : "keywords"
 wordcount         : "X"
@@ -75,25 +68,30 @@ The job demands-resources theory is an extension of the well-known job demands-r
 
   The current study aims to explore the degree to which job context and job characteristic items from O*Net are considered demands and resources. Given theoretical and empirical findings, it seems quite plausible that our apriori assignment of job elements to a “demand” or “resource” category may be too simplistic. We aim to document a list of the highest rated demands and resources, as well as information on overlap of job characteristics as demands and resources, in addition to addressing the following predictions.
   
-	Hypothesis 1: There is 
+>*Hypothesis 1*: There is 
 
 
-##Current Study and Research Questions for other studyies + notes
+## Current Study and Research Questions for other studyies + notes
 
 Study 1 (1/2 page)
 Study 2 (1/2 page)
 Study 3 (1/2 page)
-=======
+
 
 @bakker2017job state that, "...research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context" (p. 278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and *resource*. 
->>>>>>> 1a8b1622f7e6e904629adfff00c9ce9df1533ca0
 
 # Methods
-##Study 1
+
+## Study 1  
+
 top 15 demands and resources, divided by skilled versus knowledge workers, 
-##Study 2
+
+## Study 2  
+
 burnout and stress components (correlations), 
-##Study 3
+
+## Study 3
+
 integration of JDR with O*Net categories (morphs into descriptives). 
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->

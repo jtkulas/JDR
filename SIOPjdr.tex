@@ -6,13 +6,12 @@
   english,
   man]{apa6}
 \usepackage{lmodern}
-\usepackage{amsmath}
+\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
-  \usepackage{amssymb}
 \else % if luatex or xetex
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
@@ -45,7 +44,7 @@
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
-\usepackage{graphicx}
+\usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -86,9 +85,9 @@
 
 % Create new environments so endfloat can handle them
 % \newenvironment{ltable}
-%   {\begin{landscape}\centering\begin{threeparttable}}
-%   {\end{threeparttable}\end{landscape}}
-\newenvironment{lltable}{\begin{landscape}\centering\begin{ThreePartTable}}{\end{ThreePartTable}\end{landscape}}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
 
 % Enables adjusting longtable caption width to table width
 % Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
@@ -131,44 +130,11 @@
 \else
   \usepackage[shorthands=off,main=english]{babel}
 \fi
-\ifluatex
-  \usepackage{selnolig}  % disable illegal ligatures
-\fi
-\newlength{\cslhangindent}
-\setlength{\cslhangindent}{1.5em}
-\newlength{\csllabelwidth}
-\setlength{\csllabelwidth}{3em}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
-  % turn on hanging indent if param 1 is 1
-  \ifodd #1 \everypar{\setlength{\hangindent}{\cslhangindent}}\ignorespaces\fi
-  % set entry spacing
-  \ifnum #2 > 0
-  \setlength{\parskip}{#2\baselineskip}
-  \fi
- }%
- {}
-\usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
-\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 
 \title{The subjective experience of O*NET work experiences as demands and resources}
 \author{Alicia Stachowski\textsuperscript{1}, Renata Garcia Prieto Palacios Roji\textsuperscript{2}, \& John Kulas\textsuperscript{2}}
 \date{}
 
-
-\authornote{
-
-Add complete departmental affiliations for each author here. Each new line herein must be indented, like this line.
-
-Enter author note here.
-
-Correspondence concerning this article should be addressed to Alicia Stachowski, Menomenie, WI. E-mail: \href{mailto:my@email.com}{\nolinkurl{my@email.com}}
-
-}
 
 \affiliation{\vspace{0.5cm}\textsuperscript{1} University of Wisconsin - Stout\\\textsuperscript{2} Montclair State University}
 
@@ -181,14 +147,14 @@ O*NET work characteristics were rated in terms of relevance, perception of deman
 \begin{document}
 \maketitle
 
-The job demands-resources model (Demerouti, Bakker, Nachreiner, \& Schaufeli, 2001) and later job demands-resources theory (A. B. Bakker \& Demerouti, 2017) have inspired a plethora a study on the process and experience of job stress and employee motivation in recent decades. In the current project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job characteristics as either demands or resources. The major contribution of this project is to document whether job context and characteristics (pulled from O*Net) can simultaneously be classified as resources and as demands. We further present descriptive information regarding which job context and characteristics are rated the highest across jobs.
+The job demands-resources model (Demerouti, Bakker, Nachreiner, \& Schaufeli, 2001) and later job demands-resources theory (Bakker \& Demerouti, 2017) have inspired a plethora a study on the process and experience of job stress and employee motivation in recent decades. In the current project, we draw attention to a basic question regarding a key assumption we make regarding this process - that of the objective nature of job characteristics as either demands or resources. The major contribution of this project is to document whether job context and characteristics (pulled from O*Net) can simultaneously be classified as resources and as demands. We further present descriptive information regarding which job context and characteristics are rated the highest across jobs.
 
 \hypertarget{the-job-demands-resources-theory}{%
 \subsection{The Job demands-Resources Theory}\label{the-job-demands-resources-theory}}
 
-The job demands-resources theory is an extension of the well-known job demands-resources model put forth by Demerouti and colleagues in 2001 (Demerouti, Bakker, Nachreiner, \& Schaufeli, 2001). The job demands-resources model had been so heavily studied that a number of meta-analyses have been possible (e.g., (Crawford, LePine, \& Rich, 2010);
-(Halbesleben, 2010); (Nahrgang, Morgeson, \& Hofmann, 2011)). The theory generated by the model integrates both the job design and job stress literatures to help explain the conditions under which a job would result in employee stress vs.~motivation (A. B. Bakker \& Demerouti, 2014). Per the job demands-resources theory, both work environment and job characteristics can be modeled via job demands and resources. Demerouti, Bakker, Nachreiner, and Schaufeli (2001) define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain (e.g., high work pressure is frequently cited as a common demand). Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (Demerouti, Bakker, Nachreiner, \& Schaufeli, 2001).
-Experiencing an element of one's job as a resource or demand activates one of two distinct processes: either health impairment (demands) or motivation (resources; (A. B. Bakker \& Demerouti, 2014). Job characteristics perceived to be demanding are effortful are frequently associated with negative outcomes such as exhaustion (e.g., A. Bakker, Demerouti, \& Schaufeli, 2003). On the other hand, job characteristics perceived as resources (fulfil psychological needs) are associated with positive organizational outcomes like engagement and motivation (A. B. Bakker, Hakanen, Demerouti, \& Xanthopoulou, 2007).
+The job demands-resources theory is an extension of the well-known job demands-resources model put forth by Demerouti and colleagues in 2001 (Demerouti et al., 2001). The job demands-resources model had been so heavily studied that a number of meta-analyses have been possible (e.g., (Crawford, LePine, \& Rich, 2010);
+(Halbesleben, 2010); (Nahrgang, Morgeson, \& Hofmann, 2011)). The theory generated by the model integrates both the job design and job stress literatures to help explain the conditions under which a job would result in employee stress vs.~motivation (Bakker \& Demerouti, 2014). Per the job demands-resources theory, both work environment and job characteristics can be modeled via job demands and resources. Demerouti et al. (2001) define job demands broadly as components of a job that require sustained effort, and as such, produce psychological or physiological strain (e.g., high work pressure is frequently cited as a common demand). Resources, on the other hand, are physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development (Demerouti et al., 2001).
+Experiencing an element of one's job as a resource or demand activates one of two distinct processes: either health impairment (demands) or motivation (resources; (Bakker \& Demerouti, 2014). Job characteristics perceived to be demanding are effortful are frequently associated with negative outcomes such as exhaustion (e.g., Bakker, Demerouti, \& Schaufeli, 2003). On the other hand, job characteristics perceived as resources (fulfil psychological needs) are associated with positive organizational outcomes like engagement and motivation (Bakker, Hakanen, Demerouti, \& Xanthopoulou, 2007).
 
 \hypertarget{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}{%
 \subsection{Objective vs.~Subjective Nature of Demands and Resources: The Role of Appraisal}\label{objective-vs.-subjective-nature-of-demands-and-resources-the-role-of-appraisal}}
@@ -200,30 +166,37 @@ We do acknowledge as well, that demands and resources are not necessarily consis
 \hypertarget{current-study-and-hypotheses}{%
 \subsection{Current Study and Hypotheses}\label{current-study-and-hypotheses}}
 
-The current study aims to explore the degree to which job context and job characteristic items from O*Net are considered demands and resources. Given theoretical and empirical findings, it seems quite plausible that our apriori assignment of job elements to a ``demand'' or ``resource'' category may be too simplistic. We aim to document a list of the highest rated demands and resources, as well as information on overlap of job characteristics as demands and resources, in addition to addressing the following predictions.
+The current study aims to explore the degree to which job context and job characteristic items from O*Net are considered demands and resources. Given theoretical and empirical findings, it seems quite plausible that our apriori assignment of job elements to a \enquote{demand} or \enquote{resource} category may be too simplistic. We aim to document a list of the highest rated demands and resources, as well as information on overlap of job characteristics as demands and resources, in addition to addressing the following predictions.
 
-\begin{verbatim}
-Hypothesis 1: There is 
-\end{verbatim}
+\begin{quote}
+\emph{Hypothesis 1}: There is
+\end{quote}
 
-\#\#Current Study and Research Questions for other studyies + notes
+\hypertarget{current-study-and-research-questions-for-other-studyies-notes}{%
+\subsection{Current Study and Research Questions for other studyies + notes}\label{current-study-and-research-questions-for-other-studyies-notes}}
 
 Study 1 (1/2 page)
 Study 2 (1/2 page)
 Study 3 (1/2 page)
-=======
 
-A. B. Bakker and Demerouti (2017) state that, ``\ldots research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context'' (p.~278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and \emph{resource}.
-\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater\textgreater{} 1a8b1622f7e6e904629adfff00c9ce9df1533ca0
+Bakker and Demerouti (2017) state that, \enquote{\ldots research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context} (p.~278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and \emph{resource}.
 
 \hypertarget{methods}{%
 \section{Methods}\label{methods}}
 
-\#\#Study 1
+\hypertarget{study-1}{%
+\subsection{Study 1}\label{study-1}}
+
 top 15 demands and resources, divided by skilled versus knowledge workers,
-\#\#Study 2
+
+\hypertarget{study-2}{%
+\subsection{Study 2}\label{study-2}}
+
 burnout and stress components (correlations),
-\#\#Study 3
+
+\hypertarget{study-3}{%
+\subsection{Study 3}\label{study-3}}
+
 integration of JDR with O*Net categories (morphs into descriptives).
 
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study.
@@ -240,7 +213,7 @@ We report how we determined our sample size, all data exclusions (if any), all m
 \hypertarget{data-analysis}{%
 \subsection{Data analysis}\label{data-analysis}}
 
-We used R {[}Version 4.0.3; R Core Team (2020){]} and the R-package \emph{papaja} {[}Version 0.1.0.9997; Aust and Barth (2020){]} for all our analyses.
+We used R (Version 4.0.3; R Core Team, 2020) and the R-package \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020) for all our analyses.
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
@@ -258,9 +231,8 @@ We used R {[}Version 4.0.3; R Core Team (2020){]} and the R-package \emph{papaja
 \setlength{\leftskip}{0.5in}
 
 \hypertarget{refs}{}
-\begin{CSLReferences}{1}{0}
 \leavevmode\hypertarget{ref-R-papaja}{}%
-Aust, F., \& Barth, M. (2020). \emph{{papaja}: {Create} {APA} manuscripts with {R Markdown}}. Retrieved from \url{https://github.com/crsh/papaja}
+Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
 
 \leavevmode\hypertarget{ref-bakker2014job}{}%
 Bakker, A. B., \& Demerouti, E. (2014). Job demands--resources theory. \emph{Wellbeing: A Complete Reference Guide}, 1--28.
@@ -271,23 +243,11 @@ Bakker, A. B., \& Demerouti, E. (2017). Job demands--resources theory: Taking st
 \leavevmode\hypertarget{ref-bakker2007job}{}%
 Bakker, A. B., Hakanen, J. J., Demerouti, E., \& Xanthopoulou, D. (2007). Job resources boost work engagement, particularly when job demands are high. \emph{Journal of Educational Psychology}, \emph{99}(2), 274.
 
-\leavevmode\hypertarget{ref-bakker2007job}{}%
-Bakker, A. B., Hakanen, J. J., Demerouti, E., \& Xanthopoulou, D. (2007). Job resources boost work engagement, particularly when job demands are high. \emph{Journal of Educational Psychology}, \emph{99}(2), 274.
-
-\leavevmode\hypertarget{ref-bakker2003dual}{}%
-Bakker, A., Demerouti, E., \& Schaufeli, W. (2003). Dual processes at work in a call centre: An application of the job demands--resources model. \emph{European Journal of Work and Organizational Psychology}, \emph{12}(4), 393--417.
-
 \leavevmode\hypertarget{ref-bakker2003dual}{}%
 Bakker, A., Demerouti, E., \& Schaufeli, W. (2003). Dual processes at work in a call centre: An application of the job demands--resources model. \emph{European Journal of Work and Organizational Psychology}, \emph{12}(4), 393--417.
 
 \leavevmode\hypertarget{ref-crawford2010linking}{}%
 Crawford, E. R., LePine, J. A., \& Rich, B. L. (2010). Linking job demands and resources to employee engagement and burnout: A theoretical extension and meta-analytic test. \emph{Journal of Applied Psychology}, \emph{95}(5), 834.
-
-\leavevmode\hypertarget{ref-crawford2010linking}{}%
-Crawford, E. R., LePine, J. A., \& Rich, B. L. (2010). Linking job demands and resources to employee engagement and burnout: A theoretical extension and meta-analytic test. \emph{Journal of Applied Psychology}, \emph{95}(5), 834.
-
-\leavevmode\hypertarget{ref-demerouti2001job}{}%
-Demerouti, E., Bakker, A. B., Nachreiner, F., \& Schaufeli, W. B. (2001). The job demands-resources model of burnout. \emph{Journal of Applied Psychology}, \emph{86}(3), 499.
 
 \leavevmode\hypertarget{ref-demerouti2001job}{}%
 Demerouti, E., Bakker, A. B., Nachreiner, F., \& Schaufeli, W. B. (2001). The job demands-resources model of burnout. \emph{Journal of Applied Psychology}, \emph{86}(3), 499.
@@ -298,14 +258,8 @@ Downes, P. E., Reeves, C. J., McCormick, B. W., Boswell, W. R., \& Butts, M. M. 
 \leavevmode\hypertarget{ref-halbesleben2010meta}{}%
 Halbesleben, J. R. (2010). A meta-analysis of work engagement: Relationships with burnout, demands, resources, and consequences. \emph{Work Engagement: A Handbook of Essential Theory and Research}, \emph{8}(1), 102--117.
 
-\leavevmode\hypertarget{ref-halbesleben2010meta}{}%
-Halbesleben, J. R. (2010). A meta-analysis of work engagement: Relationships with burnout, demands, resources, and consequences. \emph{Work Engagement: A Handbook of Essential Theory and Research}, \emph{8}(1), 102--117.
-
 \leavevmode\hypertarget{ref-lazarus1984stress}{}%
 Lazarus, R. S., \& Folkman, S. (1984). \emph{Stress, appraisal, and coping}. Springer publishing company.
-
-\leavevmode\hypertarget{ref-nahrgang2011safety}{}%
-Nahrgang, J. D., Morgeson, F. P., \& Hofmann, D. A. (2011). Safety at work: A meta-analytic investigation of the link between job demands, job resources, burnout, engagement, and safety outcomes. \emph{Journal of Applied Psychology}, \emph{96}(1), 71.
 
 \leavevmode\hypertarget{ref-nahrgang2011safety}{}%
 Nahrgang, J. D., Morgeson, F. P., \& Hofmann, D. A. (2011). Safety at work: A meta-analytic investigation of the link between job demands, job resources, burnout, engagement, and safety outcomes. \emph{Journal of Applied Psychology}, \emph{96}(1), 71.
@@ -314,18 +268,16 @@ Nahrgang, J. D., Morgeson, F. P., \& Hofmann, D. A. (2011). Safety at work: A me
 R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
 
 \leavevmode\hypertarget{ref-schmitz_interpreting_2019}{}%
-Schmitz, L. L., McCluney, C. L., Sonnega, A., \& Hicken, M. T. (2019). Interpreting {Subjective} and {Objective} {Measures} of {Job} {Resources}: {The} {Importance} of {Sociodemographic} {Context}. \emph{International Journal of Environmental Research and Public Health}, \emph{16}(17), 3058. \url{https://doi.org/10.3390/ijerph16173058}
+Schmitz, L. L., McCluney, C. L., Sonnega, A., \& Hicken, M. T. (2019). Interpreting Subjective and Objective Measures of Job Resources: The Importance of Sociodemographic Context. \emph{International Journal of Environmental Research and Public Health}, \emph{16}(17), 3058. \url{https://doi.org/10.3390/ijerph16173058}
 
 \leavevmode\hypertarget{ref-searle2015merits}{}%
 Searle, B. J., \& Auton, J. C. (2015). The merits of measuring challenge and hindrance appraisals. \emph{Anxiety, Stress, \& Coping}, \emph{28}(2), 121--143.
 
 \leavevmode\hypertarget{ref-sonnega_comparison_2018}{}%
-Sonnega, A., Helppie-McFall, B., Hudomiet, P., Willis, R. J., \& Fisher, G. G. (2018). A {Comparison} of {Subjective} and {Objective} {Job} {Demands} and {Fit} {With} {Personal} {Resources} as {Predictors} of {Retirement} {Timing} in a {National} {U}.{S}. {Sample}. \emph{Work, Aging and Retirement}, \emph{4}(1), 37--51. \url{https://doi.org/10.1093/workar/wax016}
+Sonnega, A., Helppie-McFall, B., Hudomiet, P., Willis, R. J., \& Fisher, G. G. (2018). A Comparison of Subjective and Objective Job Demands and Fit With Personal Resources as Predictors of Retirement Timing in a National U.S. Sample. \emph{Work, Aging and Retirement}, \emph{4}(1), 37--51. \url{https://doi.org/10.1093/workar/wax016}
 
 \leavevmode\hypertarget{ref-webster2011extending}{}%
 Webster, J. R., Beehr, T. A., \& Love, K. (2011). Extending the challenge-hindrance model of occupational stress: The role of appraisal. \emph{Journal of Vocational Behavior}, \emph{79}(2), 505--516.
-
-\end{CSLReferences}
 
 \endgroup
 
