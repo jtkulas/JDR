@@ -143,12 +143,21 @@ We report how we determined our sample size, all data exclusions (if any), all m
 
 ## Material  
 
-Job Characteristics (O*Net)
-Job Resources
-Job Demands (Hinderance and Challenge)
-Stress: Copenhagen Psychosocial Questionnaire
+### Characteristics, Demands, and Resources  
+
+We used 98 statements taken from ONET ["activity" and "context" classifications](https://www.onetonline.org/find/descriptor/result/4.A.1.b.3). We retained 41 "work activity" classifications which ONET groups into categories of "Information Input" (5 statements), "Interacting with Others" (17 statements), "Mental Processes" (10 statements) and "Work Output" (9 statements). 57 "work context" statements grouped into "Interpersonal Relationships" (14 statements), "Physical Work Conditions" (30 statements), and "Structural Job Characteristics" (13 statements).  
+
+These "desriptors" have response categories [see for example](https://www.onetonline.org/find/descriptor/result/4.C.1.c.2). We used the ONET wording to capture characteristics of relevance for each respondent. Subsequent to these self evaluations, each respondent who agreed that the element had *at least some relevance* to their job was also asked to rate that element in terms of, 1) ...this aspect of your job is a resource that can be functional in achieving work goals, reduce job demands, or stimulate personal growth/development, 2) ...this aspect of your job is a challenge that can promote mastery, personal growth, or future gains, and 3) ...this aspect of your job is a hinderance that can inhibit personal growth, learning, and work goal attainment. 
+
+Our intent was to use ONET 
+
+### Burnout and Stress  
+
+Were taken from the Copenhagen Psychosocial Questionnaire [@burr_third_2019]. There were 4 burnout items and 3 stress items.
+ 
 Engagement
 Demographics 
+
 ## Procedure  
 
 Qualtrics panel
@@ -156,6 +165,12 @@ Qualtrics panel
 ## Data analysis
 We used `r cite_r("r-references.bib")` for all our analyses.
 
+```{r data}
+
+## First 4 items are burnout items taken from version 3 of the CPQ; second 3 items are stress items also from version 3
+
+
+```
 
 # Results
 
