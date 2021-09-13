@@ -92,22 +92,20 @@ The job demands-resources theory is an extension of the well-known job demands-r
 
   Although there is a tendency to attach a negative connotation to the word “stress”, @selye1936syndrome defined stress as a response to change, which is quite non-specific. We return to the employed public figure for this next section. It is quite probable that two employees would be called upon to serve as a spokesperson for their organization in a time of need. One may appraise the circumstance as an opportunity to positively influence others, while the other may plausibly feel paralyzed by the task. @cavanaugh2000empirical delineated between two forms of demands – that of *challenge* and *hinderance* demands. Challenge demands promote mastery, personal growth, and future gains. Hinderance demands, in contrast, inhibit growth, learning and goal achievement. This particular distinction has been of value in determining what demands are related to various outcomes, whereby challenge stressors are typically associated with positive outcomes, and hinderance stressors, negative outcomes (e.g., @cavanaugh2000empirical). However, one of the key questions we need to ask as researchers pertains to the very basic consideration of appraisals.
   
-  We next consider the empirical evidence on this topic. The first obvious question is whether people perceive demands and challenges vs. hinderances, or whether all demands are under a larger “demands” category. @webster2011extending approached this question with three common workplace demands: workload, role ambiguity, and role conflict. They found while that each could be appraised primarily as challenges or hindrances demands, they could also simultaneously be perceived as being both a challenge and hinderance to different degrees. While their study did include resources, it nonetheless points to the possibility that demands might be differentially appraised. @cavanaugh2000empirical, in a study of managers, found that challenge demands were positively related to job satisfaction and negatively related to job search behaviors, while hinderance demands demonstrated the opposite pattern. 
-  
-### Notes on which other studies to read and add next  
-
-@bakker2013weekly Weekly work engagement and flourishing: The role of
-hindrance and challenge job demands
-@ crawford2010linking  Crawford, E. R., Lepine, J. A., & Rich, B. L. (2010). Linking job demands and resources to employee engagement and burnout: A theoretical extension and meta-analytic test. The Journal of Applied Psychology, 95(5), 834–48. doi:10.1037/a0019364
-@ lepine2004challenge LePine, J. A., LePine, M. A., & Jackson, C. L. (2004). Challenge and hindrance stress: relationships with exhaustion, motivation to learn, and learning performance. The Journal of Applied Psychology, 89(5), 883–91. doi:10.1037/0021-9010.89.5.883
-@podsakoff2007differential  Podsakoff, N. P., LePine, J. A., & LePine, M. A. (2007). Differential challenge stressorhindrance stressor relationships with job attitudes, turnover intentions, turnover, and 43 withdrawal behavior: a meta-analysis. The Journal of Applied Psychology, 92(2), 438–54. doi:10.1037/0021-9010.92.2.438
-Look at the resources in the following paper as well:
-@o2019so O'Brien, K. E., & Beehr, T. A. (2019). So far, so good: Up to now, the challenge–hindrance framework describes a practical and accurate distinction. Journal of Organizational Behavior, 40(8), 962-972.
+We next consider the empirical evidence on this topic. The first obvious question is whether people perceive demands as challenges vs. hinderances, or whether all demands are under a larger “demands” category. Evidence suggests the employees do, in fact, distinguish between challenge and hinderance stressors [e.g., @bakker2013weekly; @gerich2017relevance; @webster2011extending]. For example, @bakker2013weekly found that perceived work pressure as a hinderance demand, and emotional demands as more of a challenge demand. @webster2011extending approached this question with three common workplace demands: workload, role ambiguity, and role conflict. They found while that each could be appraised primarily as challenges or hindrances demands, they could also simultaneously be perceived as being both a challenge and hinderance to different degrees. 
+While their study did include resources, it nonetheless points to the possibility that demands might be differentially appraised and related to outcomes [e.g., @podsakoff2007differential]. The challenge-hinderance framework has, in fact, been associated with a wide variety of organizational outcomes ranging from affective variables like job satisfaction, to motivation, performance, and well-being. A sampling of variables and relationships are described below to provide a sense of scope of the work that has been on this topic. For example, @cavanaugh2000empirical, in a study of managers, found that challenge demands were positively related to job satisfaction and negatively related to job search behaviors, while hinderance demands demonstrated the opposite pattern. In contrast, @abbas2019challenge found that challenge and hindrance stressors were *both* positively related to strain and turnover intensions. We also have some evidence that challenge-hinderance appraisals are related to engagement in the expected direction whereby hinderance appraisals are negatively associated with engagement and challenge appraisals are positively associated with it [@crawford2010linking]. Challenge and hinderance appraisals have also been shown to relate to citizenship and counterproductive performance, although indirectly via emotions like anxiety [@rodell2009can]. Lastly, @gerich2017relevance concluded that employee well-being was also, in part, explained by appraised challenge or hinderance demands such that working conditions of time pressure, qualitative demands, responsibility, and interruptions, were partially mediated by challenge and hinderance demands. 
+We even have sufficient evidence to explore outcomes associated with challenge and hinderance stressors meta-analytically at this point. @podsakoff2007differential supported the original assertion of @cavanaugh2000empirical with regard to work outcomes such that challenge stressors were positively related to job satisfaction and organizational commitment, and negatively related to both turnover intentions and actual turnover. The opposite pattern of relationship was observed for hinderance stressors.
 
 ## Current Study and Hypotheses  
 
-  Given the abundance of theoretical and empirical support for the connection between resources and positive organizational outcomes (cites), and between demands and negative resources, we sought to explore whether or not the appraisal of a demand as a challenge or hinderance would be related *differently* to two organizational outcomes: engagement DEFINE THESE (a positive affective experience) and workplace stress (a negative affective experience). Drawing on the job demands-resources theory we propose that job elements appraised as “challenge demands” (i.e., promote mastery, personal growth, and future gains) would activate (be related to) a positive state – that of engagement. In contrast, elements of one’s job appraised as a hinderance demand (i.e., inhibit growth, learning and goal achievement) would activate a negative state – here, stress.  
-Hypothesis 1a: Job characteristics appraised as resources will be positively associated with engagement. 
+Given the abundance of theoretical and empirical support for the connection between resources and positive organizational outcomes, and between demands and negative resources, we sought to explore whether or not the appraisal of a demand as a challenge or hinderance would be related *differently* to two organizational outcomes: engagement (a positive affective experience defined as a fulfilling, work-related state of mind characterized by vigor, dedication, and absorption, schaufeli2002measurement], workplace stress [“an individual state characterized by a combination of high arousal and displeasure”, p. 15, @pejtersen2010second] and burnout [“‘The degree of physical and psychological fatigue and exhaustion that is perceived by the person as related to his/her work”, p. 197; @kristensen2005copenhagen;negative affective experiences). Drawing on the job demands-resources theory and the challenge-hinderance framework, we propose that job elements appraised as “challenge demands” (i.e., promote mastery, personal growth, and future gains) would activate (be related to) a positive state – that of engagement. In contrast, elements of one’s job appraised as a hinderance demand (i.e., inhibit growth, learning and goal achievement) would activate a negative state – here, stress.  
+
+These are extra sources below if we want more information. The intro is getting a little bit long for this one.
+@edwards2014unifying (this one is interesting – manipulated challenge and hinderance stress by offering money/taking it away based on the correctness of their decisions - of university students and measured outcomes… potentially include this in the discussion section i) 
+@kim2018challenge
+@searle2015merits
+@tuckey2015hindrances
+@webster2010toward
 
 # Methods
 
@@ -127,15 +125,23 @@ We evaluate associations between the antecedants and proximal outcomes of the Jo
 
 burnout and stress components (correlations), 
 
+>*Hypothesis 1a*: Job characteristics appraised as resources will be positively associated with engagement. 
+
 >*Hypothesis 1b*: Job characteristics appraised as resources will be negatively associated with stress.
+
+>*Hypothesis 1c*: Job characteristics appraised as resources will be negatively associated with burnout.
 
 >*Hypothesis 2a*: Job characteristics appraised as challenge demands will be positively associated with engagement. 
 
 >*Hypothesis 2b*: Job characteristics appraised as challenge demands will be negatively associated with stress.
 
+>*Hypothesis 2c*: Job characteristics appraised as challenge demands will be negatively associated with burnout.
+
 >*Hypothesis 3a*: Job characteristics appraised as hinderance demands will be negatively associated with engagement. 
 
 >*Hypothesis 3b*: Job characteristics appraised as hinderance demands will be positively associated with stress.
+
+>*Hypothesis 3c*: Job characteristics appraised as hinderance demands will be positively associated with burnout.
 
 ## Study 3
 
