@@ -109,6 +109,8 @@ These are extra sources below if we want more information. The intro is getting 
 
 # Methods
 
+@bakker2017job claim that their JD-R model has been used by, "...many Occupational Health and Safety/Workplace Health & Safety regulators and government agencies around the world" (p. 273). The current study expands upon this integration by considering the crosswalk between the JD-R and O\*Net.
+
 ## Study 1  
 
 @bakker2017job state that, "...research has shown that challenge demands may be experienced as hindrance demands (and vice versa) depending on the context" (p. 278). We extend this acknowlegement by investigating whether some characteristics of work may also vacillate between demand and *resource*.
