@@ -147,10 +147,34 @@ burnout and stress components (correlations),
 
 ## Study 3
 
-In an attempt to integrate the O\*NET taxonomy within the orientation of the Job Demands-Resources  [@demerouti2001job; @bakker2003dual; @bakker2017job], a series of evaluations were made that used: 1) O\*NET terminology (both descriptor and response option), 2) JD-R influenced ratings of demand, challenge, or hindrance. The outcome of this integration is a cross-walk between the Department of Labor classifications and the I-O literature steeped JD-R.
+In an attempt to integrate the O\*NET taxonomy within the orientation of the Job Demands-Resources  [@demerouti2001job; @bakker2003dual; @bakker2017job], a series of evaluations were made that used: 1) O\*NET terminology (both descriptor and response option), 2) JD-R influenced ratings of demand, challenge, or hindrance. The outcome of this integration is a cross-walk between the Department of Labor classifications and the I-O literature steeped JD-R. While O\*Net provides thorough documentation of information associated with job analyses, one of the remaining limitations is its lack of connection to theory. Given the popularity of the Job Demands-Resources Theory [JD-R; @demerouti2001job] in exploring questions related to everything from motivation CITE to job design CITE, we aim to explore the intersection between perceptions of job demands and resources, and the broad set of job characteristics provided on O\*Net. In an attempt to integrate the O\*Net taxonomy within the orientation of the JD-R framework [@demerouti2001job; @bakker2003dual; @bakker2017job], a series of evaluations were made that used: 1) direct O\*Net terminology (both descriptor and response option), and 2) JD-R influenced ratings of demand, challenge, or hindrance. Prior to a description of results, a brief overview of both the JD-R theory and O\*Net is provided. 
 
-integration of JDR with O\*NET categories (morphs into descriptives). 
+##The Job demands-Resources Theory  
 
+The overarching context for this study is that of the job demands-resources theory, which is an expansion of the well-studied job demands-resources model [@demerouti2001job]. One of the major advantages of the job demands-resources theory is that it allows us to model both work environment and job characteristics via job resources and demands. *Resources* include physical, psychological, social, or organizational aspects of the job that may help an employee achieve work goals, reduce job demands, or promote personal growth and development [@demerouti2001job]. In contrast, demands include components of a job that require sustained effort, and as such, produce psychological or physiological strain (e.g., high work pressure is frequently cited as a common demand; @demerouti2001job). 
+Cognitively, the perception of an element of one’s job as a resource or demand activates one of two distinct processes: either health impairment (resulting from demands) or motivation (resulting from resources) [@bakker2014job]. Pertinent to the current study, demanding job characteristics are frequently often associated with negative outcomes [e.g., @articlebakker2003dual], whereas job characteristics deemed resources have been associated with positive organizational outcomes like engagement and motivation [@articlebakker2007job]. 
+
+## O\*Net Resource  
+
+Originally, the Advisory Panel for the Dictionary of Occupational Titles recommended a system that would “…promote the effective education, training, counseling, and employment of the American workforce. It should accomplish its purpose by providing a database system that identified, defines, classifies, and describes occupations in the economy in an accessible and flexible manner” (@advisory1993new, p. 6). The result was the now commonly used O\*NET. The Occupational Information Network (O\*NET; onetonline.org) contains a comprehensive description of occupations [@peterson2001understanding]. This widely accessed database houses hundreds of standardized and occupation-specific descriptors most occupations in the US and these descriptions are continually updated. In fact, there was a call to work with experienced I/O psychologists over the summer to update the content for the Industrial and Organizational Psychologist listing on O\*Net (https://www.onetonline.org/link/summary/19-3032.00). These data, and the tools provided for free on the website (e.g., Career Exploration Tools, “My Next Move for Veterans”, “My Next Move”, Toolkit for Business) are frequently used by counselors, students, human resources departments, and researchers to assist potential applicants discover the skills and training they need for the job of their choice, and also employers with information with which to craft job descriptions and help employees determine what skills are needed for promotion. 
+
+## Current Study  
+
+Interestingly, we have not yet integrated this practical and accessible resource within the JD-R framework. This paper aims to provide such a crosswalk or integration of the theory and practical occupations-focused data on O\*Net. Several broad research questions are examined across jobs:
+>*Research Question 1*: Which O\*Net job characteristics are consistently rated as job resources?
+>*Research Question 2*: Which O\*Net job characteristics are consistently rated as challenge demands?
+>*Research Question 3*: Which O\*Net job characteristics are consistently rated as hinderance demands?
+
+The other distinct possibility we expect we may observe is wide variability in the assignment of some job characteristics within the JD-R framework. In fact, a growing body of evidence suggests people may not universally experience job characteristics as challenges or hinderances (e.g., [@bakker2013weekly]; [cavanaugh2000empirical]; [@gerich2017relevance]; [@podsakoff2007differential]; [@webster2011extending]). Thus, a fourth question of interest explores just that possibility. 
+Research Question 4: Which O\*Net job characteristics show wide variability in assigned JD-R classification of resource, challenge, or hinderance. 
+
+# Results  
+
+Average rating of each category by item and focus on the ones with low SDs. 
+
+# Discussion 
+
+Could be another piece of info onet uses along with descriptions – could list resource challenge hinderance 
 
 ## Participants  
 
