@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.7)  29 SEP 2021 12:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.7)  29 SEP 2021 16:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -661,28 +661,25 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box62
 ) (./SIOPjdr.aux
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 
-LaTeX Warning: Label `tab:test' multiply defined.
-
-
-LaTeX Warning: Label `tab:test' multiply defined.
+LaTeX Warning: Label `tab:study1' multiply defined.
 
 )
 \openout1 = `SIOPjdr.aux'.
@@ -1542,10 +1539,10 @@ Package rerunfilecheck Info: File `SIOPjdr.out' has not changed.
 (rerunfilecheck)             Checksum: 39C043B05B52B976FB8A6B1A7620F73D;4429.
  ) 
 Here is how much of TeX's memory you used:
- 14850 strings out of 480559
- 228392 string characters out of 5901697
- 559255 words of memory out of 5000000
- 32069 multiletter control sequences out of 15000+600000
+ 14851 strings out of 480559
+ 228406 string characters out of 5901697
+ 559287 words of memory out of 5000000
+ 32070 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,80p,2246b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1558,7 +1555,7 @@ c/lm/lmbx12.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 fonts/type1/public/lm/lmr8.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/texmf-d
 ist/fonts/type1/public/lm/lmri12.pfb><c:/Users/kulasj/AppData/Roaming/TinyTeX/t
 exmf-dist/fonts/type1/public/lm/lmss8.pfb>
-Output written on SIOPjdr.pdf (29 pages, 183035 bytes).
+Output written on SIOPjdr.pdf (29 pages, 183416 bytes).
 PDF statistics:
  385 PDF objects out of 1000 (max. 8388607)
  329 compressed objects within 4 object streams

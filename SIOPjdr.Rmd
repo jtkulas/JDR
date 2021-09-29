@@ -121,10 +121,8 @@ These are extra sources below if we want more information. The intro is getting 
 
 top 15 demands and resources, divided by skilled versus knowledge workers, 
 
-```{r test}
-########################################################
-########################################################
-########################################################
+```{r study1}
+
 ## Getting Qualtrics data into R - 9/21/21
 
 temp <- read.csv("prolific.csv", header=FALSE, na.strings="")   ## NOTE: 404 vars (9/28/21) make sure to check indexing used throughout script
@@ -269,9 +267,36 @@ papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_
                   landscape = TRUE,
                   escape = F)
 
-#######################################################
-#######################################################
-#######################################################
+```
+
+
+
+## Study 2  
+
+We evaluate associations between the antecedants and proximal outcomes of the Job Demands-Resources model [@demerouti2001job; @bakker2003dual; @bakker2017job]. Specifically we focus on job engagement, job stress, and burnout with a U.S. workforce representative sample.
+
+burnout and stress components (correlations), 
+
+>*Hypothesis 1a*: Job characteristics appraised as resources will be positively associated with engagement. 
+
+>*Hypothesis 1b*: Job characteristics appraised as resources will be negatively associated with stress.
+
+>*Hypothesis 1c*: Job characteristics appraised as resources will be negatively associated with burnout.
+
+>*Hypothesis 2a*: Job characteristics appraised as challenge demands will be positively associated with engagement. 
+
+>*Hypothesis 2b*: Job characteristics appraised as challenge demands will be negatively associated with stress.
+
+>*Hypothesis 2c*: Job characteristics appraised as challenge demands will be negatively associated with burnout.
+
+>*Hypothesis 3a*: Job characteristics appraised as hinderance demands will be negatively associated with engagement. 
+
+>*Hypothesis 3b*: Job characteristics appraised as hinderance demands will be positively associated with stress.
+
+>*Hypothesis 3c*: Job characteristics appraised as hinderance demands will be positively associated with burnout.
+
+```{r study2}
+
 ## Study 2 DVs
 
 data$item387      <- 7- data$item387           ## only reflected engagement item
@@ -303,32 +328,7 @@ papaja::apa_table(r$apa, # apa contains the data.frame needed for apa_table
                   landscape = TRUE,
                   escape = F)
 
-
 ```
-
-## Study 2  
-
-We evaluate associations between the antecedants and proximal outcomes of the Job Demands-Resources model [@demerouti2001job; @bakker2003dual; @bakker2017job]. Specifically we focus on job engagement, job stress, and burnout with a U.S. workforce representative sample.
-
-burnout and stress components (correlations), 
-
->*Hypothesis 1a*: Job characteristics appraised as resources will be positively associated with engagement. 
-
->*Hypothesis 1b*: Job characteristics appraised as resources will be negatively associated with stress.
-
->*Hypothesis 1c*: Job characteristics appraised as resources will be negatively associated with burnout.
-
->*Hypothesis 2a*: Job characteristics appraised as challenge demands will be positively associated with engagement. 
-
->*Hypothesis 2b*: Job characteristics appraised as challenge demands will be negatively associated with stress.
-
->*Hypothesis 2c*: Job characteristics appraised as challenge demands will be negatively associated with burnout.
-
->*Hypothesis 3a*: Job characteristics appraised as hinderance demands will be negatively associated with engagement. 
-
->*Hypothesis 3b*: Job characteristics appraised as hinderance demands will be positively associated with stress.
-
->*Hypothesis 3c*: Job characteristics appraised as hinderance demands will be positively associated with burnout.
 
 ## Study 3
 
@@ -363,7 +363,7 @@ Could be another piece of info onet uses along with descriptions – could list 
 
 ## Participants  
 
-Qualtrics respondent "panels" were utilized
+Prolific respondent panels were utilized. Our sample participants had an average tenure of `r round(mean(data[,401], na.rm=TRUE),2)` (SD = `r round(sd(data[,401], na.rm=TRUE),2)`) and an average age of `r round(mean(data[,403], na.rm=TRUE),2)` years (SD = `r round(sd(data[,403], na.rm=TRUE),2)`). The sample was `r ((sum(data[,402] == 'Female'))/(nrow(data)))`% female.
 
 ## Materials  
 
@@ -388,13 +388,6 @@ Qualtrics panel
 
 ## Data analysis
 We used `r cite_r("r-references.bib")` for all our analyses.
-
-```{r data}
-
-## First 4 items are burnout items taken from version 3 of the CPQ; second 3 items are stress items also from version 3
-
-
-```
 
 # Results
 

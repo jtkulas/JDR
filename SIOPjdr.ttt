@@ -1,12 +1,12 @@
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Top 10 work characteristics.}\\
+\caption{\label{tab:study1}Top 10 work characteristics.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -30,12 +30,12 @@ item108 & 72.00 & providing guidance and direction to subordinates, including se
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Bottom 10 work characteristics.}\\
+\caption{\label{tab:study1}Bottom 10 work characteristics.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -59,12 +59,12 @@ item22 & 14.67 & m, without supervision, does your job offer?\\
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Top 10 work resources.}\\
+\caption{\label{tab:study1}Top 10 work resources.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -91,12 +91,12 @@ item193 & 128.67 & and direction to subordinates, including setting performance 
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Bottom 10 work resources.}\\
+\caption{\label{tab:study1}Bottom 10 work resources.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -125,12 +125,12 @@ item118 & 78.67 & aking freedom, without supervision, your job offers...
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Top 10 work hindrances.}\\
+\caption{\label{tab:study1}Top 10 work hindrances.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -157,12 +157,12 @@ item278 & 185.33 & and direction to subordinates, including setting performance 
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Bottom 10 work hindrances.}\\
+\caption{\label{tab:study1}Bottom 10 work hindrances.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -191,12 +191,12 @@ item203 & 135.33 & aking freedom, without supervision, your job offers...
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Top 10 work challenges.}\\
+\caption{\label{tab:study1}Top 10 work challenges.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -223,12 +223,12 @@ item363 & 242.00 & and direction to subordinates, including setting performance 
 \begin{lltable}
 
 \begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Bottom 10 work challenges.}\\
+\caption{\label{tab:study1}Bottom 10 work challenges.}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study1} continued}}\\
 \toprule
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
@@ -261,12 +261,12 @@ item288 & 192.00 & aking freedom, without supervision, your job offers...
 \end{TableNotes}
 
 \begin{longtable}{lllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:test}Scale intercorrelations (outcome variables).}\\
+\caption{\label{tab:study2}Scale intercorrelations (outcome variables).}\\
 \toprule
  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
 \midrule
 \endfirsthead
-\caption*{\normalfont{Table \ref{tab:test} continued}}\\
+\caption*{\normalfont{Table \ref{tab:study2} continued}}\\
 \toprule
  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
 \midrule
