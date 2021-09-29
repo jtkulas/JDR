@@ -14,7 +14,136 @@ colnames(data) <- x
 rm(x, y, temp)                                                 ## decluttering Qualtrics excess
 ## write.csv(as.data.frame(cbind(x,y)), "codebook.csv")        ## Codebook for itemX <-> Survey item matching
 
+data <- data.frame(lapply(data, function(x) as.numeric(as.character(x))))
+
 num <- nrow(data)
+
+
+#######################################################
+#######################################################
+#######################################################
+## Study 1 rankings
+
+# data[,c(1:404)] <- 1                             ## mock data to test script
+chars <- as.data.frame(t(data[22:117]))            ## isolating characteristics
+
+labels <- read.csv("codebook.csv")                 ## grabbing codebook for item labels
+
+chars$tot <- rowMeans(chars[1:nrow(data)], na.rm=TRUE)
+chars$label <- labels[c(22:117),3]
+
+sortchars <- chars[order(-chars$tot),]
+
+topchars <- head(sortchars, 10)
+bottomchars <- tail(sortchars,10)
+
+topchars <- topchars[tail(names(topchars),2)]         ## taking last two columns
+topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
+
+papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work characteristics.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchars <- bottomchars[tail(names(bottomchars),2)]         ## taking last two columns
+bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
+
+papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work characteristics.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+resource <- as.data.frame(t(data[118:202]))            ## isolating characteristics
+
+resource$tot <- rowMeans(resource[1:nrow(data)], na.rm=TRUE)
+resource$label <- labels[c(118:202),3]
+
+sortresource <- resource[order(-resource$tot),]
+
+topresource <- head(sortresource, 10)
+bottomresource <- tail(sortresource,10)
+
+topresource <- topresource[tail(names(topresource),2)]         ## taking last two columns
+topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
+
+papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work resources.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomresource <- bottomresource[tail(names(bottomresource),2)]         ## taking last two columns
+bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
+
+papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work resources.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+hindrance <- as.data.frame(t(data[203:287]))            ## isolating characteristics
+
+hindrance$tot <- rowMeans(hindrance[1:nrow(data)], na.rm=TRUE)
+hindrance$label <- labels[c(203:287),3]
+
+sorthindrance <- hindrance[order(-hindrance$tot),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),2)]         ## taking last two columns
+tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
+
+papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work hindrances.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),2)]         ## taking last two columns
+bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
+
+papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work hindrances.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+challenge <- as.data.frame(t(data[288:372]))            ## isolating characteristics
+
+challenge$tot <- rowMeans(challenge[1:nrow(data)], na.rm=TRUE)
+challenge$label <- labels[c(288:372),3]
+
+sortchallenge <- challenge[order(-challenge$tot),]
+
+topchallenge <- head(sortchallenge, 10)
+bottomchallenge <- tail(sortchallenge,10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),2)]         ## taking last two columns
+topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
+
+papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work challenges.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),2)]         ## taking last two columns
+bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
+
+papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work challenges.",
+                  align = c("m{1cm}","m{1cm}","m{14cm}"),
+                  landscape = TRUE,
+                  escape = F)
 
 #######################################################
 #######################################################
@@ -39,58 +168,13 @@ data$burnout      <- rowMeans(data[c(373:376)], na.rm=TRUE)
 data$stress       <- rowMeans(data[c(377:379)], na.rm=TRUE)
 
 
-r <- corx(data[,405:413],                     ## can extend if needed
-          triangle = "lower",
-          stars = c(0.05, 0.01, 0.001),
-          describe = c(`$M$` = mean, `$SD$` = sd))
+r <- corx::corx(data[,405:413],                     ## can extend if needed
+                triangle = "lower",
+                stars = c(0.05, 0.01, 0.001),
+                describe = c(`$M$` = mean, `$SD$` = sd))
 
 papaja::apa_table(r$apa, # apa contains the data.frame needed for apa_table
                   caption = "Scale intercorrelations (outcome variables).",
                   note = "* p < 0.05; ** p < 0.01; *** p < 0.001",
                   landscape = TRUE,
                   escape = F)
-
-#######################################################
-#######################################################
-#######################################################
-## Study 1 rankings
-
-# data[,c(1:404)] <- 1                             ## mock data to test script
-chars <- as.data.frame(t(data[22:117]))            ## isolating characteristics
-
-labels <- read.csv("codebook.csv")                 ## grabbing codebook for item labels
-
-chars$tot <- rowMeans(chars[1:nrow(data)], na.rm=TRUE)
-chars$label <- labels[c(22:117),3]
-
-sortchars <- chars[order(chars$tot),]
-
-topchars <- head(sortchars, 10)
-bottomchars <- tail(sortchars,10)
-
-###############################################
-
-resource <- as.data.frame(t(data[118:202]))            ## isolating characteristics
-
-resource$tot <- rowMeans(resource[1:nrow(data)], na.rm=TRUE)
-resource$label <- labels[c(118:202),3]
-
-sortresource <- resource[order(resource$tot),]
-
-topresource <- head(sortresource, 10)
-bottomresource <- tail(sortresource,10)
-
-###############################################
-
-hindrance <- as.data.frame(t(data[203:287]))            ## isolating characteristics
-
-hindrance$tot <- rowMeans(hindrance[1:nrow(data)], na.rm=TRUE)
-hindrance$label <- labels[c(203:287),3]
-
-sorthindrance <- hindrance[order(hindrance$tot),]
-
-tophindrance <- head(sorthindrance, 10)
-bottomhindrance <- tail(sorthindrance,10)
-
-
-
