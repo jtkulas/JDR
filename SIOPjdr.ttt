@@ -11,16 +11,16 @@
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item117 & 78.00 & identifying the educational needs of others, developing formal educat\\
-item116 & 77.33 & recruiting, interviewing, selecting, hiring, and promoting employees\\
-item115 & 76.67 & convincing others to buy merchandise/goods or to otherwise change the\\
-item114 & 76.00 & handling complaints, settling disputes, and resolving grievances and\\
-item113 & 75.33 & providing guidance and expert advice to management or other groups on\\
-item112 & 74.67 & performing for people or dealing directly with the public? This inclu\\
-item111 & 74.00 & performing day-to-day administrative tasks such as maintaining inform\\
-item110 & 73.33 & monitoring and controlling resources and overseeing the spending of m\\
-item109 & 72.67 & translating or explaining what information means and how it can be us\\
-item108 & 72.00 & providing guidance and direction to subordinates, including setting p\\
+item117 & 78.00 & decision making freedom, without supervision\\
+item116 & 77.33 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
+item115 & 76.67 & recruiting, interviewing, selecting, hiring, and promoting employees\\
+item114 & 76.00 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
+item113 & 75.33 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
+item112 & 74.67 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
+item111 & 74.00 & performing for people or dealing directly with the public\\
+item110 & 73.33 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
+item109 & 72.67 & monitoring and controlling resources and overseeing the spending of money\\
+item108 & 72.00 & translating or explaining what information means and how it can be used\\
 \bottomrule
 \end{longtable}
 
@@ -40,16 +40,16 @@ item108 & 72.00 & providing guidance and direction to subordinates, including se
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item31 & 20.67 & les for your job?\\
-item30 & 20.00 & you to meet strict deadlines?\\
-item29 & 19.33 & that the pace is determined by the speed of equipment or machinery?\\
-item28 & 18.67 & ctured for you, rather than allowing you to determine tasks, prioriti\\
-item27 & 18.00 & quire you to compete or to be aware of competitive pressures?\\
-item26 & 17.33 & same physical activities (e.g., key entry) or mental activities (e.g.\\
-item25 & 16.67 & ct or highly accurate in performing your job?\\
-item24 & 16.00 & usually have on other people or the image or reputation or financial\\
-item23 & 15.33 & to make decisions that affect other people, the financial resources,\\
-item22 & 14.67 & m, without supervision, does your job offer?\\
+item31 & 20.67 & working in cramped work spaces\\
+item30 & 20.00 & regular work schedules\\
+item29 & 19.33 & meeting strict deadlines\\
+item28 & 18.67 & pace is determined by the speed of equipment or machinery\\
+item27 & 18.00 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
+item26 & 17.33 & compete or to be aware of competitive pressures\\
+item25 & 16.67 & repeating the same physical or mental activities over and over, without stopping\\
+item24 & 16.00 & being very exact or highly accurate\\
+item23 & 15.33 & decisions impact on other people or the image or reputation or financial resources of your employer\\
+item22 & 14.67 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
 \bottomrule
 \end{longtable}
 
@@ -69,19 +69,16 @@ item22 & 14.67 & m, without supervision, does your job offer?\\
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item202 & 134.67 & cational needs of others, developing formal educational or training p\\
-item201 & 134.00 & ewing, selecting, hiring, and promoting employees...
-...this aspect o\\
-item200 & 133.33 & o buy merchandise/goods or to otherwise change their minds or actions\\
-item199 & 132.67 & , settling disputes, and resolving grievances and conflicts, or other\\
-item198 & 132.00 & and expert advice to management or other groups on technical, systems\\
-item197 & 131.33 & le or dealing directly with the public (This includes serving custome\\
-item196 & 130.67 & ay administrative tasks such as maintaining information files and pro\\
-item195 & 130.00 & rolling resources and overseeing the spending of money...
-...this asp\\
-item194 & 129.33 & aining what information means and how it can be used...
-...this aspec\\
-item193 & 128.67 & and direction to subordinates, including setting performance standard\\
+item202 & 134.67 & decision making freedom, without supervision\\
+item201 & 134.00 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
+item200 & 133.33 & recruiting, interviewing, selecting, hiring, and promoting employees\\
+item199 & 132.67 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
+item198 & 132.00 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
+item197 & 131.33 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
+item196 & 130.67 & performing for people or dealing directly with the public\\
+item195 & 130.00 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
+item194 & 129.33 & monitoring and controlling resources and overseeing the spending of money\\
+item193 & 128.67 & translating or explaining what information means and how it can be used\\
 \bottomrule
 \end{longtable}
 
@@ -101,21 +98,16 @@ item193 & 128.67 & and direction to subordinates, including setting performance 
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item127 & 84.67 & k schedules are for your job...
-...this aspect of your job is a  reso\\
-item126 & 84.00 & meet strict deadlines...
-...this aspect of your job is a  resource th\\
-item125 & 83.33 & ing determined by the speed of equipment or machinery... (This does n\\
-item124 & 82.67 & ctured for you, rather than allowing you to determine tasks, prioriti\\
-item123 & 82.00 & aware of competitive pressures...
-...this aspect of your job is a res\\
-item122 & 81.33 & physical activities (e.g., key entry) or mental activities (e.g., che\\
-item121 & 80.67 & te in performing your job...
-...this aspect of your job is a resource\\
-item120 & 80.00 & cisions usually have on other people or the image or reputation or fi\\
-item119 & 79.33 & equired to make decisions that affect other people, the financial res\\
-item118 & 78.67 & aking freedom, without supervision, your job offers...
-...this aspect\\
+item127 & 84.67 & working in cramped work spaces\\
+item126 & 84.00 & regular work schedules\\
+item125 & 83.33 & meeting strict deadlines\\
+item124 & 82.67 & pace is determined by the speed of equipment or machinery\\
+item123 & 82.00 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
+item122 & 81.33 & compete or to be aware of competitive pressures\\
+item121 & 80.67 & repeating the same physical or mental activities over and over, without stopping\\
+item120 & 80.00 & being very exact or highly accurate\\
+item119 & 79.33 & decisions impact on other people or the image or reputation or financial resources of your employer\\
+item118 & 78.67 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
 \bottomrule
 \end{longtable}
 
@@ -135,19 +127,16 @@ item118 & 78.67 & aking freedom, without supervision, your job offers...
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item287 & 191.33 & cational needs of others, developing formal educational or training p\\
-item286 & 190.67 & ewing, selecting, hiring, and promoting employees...
-...this aspect o\\
-item285 & 190.00 & o buy merchandise/goods or to otherwise change their minds or actions\\
-item284 & 189.33 & , settling disputes, and resolving grievances and conflicts, or other\\
-item283 & 188.67 & and expert advice to management or other groups on technical, systems\\
-item282 & 188.00 & le or dealing directly with the public (This includes serving custome\\
-item281 & 187.33 & ay administrative tasks such as maintaining information files and pro\\
-item280 & 186.67 & rolling resources and overseeing the spending of money...
-...this asp\\
-item279 & 186.00 & aining what information means and how it can be used...
-...this aspec\\
-item278 & 185.33 & and direction to subordinates, including setting performance standard\\
+item287 & 191.33 & decision making freedom, without supervision\\
+item286 & 190.67 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
+item285 & 190.00 & recruiting, interviewing, selecting, hiring, and promoting employees\\
+item284 & 189.33 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
+item283 & 188.67 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
+item282 & 188.00 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
+item281 & 187.33 & performing for people or dealing directly with the public\\
+item280 & 186.67 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
+item279 & 186.00 & monitoring and controlling resources and overseeing the spending of money\\
+item278 & 185.33 & translating or explaining what information means and how it can be used\\
 \bottomrule
 \end{longtable}
 
@@ -167,21 +156,16 @@ item278 & 185.33 & and direction to subordinates, including setting performance 
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item212 & 141.33 & k schedules are for your job...
-...this aspect of your job is a hinde\\
-item211 & 140.67 & meet strict deadlines...
-...this aspect of your job is a hinderance t\\
-item210 & 140.00 & ing determined by the speed of equipment or machinery... (This does n\\
-item209 & 139.33 & ctured for you, rather than allowing you to determine tasks, prioriti\\
-item208 & 138.67 & aware of competitive pressures...
-...this aspect of your job is a hin\\
-item207 & 138.00 & physical activities (e.g., key entry) or mental activities (e.g., che\\
-item206 & 137.33 & te in performing your job...
-...this aspect of your job is a hinderan\\
-item205 & 136.67 & cisions usually have on other people or the image or reputation or fi\\
-item204 & 136.00 & equired to make decisions that affect other people, the financial res\\
-item203 & 135.33 & aking freedom, without supervision, your job offers...
-...this aspect\\
+item212 & 141.33 & working in cramped work spaces\\
+item211 & 140.67 & regular work schedules\\
+item210 & 140.00 & meeting strict deadlines\\
+item209 & 139.33 & pace is determined by the speed of equipment or machinery\\
+item208 & 138.67 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
+item207 & 138.00 & compete or to be aware of competitive pressures\\
+item206 & 137.33 & repeating the same physical or mental activities over and over, without stopping\\
+item205 & 136.67 & being very exact or highly accurate\\
+item204 & 136.00 & decisions impact on other people or the image or reputation or financial resources of your employer\\
+item203 & 135.33 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
 \bottomrule
 \end{longtable}
 
@@ -201,19 +185,16 @@ item203 & 135.33 & aking freedom, without supervision, your job offers...
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item372 & 248.00 & cational needs of others, developing formal educational or training p\\
-item371 & 247.33 & ewing, selecting, hiring, and promoting employees...
-...this aspect o\\
-item370 & 246.67 & o buy merchandise/goods or to otherwise change their minds or actions\\
-item369 & 246.00 & , settling disputes, and resolving grievances and conflicts, or other\\
-item368 & 245.33 & and expert advice to management or other groups on technical, systems\\
-item367 & 244.67 & le or dealing directly with the public (This includes serving custome\\
-item366 & 244.00 & ay administrative tasks such as maintaining information files and pro\\
-item365 & 243.33 & rolling resources and overseeing the spending of money...
-...this asp\\
-item364 & 242.67 & aining what information means and how it can be used...
-...this aspec\\
-item363 & 242.00 & and direction to subordinates, including setting performance standard\\
+item372 & 248.00 & How often have you felt worn out because of your job?\\
+item371 & 247.33 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
+item370 & 246.67 & recruiting, interviewing, selecting, hiring, and promoting employees\\
+item369 & 246.00 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
+item368 & 245.33 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
+item367 & 244.67 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
+item366 & 244.00 & performing for people or dealing directly with the public\\
+item365 & 243.33 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
+item364 & 242.67 & monitoring and controlling resources and overseeing the spending of money\\
+item363 & 242.00 & translating or explaining what information means and how it can be used\\
 \bottomrule
 \end{longtable}
 
@@ -233,21 +214,16 @@ item363 & 242.00 & and direction to subordinates, including setting performance 
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item297 & 198.00 & k schedules are for your job...
-...this aspect of your job is a chall\\
-item296 & 197.33 & meet strict deadlines...
-...this aspect of your job is a challenge th\\
-item295 & 196.67 & ing determined by the speed of equipment or machinery... (This does n\\
-item294 & 196.00 & ctured for you, rather than allowing you to determine tasks, prioriti\\
-item293 & 195.33 & aware of competitive pressures...
-...this aspect of your job is a cha\\
-item292 & 194.67 & physical activities (e.g., key entry) or mental activities (e.g., che\\
-item291 & 194.00 & te in performing your job...
-...this aspect of your job is a challeng\\
-item290 & 193.33 & cisions usually have on other people or the image or reputation or fi\\
-item289 & 192.67 & equired to make decisions that affect other people, the financial res\\
-item288 & 192.00 & aking freedom, without supervision, your job offers...
-...this aspect\\
+item297 & 198.00 & working in cramped work spaces\\
+item296 & 197.33 & regular work schedules\\
+item295 & 196.67 & meeting strict deadlines\\
+item294 & 196.00 & pace is determined by the speed of equipment or machinery\\
+item293 & 195.33 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
+item292 & 194.67 & compete or to be aware of competitive pressures\\
+item291 & 194.00 & repeating the same physical or mental activities over and over, without stopping\\
+item290 & 193.33 & being very exact or highly accurate\\
+item289 & 192.67 & decisions impact on other people or the image or reputation or financial resources of your employer\\
+item288 & 192.00 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
 \bottomrule
 \end{longtable}
 
