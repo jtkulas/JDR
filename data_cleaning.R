@@ -1,20 +1,32 @@
 ########################################################
 ########################################################
 ########################################################
-## Getting Qualtrics data into R - 9/21/21
+## Making sense of Prolific data
 
-temp <- read.csv("prolific.csv", header=FALSE, na.strings="")   ## NOTE: 404 vars (9/28/21) make sure to check indexing used throughout script
+temp <- read.csv("initial_data_screen.csv", header=FALSE, na.strings="")   ## NOTE: 404 vars (9/28/21) make sure to check indexing used throughout script
 
 x <- paste("item", sep="",1:404)
 y <- t(temp[2,])
-
-data <- temp[-c(1:3),]                                      ## Getting rid of all 3 weird Qualtrics rows
+                                        ## decluttering Qualtrics excess
+data <- temp[-c(1:3),]                                           ## Getting rid of all 3 weird Qualtrics rows
 colnames(data) <- x
 
-rm(x, y, temp)                                                 ## decluttering Qualtrics excess
+incomplete <- read.csv("inprogress.csv", header=FALSE, na.strings="")   ## NOTE: 404 vars (9/28/21) make sure to check indexing used throughout script
+
+data2 <- incomplete[-c(1:2),-c(10,12,16,113,199,285,371,379,400, 406:411)]                                          
+
+data3 <- as.data.frame(cbind(data2$V8,data2$V9,data2$V1,data2$V1,data2$V1,data2$V1,data2$V1,data2$V1,data2))
+
+colnames(data3) <- x
+
+rm(x, y, temp)       
+
+use <- rbind(data,data3)
+
 ## write.csv(as.data.frame(cbind(x,y)), "codebook.csv")        ## Codebook for itemX <-> Survey item matching
 
-data <- data.frame(lapply(data, function(x) as.numeric(as.character(x))))
+use2 <- use
+data <- data.frame(lapply(use, function(x) as.numeric(as.character(x))))
 
 num <- nrow(data)
 
@@ -22,7 +34,46 @@ num <- nrow(data)
 #######################################################
 #######################################################
 #######################################################
-## Study 1 rankings
+## Identifying iffy responses 10/8/21
+
+use2$missing <- rowSums(is.na(use2[18:404])) 
+hist(use2$missing)
+descr::freq(use2$missing)
+
+library(careless)
+use2$careless_long <- longstring(use2[18:399])
+hist(use2$careless_long)
+descr::freq(use2$careless_long)
+
+## STILL NEED FILE WITH BAD RESPONDENTS IDENTIFIED (E.G., Item_18=2, na > 200, longstring > 20, CARELESS CHECKS > 1)
+
+
+
+valid <- data[ which(data$item18 != 2), ]
+
+
+
+# invalid <- data[ which(data$item18 == 2), ]
+# write.csv(invalid, "dont_accepts.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # data[,c(1:404)] <- 1                             ## mock data to test script
 chars <- as.data.frame(t(data[22:117]))            ## isolating characteristics
