@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.21)  9 OCT 2021 10:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.21)  9 OCT 2021 11:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -656,25 +656,25 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box62
 ) (./SIOPjdr.aux
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:study1' multiply defined.
+LaTeX Warning: Label `tab:rankings' multiply defined.
 
 )
 \openout1 = `SIOPjdr.aux'.
@@ -828,16 +828,14 @@ Underfull \vbox (badness 7649) has occurred while \output is active []
 [8] [9] [10]
 \openout3 = `SIOPjdr.ttt'.
 
-(SIOPjdr.ttt) [11] [12]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+(SIOPjdr.ttt) [11] [12] [13] [14]
+Underfull \vbox (badness 1248) has occurred while \output is active []
 
-[13] [14] [15]
-Underfull \vbox (badness 1424) has occurred while \output is active []
-
-[16] [17] [18]
+[15] [16] [17] [18]
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
-[19] [20] AED endfloat: Processing end Figures and Tables [21] (./SIOPjdr.ttt
+[19] [20] [21] AED endfloat: Processing end Figures and Tables [22] (./SIOPjdr.
+ttt
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 14--14
 []|\T1/lmr/m/n/12 item82| 
  []
@@ -864,12 +862,12 @@ Overfull \hbox (6.14455pt too wide) in paragraph at lines 18--18
 
 
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 19--19
-[]|\T1/lmr/m/n/12 item75| 
+[]|\T1/lmr/m/n/12 item78| 
  []
 
 
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 20--20
-[]|\T1/lmr/m/n/12 item25| 
+[]|\T1/lmr/m/n/12 item75| 
  []
 
 
@@ -879,21 +877,21 @@ Overfull \hbox (6.14455pt too wide) in paragraph at lines 21--21
 
 
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 22--22
-[]|\T1/lmr/m/n/12 item55| 
+[]|\T1/lmr/m/n/12 item25| 
  []
 
 
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 23--23
-[]|\T1/lmr/m/n/12 item78| 
+[]|\T1/lmr/m/n/12 item55| 
  []
 
-[22
+[23
 
 
 
 ]
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 43--43
-[]|\T1/lmr/m/n/12 item37| 
+[]|\T1/lmr/m/n/12 item53| 
  []
 
 
@@ -908,7 +906,7 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 45--45
 
 
 Overfull \hbox (6.14455pt too wide) in paragraph at lines 46--46
-[]|\T1/lmr/m/n/12 item53| 
+[]|\T1/lmr/m/n/12 item37| 
  []
 
 
@@ -941,7 +939,7 @@ Overfull \hbox (6.14455pt too wide) in paragraph at lines 52--52
 []|\T1/lmr/m/n/12 item40| 
  []
 
-[23
+[24
 
 
 
@@ -987,21 +985,21 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 79--79
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 80--80
-[]|\T1/lmr/m/n/12 item190| 
+[]|\T1/lmr/m/n/12 item176| 
  []
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 81--81
-[]|\T1/lmr/m/n/12 item176| 
+[]|\T1/lmr/m/n/12 item190| 
  []
 
-[24
+[25
 
 
 
-] [25]
+] [26]
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 101--101
-[]|\T1/lmr/m/n/12 item125| 
+[]|\T1/lmr/m/n/12 item122| 
  []
 
 
@@ -1049,7 +1047,7 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 110--110
 []|\T1/lmr/m/n/12 item145| 
  []
 
-[26
+[27
 
 
 
@@ -1103,7 +1101,7 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 139--139
 []|\T1/lmr/m/n/12 item219| 
  []
 
-[27
+[28
 
 
 
@@ -1134,17 +1132,17 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 163--163
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 164--164
-[]|\T1/lmr/m/n/12 item232| 
- []
-
-
-Overfull \hbox (12.01953pt too wide) in paragraph at lines 165--165
 []|\T1/lmr/m/n/12 item233| 
  []
 
 
-Overfull \hbox (12.01953pt too wide) in paragraph at lines 166--166
+Overfull \hbox (12.01953pt too wide) in paragraph at lines 165--165
 []|\T1/lmr/m/n/12 item231| 
+ []
+
+
+Overfull \hbox (12.01953pt too wide) in paragraph at lines 166--166
+[]|\T1/lmr/m/n/12 item232| 
  []
 
 
@@ -1157,7 +1155,7 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 168--168
 []|\T1/lmr/m/n/12 item248| 
  []
 
-[28
+[29
 
 
 
@@ -1188,22 +1186,22 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 192--192
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 193--193
-[]|\T1/lmr/m/n/12 item361| 
- []
-
-
-Overfull \hbox (12.01953pt too wide) in paragraph at lines 194--194
 []|\T1/lmr/m/n/12 item341| 
  []
 
 
+Overfull \hbox (12.01953pt too wide) in paragraph at lines 194--194
+[]|\T1/lmr/m/n/12 item361| 
+ []
+
+
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 195--195
-[]|\T1/lmr/m/n/12 item342| 
+[]|\T1/lmr/m/n/12 item362| 
  []
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 196--196
-[]|\T1/lmr/m/n/12 item362| 
+[]|\T1/lmr/m/n/12 item342| 
  []
 
 
@@ -1211,11 +1209,11 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 197--197
 []|\T1/lmr/m/n/12 item338| 
  []
 
-[29
+[30
 
 
 
-] [30]
+] [31]
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 217--217
 []|\T1/lmr/m/n/12 item295| 
  []
@@ -1242,12 +1240,12 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 221--221
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 222--222
-[]|\T1/lmr/m/n/12 item312| 
+[]|\T1/lmr/m/n/12 item307| 
  []
 
 
 Overfull \hbox (12.01953pt too wide) in paragraph at lines 223--223
-[]|\T1/lmr/m/n/12 item307| 
+[]|\T1/lmr/m/n/12 item312| 
  []
 
 
@@ -1265,11 +1263,11 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 226--226
 []|\T1/lmr/m/n/12 item308| 
  []
 
-[31
+[32
 
 
 
-] [32
+] [33
 
 
 
@@ -1278,13 +1276,13 @@ Overfull \hbox (12.01953pt too wide) in paragraph at lines 226--226
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `SIOPjdr.out' has not changed.
-(rerunfilecheck)             Checksum: 39C043B05B52B976FB8A6B1A7620F73D;4429.
+(rerunfilecheck)             Checksum: B346CCDE1DA006127FEE2D6052B06298;4998.
  ) 
 Here is how much of TeX's memory you used:
- 14921 strings out of 480559
- 228864 string characters out of 5901528
- 559699 words of memory out of 5000000
- 32139 multiletter control sequences out of 15000+600000
+ 14931 strings out of 480559
+ 229111 string characters out of 5901528
+ 559834 words of memory out of 5000000
+ 32143 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,80p,2246b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1297,10 +1295,10 @@ lic/lm/lmmi12.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
 type1/public/lm/lmr8.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmri12.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dis
 t/fonts/type1/public/lm/lmss8.pfb>
-Output written on SIOPjdr.pdf (32 pages, 185737 bytes).
+Output written on SIOPjdr.pdf (33 pages, 187113 bytes).
 PDF statistics:
- 398 PDF objects out of 1000 (max. 8388607)
- 341 compressed objects within 4 object streams
- 130 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 414 PDF objects out of 1000 (max. 8388607)
+ 356 compressed objects within 4 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 225 words of extra memory for PDF output out of 10000 (max. 10000000)
 

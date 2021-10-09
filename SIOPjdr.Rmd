@@ -118,12 +118,9 @@ These are extra sources below if we want more information. The intro is getting 
 >*Hypothesis 1*: Job characteristics differ in variability/stability regarding subjective worker perception as a demand or resource.
 
 >*Hypothesis 2*: Job characteristics with the greatest variability will have industrial moderators.
-
-top 15 demands and resources, divided by skilled versus knowledge workers, 
+ 
 
 ```{r study1}
-
-## Getting Qualtrics data into R - 9/21/21
 
 temp <- read.csv("initial_data_screen.csv", header=FALSE, na.strings="")   ## NOTE: 404 vars (9/28/21) make sure to check indexing used throughout script
 
@@ -145,13 +142,39 @@ rm(x, y, temp)
 
 use <- rbind(data,data3)
 
-## write.csv(as.data.frame(cbind(x,y)), "codebook.csv")        ## Codebook for itemX <-> Survey item matching
+## STILL NEED FILE WITH BAD RESPONDENTS IDENTIFIED (E.G., Item_18=2, na > 200, longstring > 20, CARELESS CHECKS > 1)
 
-use2 <- use
-data <- data.frame(lapply(use, function(x) as.numeric(as.character(x))))
+library(careless)
+use$careless_long <- longstring(use[18:399])
+use$missing <- rowSums(is.na(use[18:404])) 
 
-num <- nrow(data)
+different <- use[ which(use$item18 == 2 | use$careless_long > 20 | use$missing > 200), ]
 
+attention <- use[which(use$item61 == 5 & use$item145 == 5 & use$item248 == 2 & use$item308 == 3), ]
+
+data <- data.frame(lapply(attention, function(x) as.numeric(as.character(x))))
+data <- data[,c(1:404)]
+
+numtot <- nrow(use)
+numkicked <- nrow(different)
+numvalid <- nrow(data)
+
+```
+
+## Participants
+
+Of the `r nrow(use)` Prolific panel individuals who initially accessed the survey link, `r nrow(different)` indicated that they were not interested, had more than 200 missing responses, or had 20 or more identical consecutive sequential responses [@R-careless]. Applying a further screen regarding attention checks (there were four attention checks embedded throughout, asking respondents to indicate a specific answer) resulted in the retention of `r nrow(data)` respondents who constitute the current SIOP sample. 
+
+```{r recodes}
+## Qualtrics data all messed up
+
+
+
+```
+
+## top 15 demands and resources, divided by skilled versus knowledge workers
+
+```{r rankings}
 
 #######################################################
 #######################################################
