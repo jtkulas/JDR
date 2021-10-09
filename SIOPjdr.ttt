@@ -1,26 +1,26 @@
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Top 10 work characteristics.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item82 & 9.96 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
-item61 & 5.00 & wearing specialized protective or safety equipment\\
-item68 & 4.35 & have face-to-face discussions with individuals or teams\\
-item104 & 4.17 & getting members of a group to work together to accomplish tasks\\
-item63 & 4.04 & coordinate or lead others\\
-item78 & 4.02 & identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events\\
-item75 & 4.00 & work with others in a group or team\\
-item96 & 3.97 & running, maneuvering, navigating, or driving vehicles or mechanized equipment\\
-item25 & 3.97 & repeating the same physical or mental activities over and over, without stopping\\
-item55 & 3.96 & standing\\
+wearing specialized protective or safety equipment & 5.00 & 0.00\\
+have face-to-face discussions with individuals or teams & 4.35 & 1.25\\
+getting members of a group to work together to accomplish tasks & 4.17 & 1.14\\
+coordinate or lead others & 4.04 & 1.17\\
+identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events & 4.02 & 1.19\\
+work with others in a group or team & 4.00 & 1.28\\
+repeating the same physical or mental activities over and over, without stopping & 3.97 & 0.92\\
+running, maneuvering, navigating, or driving vehicles or mechanized equipment & 3.97 & 1.57\\
+standing & 3.96 & 1.34\\
+estimating sizes, distances, and quantities; or determining time, costs, resources, or materials & 3.89 & 1.24\\
 \bottomrule
 \end{longtable}
 
@@ -29,27 +29,27 @@ item55 & 3.96 & standing\\
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Bottom 10 work characteristics.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item53 & 1.42 & making repetitive motions\\
-item52 & 1.42 & kneeling, crouching, stooping or crawling\\
-item100 & 1.42 & providing personal assistance, medical attention, emotional support, or other personal care to others such as coworkers, customers, or patients?\\
-item37 & 1.41 & exposure to minor burns, cuts, bites, or stings\\
-item31 & 1.38 & working in cramped work spaces\\
-item62 & 1.32 & contact with others (face-to-face, by telephone, or otherwise)\\
-item51 & 1.24 & keeping or regaining your balance\\
-item39 & 1.19 & exposure to whole body vibration\\
-item43 & 1.19 & working indoors in environmentally controlled conditions\\
-item40 & 1.16 & working in extremely bright or inadequate lighting conditions\\
+kneeling, crouching, stooping or crawling & 1.42 & 0.92\\
+making repetitive motions & 1.42 & 0.89\\
+providing personal assistance, medical attention, emotional support, or other personal care to others such as coworkers, customers, or patients? & 1.42 & 0.96\\
+exposure to minor burns, cuts, bites, or stings & 1.41 & 0.95\\
+working in cramped work spaces & 1.38 & 0.58\\
+contact with others (face-to-face, by telephone, or otherwise) & 1.32 & 0.92\\
+keeping or regaining your balance & 1.24 & 0.71\\
+exposure to whole body vibration & 1.19 & 0.71\\
+working indoors in environmentally controlled conditions & 1.19 & 0.72\\
+working in extremely bright or inadequate lighting conditions & 1.16 & 0.61\\
 \bottomrule
 \end{longtable}
 
@@ -58,27 +58,27 @@ item40 & 1.16 & working in extremely bright or inadequate lighting conditions\\
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Top 10 work resources.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item184 & 23.68 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
-item167 & 21.06 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
-item138 & 18.10 & kneeling, crouching, stooping or crawling\\
-item146 & 17.27 & wearing common protective or safety equipment\\
-item191 & 14.52 & developing constructive and cooperative working relationships with others, and maintaining them over time\\
-item171 & 14.49 & developing specific goals and plans to prioritize, organize, and accomplish your work\\
-item172 & 14.48 & compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data\\
-item192 & 14.47 & providing guidance and direction to subordinates\\
-item176 & 14.41 & using either control mechanisms or direct physical activity to operate machines or processes\\
-item190 & 14.39 & encouraging and building mutual trust, respect, and cooperation among team members\\
+working in very hot wor very cold temperatures & 5.00 & 0.00\\
+developing constructive and cooperative working relationships with others, and maintaining them over time & 4.52 & 0.74\\
+developing specific goals and plans to prioritize, organize, and accomplish your work & 4.49 & 0.74\\
+compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data & 4.48 & 0.70\\
+providing guidance and direction to subordinates & 4.47 & 0.81\\
+using either control mechanisms or direct physical activity to operate machines or processes & 4.41 & 0.88\\
+encouraging and building mutual trust, respect, and cooperation among team members & 4.39 & 0.79\\
+repeating the same physical or mental activities over and over, without stopping & 4.34 & 0.91\\
+using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards & 4.30 & 0.88\\
+analyzing information and evaluating results to choose the best solution and solve problems & 4.22 & 0.87\\
 \bottomrule
 \end{longtable}
 
@@ -87,27 +87,27 @@ item190 & 14.39 & encouraging and building mutual trust, respect, and cooperatio
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Bottom 10 work resources.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item122 & 8.08 & compete or to be aware of competitive pressures\\
-item144 & 8.04 & attention check\\
-item141 & 8.01 & standing\\
-item142 & 7.99 & using your hands to handle, control, or feel objects, tools or controls\\
-item140 & 7.88 & sitting\\
-item139 & 7.58 & making repetitive motions\\
-item137 & 7.51 & keeping or regaining your balance\\
-item136 & 7.05 & bending or twisting your body\\
-item127 & 6.69 & working in cramped work spaces\\
-item145 & 5.00 & working in very hot wor very cold temperatures\\
+working in an open vehicle or equipment & 2.88 & 1.22\\
+sitting & 2.88 & 1.22\\
+working outdoors, under cover & 2.84 & 1.30\\
+use electronic mail & 2.84 & 1.36\\
+working outdoors & 2.78 & 1.24\\
+making repetitive motions & 2.58 & 1.20\\
+keeping or regaining your balance & 2.51 & 1.22\\
+working in a closed vehicle or equipment & 2.34 & 1.22\\
+wearing common protective or safety equipment & 2.27 & 1.34\\
+bending or twisting your body & 2.05 & 1.25\\
 \bottomrule
 \end{longtable}
 
@@ -116,27 +116,27 @@ item145 & 5.00 & working in very hot wor very cold temperatures\\
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Top 10 work hindrances.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item269 & 22.52 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
-item252 & 19.10 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
-item230 & 18.59 & wearing common protective or safety equipment\\
-item223 & 17.79 & kneeling, crouching, stooping or crawling\\
-item236 & 13.37 & use electronic mail\\
-item213 & 13.35 & working in a closed vehicle or equipment\\
-item218 & 13.05 & working outdoors, under cover\\
-item217 & 12.91 & working outdoors\\
-item239 & 12.83 & written letters and memos\\
-item219 & 12.80 & close physical proximity to other people\\
+wearing specialized protective or safety equipment & 5.00 & 0.00\\
+have face-to-face discussions with individuals or teams & 4.35 & 1.25\\
+getting members of a group to work together to accomplish tasks & 4.17 & 1.14\\
+coordinate or lead others & 4.04 & 1.17\\
+identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events & 4.02 & 1.19\\
+work with others in a group or team & 4.00 & 1.28\\
+repeating the same physical or mental activities over and over, without stopping & 3.97 & 0.92\\
+running, maneuvering, navigating, or driving vehicles or mechanized equipment & 3.97 & 1.57\\
+standing & 3.96 & 1.34\\
+estimating sizes, distances, and quantities; or determining time, costs, resources, or materials & 3.89 & 1.24\\
 \bottomrule
 \end{longtable}
 
@@ -145,27 +145,27 @@ item219 & 12.80 & close physical proximity to other people\\
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Bottom 10 work hindrances.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item205 & 7.43 & being very exact or highly accurate\\
-item242 & 7.39 & responsibility for the health and safety of others\\
-item245 & 7.33 & estimating sizes, distances, and quantities; or determining time, costs, resources, or materials\\
-item228 & 7.27 & walking and running\\
-item206 & 7.21 & repeating the same physical or mental activities over and over, without stopping\\
-item233 & 7.16 & coordinate or lead others\\
-item231 & 7.07 & wearing specialized protective or safety equipment\\
-item232 & 6.97 & contact with others (face-to-face, by telephone, or otherwise)\\
-item212 & 5.69 & working in cramped work spaces\\
-item248 & 2.00 & identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events\\
+kneeling, crouching, stooping or crawling & 1.42 & 0.92\\
+making repetitive motions & 1.42 & 0.89\\
+providing personal assistance, medical attention, emotional support, or other personal care to others such as coworkers, customers, or patients? & 1.42 & 0.96\\
+exposure to minor burns, cuts, bites, or stings & 1.41 & 0.95\\
+working in cramped work spaces & 1.38 & 0.58\\
+contact with others (face-to-face, by telephone, or otherwise) & 1.32 & 0.92\\
+keeping or regaining your balance & 1.24 & 0.71\\
+exposure to whole body vibration & 1.19 & 0.71\\
+working indoors in environmentally controlled conditions & 1.19 & 0.72\\
+working in extremely bright or inadequate lighting conditions & 1.16 & 0.61\\
 \bottomrule
 \end{longtable}
 
@@ -174,27 +174,27 @@ item248 & 2.00 & identifying information by categorizing, estimating, recognizin
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Top 10 work challenges.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item354 & 23.68 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
-item337 & 21.11 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
-item309 & 18.25 & kneeling, crouching, stooping or crawling\\
-item316 & 17.44 & wearing common protective or safety equipment\\
-item346 & 14.48 & using either control mechanisms or direct physical activity to operate machines or processes\\
-item341 & 14.47 & developing specific goals and plans to prioritize, organize, and accomplish your work\\
-item361 & 14.44 & developing constructive and cooperative working relationships with others, and maintaining them over time\\
-item362 & 14.43 & providing guidance and direction to subordinates\\
-item342 & 14.41 & compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data\\
-item338 & 14.32 & using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards\\
+using either control mechanisms or direct physical activity to operate machines or processes & 4.48 & 0.81\\
+developing specific goals and plans to prioritize, organize, and accomplish your work & 4.47 & 0.79\\
+developing constructive and cooperative working relationships with others, and maintaining them over time & 4.44 & 0.81\\
+providing guidance and direction to subordinates & 4.43 & 0.79\\
+compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data & 4.41 & 0.86\\
+repeating the same physical or mental activities over and over, without stopping & 4.40 & 0.83\\
+using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards & 4.32 & 0.85\\
+encouraging and building mutual trust, respect, and cooperation among team members & 4.30 & 0.87\\
+responsible for work outcomes and results of other workers & 4.28 & 0.95\\
+work with external customers or the public & 4.24 & 0.96\\
 \bottomrule
 \end{longtable}
 
@@ -203,27 +203,27 @@ item338 & 14.32 & using relevant information and individual judgment to determin
  
 \begin{lltable}
 
-\begin{longtable}{m{1cm}m{1cm}m{14cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\begin{longtable}{m{14cm}m{1cm}m{1cm}}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
 \caption{\label{tab:rankings}Bottom 10 work challenges.}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endfirsthead
 \caption*{\normalfont{Table \ref{tab:rankings} continued}}\\
 \toprule
- & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
+description & \multicolumn{1}{c}{mean} & \multicolumn{1}{c}{sd}\\
 \midrule
 \endhead
-item295 & 7.99 & meeting strict deadlines\\
-item315 & 7.93 & working in very hot wor very cold temperatures\\
-item311 & 7.87 & sitting\\
-item313 & 7.75 & using your hands to handle, control, or feel objects, tools or controls\\
-item310 & 7.57 & making repetitive motions\\
-item307 & 7.55 & attention check\\
-item312 & 7.52 & standing\\
-item306 & 7.29 & bending or twisting your body\\
-item297 & 6.50 & working in cramped work spaces\\
-item308 & 3.00 & keeping or regaining your balance\\
+working in an open vehicle or equipment & 2.88 & 1.20\\
+sitting & 2.87 & 1.30\\
+working outdoors & 2.78 & 1.24\\
+using your hands to handle, control, or feel objects, tools or controls & 2.75 & 1.16\\
+working in a closed vehicle or equipment & 2.68 & 1.31\\
+making repetitive motions & 2.57 & 1.29\\
+attention check & 2.55 & 1.24\\
+standing & 2.52 & 1.19\\
+wearing common protective or safety equipment & 2.44 & 1.31\\
+bending or twisting your body & 2.29 & 1.34\\
 \bottomrule
 \end{longtable}
 
