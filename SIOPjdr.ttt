@@ -11,16 +11,16 @@
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item117 & 78.00 & decision making freedom, without supervision\\
-item116 & 77.33 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
-item115 & 76.67 & recruiting, interviewing, selecting, hiring, and promoting employees\\
-item114 & 76.00 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
-item113 & 75.33 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
-item112 & 74.67 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
-item111 & 74.00 & performing for people or dealing directly with the public\\
-item110 & 73.33 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
-item109 & 72.67 & monitoring and controlling resources and overseeing the spending of money\\
-item108 & 72.00 & translating or explaining what information means and how it can be used\\
+item82 & 9.97 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
+item61 & 4.97 & wearing specialized protective or safety equipment\\
+item68 & 4.33 & have face-to-face discussions with individuals or teams\\
+item104 & 4.15 & getting members of a group to work together to accomplish tasks\\
+item63 & 4.05 & coordinate or lead others\\
+item75 & 4.02 & work with others in a group or team\\
+item25 & 3.97 & repeating the same physical or mental activities over and over, without stopping\\
+item96 & 3.97 & running, maneuvering, navigating, or driving vehicles or mechanized equipment\\
+item55 & 3.97 & standing\\
+item78 & 3.94 & identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events\\
 \bottomrule
 \end{longtable}
 
@@ -40,16 +40,16 @@ item108 & 72.00 & translating or explaining what information means and how it ca
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item31 & 20.67 & working in cramped work spaces\\
-item30 & 20.00 & regular work schedules\\
-item29 & 19.33 & meeting strict deadlines\\
-item28 & 18.67 & pace is determined by the speed of equipment or machinery\\
-item27 & 18.00 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
-item26 & 17.33 & compete or to be aware of competitive pressures\\
-item25 & 16.67 & repeating the same physical or mental activities over and over, without stopping\\
-item24 & 16.00 & being very exact or highly accurate\\
-item23 & 15.33 & decisions impact on other people or the image or reputation or financial resources of your employer\\
-item22 & 14.67 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
+item37 & 1.45 & exposure to minor burns, cuts, bites, or stings\\
+item52 & 1.44 & kneeling, crouching, stooping or crawling\\
+item100 & 1.44 & providing personal assistance, medical attention, emotional support, or other personal care to others such as coworkers, customers, or patients?\\
+item53 & 1.43 & making repetitive motions\\
+item31 & 1.37 & working in cramped work spaces\\
+item62 & 1.37 & contact with others (face-to-face, by telephone, or otherwise)\\
+item51 & 1.26 & keeping or regaining your balance\\
+item39 & 1.24 & exposure to whole body vibration\\
+item43 & 1.21 & working indoors in environmentally controlled conditions\\
+item40 & 1.20 & working in extremely bright or inadequate lighting conditions\\
 \bottomrule
 \end{longtable}
 
@@ -69,16 +69,16 @@ item22 & 14.67 & decisions that affect other people, the financial resources, an
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item202 & 134.67 & decision making freedom, without supervision\\
-item201 & 134.00 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
-item200 & 133.33 & recruiting, interviewing, selecting, hiring, and promoting employees\\
-item199 & 132.67 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
-item198 & 132.00 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
-item197 & 131.33 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
-item196 & 130.67 & performing for people or dealing directly with the public\\
-item195 & 130.00 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
-item194 & 129.33 & monitoring and controlling resources and overseeing the spending of money\\
-item193 & 128.67 & translating or explaining what information means and how it can be used\\
+item184 & 23.64 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
+item167 & 21.01 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
+item138 & 18.16 & kneeling, crouching, stooping or crawling\\
+item146 & 17.39 & wearing common protective or safety equipment\\
+item191 & 14.49 & developing constructive and cooperative working relationships with others, and maintaining them over time\\
+item171 & 14.44 & developing specific goals and plans to prioritize, organize, and accomplish your work\\
+item172 & 14.44 & compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data\\
+item192 & 14.41 & providing guidance and direction to subordinates\\
+item190 & 14.38 & encouraging and building mutual trust, respect, and cooperation among team members\\
+item176 & 14.34 & using either control mechanisms or direct physical activity to operate machines or processes\\
 \bottomrule
 \end{longtable}
 
@@ -98,16 +98,16 @@ item193 & 128.67 & translating or explaining what information means and how it c
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item127 & 84.67 & working in cramped work spaces\\
-item126 & 84.00 & regular work schedules\\
-item125 & 83.33 & meeting strict deadlines\\
-item124 & 82.67 & pace is determined by the speed of equipment or machinery\\
-item123 & 82.00 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
-item122 & 81.33 & compete or to be aware of competitive pressures\\
-item121 & 80.67 & repeating the same physical or mental activities over and over, without stopping\\
-item120 & 80.00 & being very exact or highly accurate\\
-item119 & 79.33 & decisions impact on other people or the image or reputation or financial resources of your employer\\
-item118 & 78.67 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
+item125 & 8.14 & meeting strict deadlines\\
+item144 & 8.08 & attention check\\
+item141 & 8.06 & standing\\
+item142 & 8.03 & using your hands to handle, control, or feel objects, tools or controls\\
+item140 & 7.93 & sitting\\
+item139 & 7.61 & making repetitive motions\\
+item137 & 7.55 & keeping or regaining your balance\\
+item136 & 7.17 & bending or twisting your body\\
+item127 & 6.72 & working in cramped work spaces\\
+item145 & 4.82 & working in very hot wor very cold temperatures\\
 \bottomrule
 \end{longtable}
 
@@ -127,16 +127,16 @@ item118 & 78.67 & decisions that affect other people, the financial resources, a
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item287 & 191.33 & decision making freedom, without supervision\\
-item286 & 190.67 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
-item285 & 190.00 & recruiting, interviewing, selecting, hiring, and promoting employees\\
-item284 & 189.33 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
-item283 & 188.67 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
-item282 & 188.00 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
-item281 & 187.33 & performing for people or dealing directly with the public\\
-item280 & 186.67 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
-item279 & 186.00 & monitoring and controlling resources and overseeing the spending of money\\
-item278 & 185.33 & translating or explaining what information means and how it can be used\\
+item269 & 22.63 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
+item252 & 19.16 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
+item230 & 18.59 & wearing common protective or safety equipment\\
+item223 & 17.82 & kneeling, crouching, stooping or crawling\\
+item236 & 13.35 & use electronic mail\\
+item213 & 13.35 & working in a closed vehicle or equipment\\
+item218 & 13.02 & working outdoors, under cover\\
+item217 & 12.90 & working outdoors\\
+item239 & 12.87 & written letters and memos\\
+item219 & 12.80 & close physical proximity to other people\\
 \bottomrule
 \end{longtable}
 
@@ -156,16 +156,16 @@ item278 & 185.33 & translating or explaining what information means and how it c
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item212 & 141.33 & working in cramped work spaces\\
-item211 & 140.67 & regular work schedules\\
-item210 & 140.00 & meeting strict deadlines\\
-item209 & 139.33 & pace is determined by the speed of equipment or machinery\\
-item208 & 138.67 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
-item207 & 138.00 & compete or to be aware of competitive pressures\\
-item206 & 137.33 & repeating the same physical or mental activities over and over, without stopping\\
-item205 & 136.67 & being very exact or highly accurate\\
-item204 & 136.00 & decisions impact on other people or the image or reputation or financial resources of your employer\\
-item203 & 135.33 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
+item205 & 7.49 & being very exact or highly accurate\\
+item242 & 7.48 & responsibility for the health and safety of others\\
+item245 & 7.40 & estimating sizes, distances, and quantities; or determining time, costs, resources, or materials\\
+item228 & 7.35 & walking and running\\
+item206 & 7.32 & repeating the same physical or mental activities over and over, without stopping\\
+item232 & 7.27 & contact with others (face-to-face, by telephone, or otherwise)\\
+item233 & 7.23 & coordinate or lead others\\
+item231 & 7.20 & wearing specialized protective or safety equipment\\
+item212 & 5.75 & working in cramped work spaces\\
+item248 & 2.12 & identifying information by categorizing, estimating, recognizing differences or similarities, and detecting changes in circumstances or events\\
 \bottomrule
 \end{longtable}
 
@@ -185,16 +185,16 @@ item203 & 135.33 & decisions that affect other people, the financial resources, 
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item372 & 248.00 & How often have you felt worn out because of your job?\\
-item371 & 247.33 & identifying the educational needs of others, developing formal educational or training programs or classes, and teaching or instructing others\\
-item370 & 246.67 & recruiting, interviewing, selecting, hiring, and promoting employees\\
-item369 & 246.00 & convincing others to buy merchandise/goods or to otherwise change their minds or actions\\
-item368 & 245.33 & handling complaints, settling disputes, and resolving grievances and conflicts, or otherwise negotiating with others\\
-item367 & 244.67 & providing guidance and expert advice to management or other groups on technical, systems-, or process-related topics\\
-item366 & 244.00 & performing for people or dealing directly with the public\\
-item365 & 243.33 & performing day-to-day administrative tasks such as maintaining information files and processing paperwork\\
-item364 & 242.67 & monitoring and controlling resources and overseeing the spending of money\\
-item363 & 242.00 & translating or explaining what information means and how it can be used\\
+item354 & 23.63 & servicing, repairing, adjusting, and testing machines, devices, moving parts, and equipment that operate primarily on the basis of mechanical (not electronic) principles\\
+item337 & 21.10 & establishing long-range objectives and specifying the strategies and actions to achieve them\\
+item309 & 18.29 & kneeling, crouching, stooping or crawling\\
+item316 & 17.50 & wearing common protective or safety equipment\\
+item346 & 14.42 & using either control mechanisms or direct physical activity to operate machines or processes\\
+item361 & 14.41 & developing constructive and cooperative working relationships with others, and maintaining them over time\\
+item341 & 14.41 & developing specific goals and plans to prioritize, organize, and accomplish your work\\
+item342 & 14.38 & compiling, coding, categorizing, calculating, tabulating, auditing, or verifying information or data\\
+item362 & 14.38 & providing guidance and direction to subordinates\\
+item338 & 14.26 & using relevant information and individual judgment to determine whether events or processes comply with laws, regulations, or standards\\
 \bottomrule
 \end{longtable}
 
@@ -214,16 +214,16 @@ item363 & 242.00 & translating or explaining what information means and how it c
  & \multicolumn{1}{c}{tot} & \multicolumn{1}{c}{label}\\
 \midrule
 \endhead
-item297 & 198.00 & working in cramped work spaces\\
-item296 & 197.33 & regular work schedules\\
-item295 & 196.67 & meeting strict deadlines\\
-item294 & 196.00 & pace is determined by the speed of equipment or machinery\\
-item293 & 195.33 & job structured for you, rather than allowing you to determine tasks, priorities, and goals\\
-item292 & 194.67 & compete or to be aware of competitive pressures\\
-item291 & 194.00 & repeating the same physical or mental activities over and over, without stopping\\
-item290 & 193.33 & being very exact or highly accurate\\
-item289 & 192.67 & decisions impact on other people or the image or reputation or financial resources of your employer\\
-item288 & 192.00 & decisions that affect other people, the financial resources, and/or the image and reputation of the organization\\
+item295 & 8.00 & meeting strict deadlines\\
+item315 & 7.95 & working in very hot wor very cold temperatures\\
+item311 & 7.93 & sitting\\
+item313 & 7.78 & using your hands to handle, control, or feel objects, tools or controls\\
+item310 & 7.63 & making repetitive motions\\
+item312 & 7.58 & standing\\
+item307 & 7.58 & attention check\\
+item306 & 7.38 & bending or twisting your body\\
+item297 & 6.52 & working in cramped work spaces\\
+item308 & 3.03 & keeping or regaining your balance\\
 \bottomrule
 \end{longtable}
 
@@ -247,15 +247,15 @@ item288 & 192.00 & decisions that affect other people, the financial resources, 
  & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
 \midrule
 \endhead
-1. engage & - &  &  &  &  &  &  &  & 234.22 & 101.27\\
-2. absorption & 1.00*** & - &  &  &  &  &  &  & 255.33 & 110.56\\
-3. vigor & 1.00*** & 1.00*** & - &  &  &  &  &  & 174.83 & 75.20\\
-4. dedication & 1.00*** & 1.00*** & 1.00*** & - &  &  &  &  & 264.00 & 114.32\\
-5. cognitive & 1.00*** & 1.00*** & 1.00*** & 1.00*** & - &  &  &  & 194.71 & 83.93\\
-6. affective & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & - &  &  & 259.89 & 112.54\\
-7. behavioral & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & - &  & 261.22 & 113.11\\
-8. burnout & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & - & 249.67 & 108.11\\
-9. stress & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 1.00*** & 252.00 & 109.12\\
+1. engage & - &  &  &  &  &  &  &  & 4.05 & 0.83\\
+2. absorption & .85*** & - &  &  &  &  &  &  & 3.81 & 0.80\\
+3. vigor & .87*** & .66*** & - &  &  &  &  &  & 4.10 & 0.89\\
+4. dedication & .91*** & .63*** & .68*** & - &  &  &  &  & 4.26 & 1.14\\
+5. cognitive & .94*** & .77*** & .78*** & .89*** & - &  &  &  & 3.96 & 0.87\\
+6. affective & .94*** & .79*** & .83*** & .85*** & .83*** & - &  &  & 3.97 & 1.06\\
+7. behavioral & .87*** & .79*** & .78*** & .74*** & .70*** & .75*** & - &  & 4.27 & 0.80\\
+8. burnout & -.37*** & -.22*** & -.43*** & -.32*** & -.38*** & -.38*** & -.23*** & - & 3.06 & 0.89\\
+9. stress & -.33*** & -.16*** & -.42*** & -.29*** & -.32*** & -.34*** & -.22*** & .71*** & 2.62 & 0.99\\
 \bottomrule
 \addlinespace
 \insertTableNotes

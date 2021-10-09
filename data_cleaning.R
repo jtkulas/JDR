@@ -45,17 +45,29 @@ use2$careless_long <- longstring(use2[18:399])
 hist(use2$careless_long)
 descr::freq(use2$careless_long)
 
+
 ## STILL NEED FILE WITH BAD RESPONDENTS IDENTIFIED (E.G., Item_18=2, na > 200, longstring > 20, CARELESS CHECKS > 1)
 
 
+invalid <- use2[ which(use2$item18 == 2), ]
+careless <- use2[which(use2$careless_long > 20), ]
+nas <- use2[which(use2$missing > 200), ]
 
-valid <- data[ which(data$item18 != 2), ]
+invalid$reason <- "Did not accept invite"
+careless$reason <- "Longstring over 20"
+nas$reason <- "More than 200 NAs"
 
+prolific_no <- as.data.frame(rbind(invalid, careless, nas))
 
+different <- use2[ which(use2$item18 == 2 | use2$careless_long > 20 | use2$missing > 200), ]
+write.csv(different[,c(1:2,405:406)], "ProlificFlagged.csv")
+## Attention checks: 61 == 5; 145 == 5; 248 == 2; 308 == 3
 
+attention <- use2[which(use2$item61 == 5 & use2$item145 == 5 & use2$item248 == 2 & use2$item308 == 3), ]
+write.csv(attention[,c(1:2,405:406)], "ProlificPassed.csv")
 # invalid <- data[ which(data$item18 == 2), ]
 # write.csv(invalid, "dont_accepts.csv")
-
+write.csv(invalid[,c(1:2, 405:406)], "ProlificRefused.csv")
 
 
 
