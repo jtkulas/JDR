@@ -161,11 +161,43 @@ numvalid <- nrow(data)
 
 ```
 
+```{r demos}
+
+a <- descr::freq(use$item401, plot=FALSE)
+
+use$item402[use$item402 == "Female " | use$item402 == "female" | use$item402 == "FEMALE" | use$item402 == "Woman" | use$item402 == "Mujer" | use$item402 == "feminine" | use$item402 == "fEMALE" | use$item402 == "F" | use$item402 == "Femenale" | use$item402 == "feminino" | use$item402 == "female " | use$item402 == "Fem" | use$item402 == "Feminine" | use$item402 == "feminine" | use$item402 == "WOMAN" | use$item402 == "Femal" | use$item402 == "femenine" | use$item402 == "Femenine" | use$item402 == "femenino" | use$item402 == "woman"]  <- "Female"
+
+use$item402[use$item402 == "gerente" | use$item402 == "M" | use$item402 == "Make" | use$item402 == "Mal" | use$item402 == "male" | use$item402 == "MALE" | use$item402 == "male" | use$item402 == "Male" | use$item402 == "mals" | use$item402 == "man" | use$item402 == "masculine" | use$item402 == "Masculine" | use$item402 == "Man" | use$item402 == "mals " | use$item402 == "male " | use$item402 == "Male "]  <- "Male"
+
+b <- descr::freq(use$item402, plot=FALSE)
+
+##Job title
+library(labourR)
+
+
+#ESCO/ISCO classification using the labourR package
+#ISCO = International Standard Classification of Occupations
+
+attention$id <- 1:nrow(attention) #adds unique identifier to satisfy inane requirement of classify_occupation()
+
+ISCO <- classify_occupation(attention, text_col = 'item400', isco_level = 1) 
+
+m3 <-merge(attention, ISCO, by.x = "id", by.y = "id", all.x = TRUE)
+
+c <- descr::freq(m3$preferredLabel, plot=FALSE)
+
+knowledge <- data[ which(m3$iscoGroup == "1" | m3$iscoGroup == "2" | m3$iscoGroup == "5"), ]
+service <- data[ which(m3$iscoGroup == "3" | m3$iscoGroup == "4" | m3$iscoGroup == "6" | m3$iscoGroup == "7" | m3$iscoGroup == "8" | m3$iscoGroup == "9"), ]
+
+
+
+```
+
 ## Participants
 
-Of the `r nrow(use)` Prolific panel individuals who initially accessed the survey link, `r nrow(different)` indicated that they were not interested, had more than 200 missing responses, or had 20 or more identical consecutive sequential responses [@R-careless]. Applying a further screen regarding attention checks (there were four attention checks embedded throughout, asking respondents to indicate a specific answer) resulted in the retention of `r nrow(data)` respondents who constitute the current SIOP sample. 
+Of the `r nrow(use)` Prolific panel individuals who initially accessed the survey link, `r nrow(different)` indicated that they were not interested, had more than 200 missing responses, or had 20 or more identical consecutive sequential responses [@R-careless]. Applying a further screen regarding attention checks (there were four attention checks embedded throughout, asking respondents to indicate a specific answer) resulted in the retention of `r nrow(data)` respondents who constitute the current SIOP sample. `r round(a[1,3],2)`% had been in their referent job less than 6 months, `r round(a[2,3],1)`% between 6 months and a year, `r round(a[3,3],2)`% between one and five years, `r round(a[4,3],2)`% between 5 and 10 years, and `r round(a[5,3],2)`% more than 10 years. The average age was `r round(mean(data[,403], na.rm=TRUE),2)` years (SD = `r round(sd(data[,403], na.rm=TRUE),2)`). The survey offered a free-field gender identity category, although the sample predominantly self-identified as female (`r round(b[2,3],2)`%) or male (`r round(b[5,3],2)`%). Jobs were classified into the International Standard Classification of Occupations via the package labourR [@R-labourR]. We further grossly categorized these classifications into "knowledge" (*n* = `r nrow(knowledge)`) versus "service" (*n* = `r nrow(service)`) occupations.
 
-```{r recodes}
+```{r generalrecodes}
 ## Qualtrics data all messed up
 
 data$item82[data$item82 == 8]  <- 1
@@ -1696,9 +1728,3067 @@ write.csv(psych::describe(data[18:372]), "checkingrecodes.csv")
 
 ```
 
+```{r servicerecodes}
+## Qualtrics data all messed up
+
+service$item82[service$item82 == 8]  <- 1
+service$item82[service$item82 == 9]  <- 2
+service$item82[service$item82 == 10] <- 3
+service$item82[service$item82 == 11] <- 4
+service$item82[service$item82 == 12] <- 5
+
+service$item118[service$item118 == 9]  <- 1
+service$item118[service$item118 == 10] <- 2
+service$item118[service$item118 == 11] <- 3
+service$item118[service$item118 == 12] <- 4
+service$item118[service$item118 == 13] <- 5
+
+service$item119[service$item119 == 11] <- 1
+service$item119[service$item119 == 12] <- 2
+service$item119[service$item119 == 13] <- 3
+service$item119[service$item119 == 14] <- 4
+service$item119[service$item119 == 15] <- 5
+
+service$item120[service$item120 == 6]  <- 1
+service$item120[service$item120 == 7]  <- 2
+service$item120[service$item120 == 8]  <- 3
+service$item120[service$item120 == 9]  <- 4
+service$item120[service$item120 == 10] <- 5
+
+service$item121[service$item121 == 6]  <- 1
+service$item121[service$item121 == 7]  <- 2
+service$item121[service$item121 == 8]  <- 3
+service$item121[service$item121 == 9]  <- 4
+service$item121[service$item121 == 10] <- 5
+
+service$item122[service$item122 == 6]  <- 1
+service$item122[service$item122 == 7]  <- 2
+service$item122[service$item122 == 8]  <- 3
+service$item122[service$item122 == 9]  <- 4
+service$item122[service$item122 == 10] <- 5
+
+service$item123[service$item123 == 6]  <- 1
+service$item123[service$item123 == 7]  <- 2
+service$item123[service$item123 == 8]  <- 3
+service$item123[service$item123 == 9]  <- 4
+service$item123[service$item123 == 10] <- 5
+
+service$item124[service$item124 == 6]  <- 1
+service$item124[service$item124 == 7]  <- 2
+service$item124[service$item124 == 8]  <- 3
+service$item124[service$item124 == 9]  <- 4
+service$item124[service$item124 == 10] <- 5
+
+service$item125[service$item125 == 6]  <- 1
+service$item125[service$item125 == 7]  <- 2
+service$item125[service$item125 == 8]  <- 3
+service$item125[service$item125 == 9]  <- 4
+service$item125[service$item125 == 10] <- 5
+
+service$item126[service$item126 == 11]  <- 1
+service$item126[service$item126 == 12]  <- 2
+service$item126[service$item126 == 13]  <- 3
+service$item126[service$item126 == 14]  <- 4
+service$item126[service$item126 == 15]  <- 5
+
+service$item127[service$item127 == 4]  <- 1
+service$item127[service$item127 == 5]  <- 2
+service$item127[service$item127 == 6]  <- 3
+service$item127[service$item127 == 7]  <- 4
+service$item127[service$item127 == 8]  <- 5
+
+service$item128[service$item128 == 11]  <- 1
+service$item128[service$item128 == 12]  <- 2
+service$item128[service$item128 == 13]  <- 3
+service$item128[service$item128 == 14]  <- 4
+service$item128[service$item128 == 15]  <- 5
+
+service$item129[service$item129 == 11]  <- 1
+service$item129[service$item129 == 12]  <- 2
+service$item129[service$item129 == 13]  <- 3
+service$item129[service$item129 == 14]  <- 4
+service$item129[service$item129 == 15]  <- 5
+
+service$item130[service$item130 == 11]  <- 1
+service$item130[service$item130 == 12]  <- 2
+service$item130[service$item130 == 13]  <- 3
+service$item130[service$item130 == 14]  <- 4
+service$item130[service$item130 == 15]  <- 5
+
+service$item131[service$item131 == 11]  <- 1
+service$item131[service$item131 == 12]  <- 2
+service$item131[service$item131 == 13]  <- 3
+service$item131[service$item131 == 14]  <- 4
+service$item131[service$item131 == 15]  <- 5
+
+service$item132[service$item132 == 11]  <- 1
+service$item132[service$item132 == 12]  <- 2
+service$item132[service$item132 == 13]  <- 3
+service$item132[service$item132 == 14]  <- 4
+service$item132[service$item132 == 15]  <- 5
+
+service$item133[service$item133 == 11]  <- 1
+service$item133[service$item133 == 12]  <- 2
+service$item133[service$item133 == 13]  <- 3
+service$item133[service$item133 == 14]  <- 4
+service$item133[service$item133 == 15]  <- 5
+
+service$item134[service$item134 == 11]  <- 1
+service$item134[service$item134 == 12]  <- 2
+service$item134[service$item134 == 13]  <- 3
+service$item134[service$item134 == 14]  <- 4
+service$item134[service$item134 == 15]  <- 5
+
+service$item135[service$item135 == 6]  <- 1
+service$item135[service$item135 == 7]  <- 2
+service$item135[service$item135 == 8]  <- 3
+service$item135[service$item135 == 9]  <- 4
+service$item135[service$item135 == 10] <- 5
+
+service$item136[service$item136 == 6]  <- 1
+service$item136[service$item136 == 7]  <- 2
+service$item136[service$item136 == 8]  <- 3
+service$item136[service$item136 == 9]  <- 4
+service$item136[service$item136 == 10] <- 5
+
+service$item137[service$item137 == 6]  <- 1
+service$item137[service$item137 == 7]  <- 2
+service$item137[service$item137 == 8]  <- 3
+service$item137[service$item137 == 9]  <- 4
+service$item137[service$item137 == 10] <- 5
+
+service$item138[service$item138 == 16]  <- 1
+service$item138[service$item138 == 17]  <- 2
+service$item138[service$item138 == 18]  <- 3
+service$item138[service$item138 == 19]  <- 4
+service$item138[service$item138 == 20]  <- 5
+
+service$item139[service$item139 == 6]  <- 1
+service$item139[service$item139 == 7]  <- 2
+service$item139[service$item139 == 8]  <- 3
+service$item139[service$item139 == 9]  <- 4
+service$item139[service$item139 == 10] <- 5
+
+service$item140[service$item140 == 6]  <- 1
+service$item140[service$item140 == 7]  <- 2
+service$item140[service$item140 == 8]  <- 3
+service$item140[service$item140 == 9]  <- 4
+service$item140[service$item140 == 10] <- 5
+
+service$item141[service$item141 == 6]  <- 1
+service$item141[service$item141 == 7]  <- 2
+service$item141[service$item141 == 8]  <- 3
+service$item141[service$item141 == 9]  <- 4
+service$item141[service$item141 == 10] <- 5
+
+service$item142[service$item142 == 6]  <- 1
+service$item142[service$item142 == 7]  <- 2
+service$item142[service$item142 == 8]  <- 3
+service$item142[service$item142 == 9]  <- 4
+service$item142[service$item142 == 10] <- 5
+
+service$item143[service$item143 == 6]  <- 1
+service$item143[service$item143 == 7]  <- 2
+service$item143[service$item143 == 8]  <- 3
+service$item143[service$item143 == 9]  <- 4
+service$item143[service$item143 == 10] <- 5
+
+service$item144[service$item144 == 6]  <- 1
+service$item144[service$item144 == 7]  <- 2
+service$item144[service$item144 == 8]  <- 3
+service$item144[service$item144 == 9]  <- 4
+service$item144[service$item144 == 10] <- 5
+
+## Attention check = 145
+
+service$item146[service$item146 == 16]  <- 1
+service$item146[service$item146 == 17]  <- 2
+service$item146[service$item146 == 18]  <- 3
+service$item146[service$item146 == 19]  <- 4
+service$item146[service$item146 == 20]  <- 5
+
+service$item147[service$item147 == 6]  <- 1
+service$item147[service$item147 == 7]  <- 2
+service$item147[service$item147 == 8]  <- 3
+service$item147[service$item147 == 9]  <- 4
+service$item147[service$item147 == 10] <- 5
+
+service$item148[service$item148 == 6]  <- 1
+service$item148[service$item148 == 7]  <- 2
+service$item148[service$item148 == 8]  <- 3
+service$item148[service$item148 == 9]  <- 4
+service$item148[service$item148 == 10] <- 5
+
+service$item149[service$item149 == 6]  <- 1
+service$item149[service$item149 == 7]  <- 2
+service$item149[service$item149 == 8]  <- 3
+service$item149[service$item149 == 9]  <- 4
+service$item149[service$item149 == 10] <- 5
+
+service$item150[service$item150 == 11]  <- 1
+service$item150[service$item150 == 12]  <- 2
+service$item150[service$item150 == 13]  <- 3
+service$item150[service$item150 == 14]  <- 4
+service$item150[service$item150 == 15]  <- 5
+
+service$item151[service$item151 == 11]  <- 1
+service$item151[service$item151 == 12]  <- 2
+service$item151[service$item151 == 13]  <- 3
+service$item151[service$item151 == 14]  <- 4
+service$item151[service$item151 == 15]  <- 5
+
+service$item152[service$item152 == 11]  <- 1
+service$item152[service$item152 == 12]  <- 2
+service$item152[service$item152 == 13]  <- 3
+service$item152[service$item152 == 14]  <- 4
+service$item152[service$item152 == 15]  <- 5
+
+service$item153[service$item153 == 11]  <- 1
+service$item153[service$item153 == 12]  <- 2
+service$item153[service$item153 == 13]  <- 3
+service$item153[service$item153 == 14]  <- 4
+service$item153[service$item153 == 15]  <- 5
+
+service$item154[service$item154 == 11]  <- 1
+service$item154[service$item154 == 12]  <- 2
+service$item154[service$item154 == 13]  <- 3
+service$item154[service$item154 == 14]  <- 4
+service$item154[service$item154 == 15]  <- 5
+
+service$item155[service$item155 == 11]  <- 1
+service$item155[service$item155 == 12]  <- 2
+service$item155[service$item155 == 13]  <- 3
+service$item155[service$item155 == 14]  <- 4
+service$item155[service$item155 == 15]  <- 5
+
+service$item156[service$item156 == 11]  <- 1
+service$item156[service$item156 == 12]  <- 2
+service$item156[service$item156 == 13]  <- 3
+service$item156[service$item156 == 14]  <- 4
+service$item156[service$item156 == 15]  <- 5
+
+service$item157[service$item157 == 11]  <- 1
+service$item157[service$item157 == 12]  <- 2
+service$item157[service$item157 == 13]  <- 3
+service$item157[service$item157 == 14]  <- 4
+service$item157[service$item157 == 15]  <- 5
+
+service$item158[service$item158 == 6]  <- 1
+service$item158[service$item158 == 7]  <- 2
+service$item158[service$item158 == 8]  <- 3
+service$item158[service$item158 == 9]  <- 4
+service$item158[service$item158 == 10] <- 5
+
+service$item159[service$item159 == 11]  <- 1
+service$item159[service$item159 == 12]  <- 2
+service$item159[service$item159 == 13]  <- 3
+service$item159[service$item159 == 14]  <- 4
+service$item159[service$item159 == 15]  <- 5
+
+service$item160[service$item160 == 11]  <- 1
+service$item160[service$item160 == 12]  <- 2
+service$item160[service$item160 == 13]  <- 3
+service$item160[service$item160 == 14]  <- 4
+service$item160[service$item160 == 15]  <- 5
+
+service$item161[service$item161 == 6]  <- 1
+service$item161[service$item161 == 7]  <- 2
+service$item161[service$item161 == 8]  <- 3
+service$item161[service$item161 == 9]  <- 4
+service$item161[service$item161 == 10] <- 5
+
+service$item162[service$item162 == 11]  <- 1
+service$item162[service$item162 == 12]  <- 2
+service$item162[service$item162 == 13]  <- 3
+service$item162[service$item162 == 14]  <- 4
+service$item162[service$item162 == 15]  <- 5
+
+service$item163[service$item163 == 11]  <- 1
+service$item163[service$item163 == 12]  <- 2
+service$item163[service$item163 == 13]  <- 3
+service$item163[service$item163 == 14]  <- 4
+service$item163[service$item163 == 15]  <- 5
+
+service$item164[service$item164 == 11]  <- 1
+service$item164[service$item164 == 12]  <- 2
+service$item164[service$item164 == 13]  <- 3
+service$item164[service$item164 == 14]  <- 4
+service$item164[service$item164 == 15]  <- 5
+
+service$item165[service$item165 == 11]  <- 1
+service$item165[service$item165 == 12]  <- 2
+service$item165[service$item165 == 13]  <- 3
+service$item165[service$item165 == 14]  <- 4
+service$item165[service$item165 == 15]  <- 5
+
+service$item166[service$item166 == 11]  <- 1
+service$item166[service$item166 == 12]  <- 2
+service$item166[service$item166 == 13]  <- 3
+service$item166[service$item166 == 14]  <- 4
+service$item166[service$item166 == 15]  <- 5
+
+service$item167[service$item167 == 18]  <- 1
+service$item167[service$item167 == 19]  <- 2
+service$item167[service$item167 == 20]  <- 3
+service$item167[service$item167 == 21]  <- 4
+service$item167[service$item167 == 22]  <- 5
+
+service$item168[service$item168 == 11]  <- 1
+service$item168[service$item168 == 12]  <- 2
+service$item168[service$item168 == 13]  <- 3
+service$item168[service$item168 == 14]  <- 4
+service$item168[service$item168 == 15]  <- 5
+
+service$item169[service$item169 == 11]  <- 1
+service$item169[service$item169 == 12]  <- 2
+service$item169[service$item169 == 13]  <- 3
+service$item169[service$item169 == 14]  <- 4
+service$item169[service$item169 == 15]  <- 5
+
+service$item170[service$item170 == 11]  <- 1
+service$item170[service$item170 == 12]  <- 2
+service$item170[service$item170 == 13]  <- 3
+service$item170[service$item170 == 14]  <- 4
+service$item170[service$item170 == 15]  <- 5
+
+service$item171[service$item171 == 11]  <- 1
+service$item171[service$item171 == 12]  <- 2
+service$item171[service$item171 == 13]  <- 3
+service$item171[service$item171 == 14]  <- 4
+service$item171[service$item171 == 15]  <- 5
+
+service$item172[service$item172 == 11]  <- 1
+service$item172[service$item172 == 12]  <- 2
+service$item172[service$item172 == 13]  <- 3
+service$item172[service$item172 == 14]  <- 4
+service$item172[service$item172 == 15]  <- 5
+
+service$item173[service$item173 == 11]  <- 1
+service$item173[service$item173 == 12]  <- 2
+service$item173[service$item173 == 13]  <- 3
+service$item173[service$item173 == 14]  <- 4
+service$item173[service$item173 == 15]  <- 5
+
+service$item174[service$item174 == 11]  <- 1
+service$item174[service$item174 == 12]  <- 2
+service$item174[service$item174 == 13]  <- 3
+service$item174[service$item174 == 14]  <- 4
+service$item174[service$item174 == 15]  <- 5
+
+service$item175[service$item175 == 11]  <- 1
+service$item175[service$item175 == 12]  <- 2
+service$item175[service$item175 == 13]  <- 3
+service$item175[service$item175 == 14]  <- 4
+service$item175[service$item175 == 15]  <- 5
+
+service$item176[service$item176 == 11]  <- 1
+service$item176[service$item176 == 12]  <- 2
+service$item176[service$item176 == 13]  <- 3
+service$item176[service$item176 == 14]  <- 4
+service$item176[service$item176 == 15]  <- 5
+
+service$item177[service$item177 == 11]  <- 1
+service$item177[service$item177 == 12]  <- 2
+service$item177[service$item177 == 13]  <- 3
+service$item177[service$item177 == 14]  <- 4
+service$item177[service$item177 == 15]  <- 5
+
+service$item178[service$item178 == 11]  <- 1
+service$item178[service$item178 == 12]  <- 2
+service$item178[service$item178 == 13]  <- 3
+service$item178[service$item178 == 14]  <- 4
+service$item178[service$item178 == 15]  <- 5
+
+service$item179[service$item179 == 11]  <- 1
+service$item179[service$item179 == 12]  <- 2
+service$item179[service$item179 == 13]  <- 3
+service$item179[service$item179 == 14]  <- 4
+service$item179[service$item179 == 15]  <- 5
+
+service$item180[service$item180 == 11]  <- 1
+service$item180[service$item180 == 12]  <- 2
+service$item180[service$item180 == 13]  <- 3
+service$item180[service$item180 == 14]  <- 4
+service$item180[service$item180 == 15]  <- 5
+
+service$item181[service$item181 == 11]  <- 1
+service$item181[service$item181 == 12]  <- 2
+service$item181[service$item181 == 13]  <- 3
+service$item181[service$item181 == 14]  <- 4
+service$item181[service$item181 == 15]  <- 5
+
+service$item182[service$item182 == 11]  <- 1
+service$item182[service$item182 == 12]  <- 2
+service$item182[service$item182 == 13]  <- 3
+service$item182[service$item182 == 14]  <- 4
+service$item182[service$item182 == 15]  <- 5
+
+service$item183[service$item183 == 11]  <- 1
+service$item183[service$item183 == 12]  <- 2
+service$item183[service$item183 == 13]  <- 3
+service$item183[service$item183 == 14]  <- 4
+service$item183[service$item183 == 15]  <- 5
+
+service$item184[service$item184 == 21]  <- 1
+service$item184[service$item184 == 22]  <- 2
+service$item184[service$item184 == 23]  <- 3
+service$item184[service$item184 == 24]  <- 4
+service$item184[service$item184 == 25]  <- 5
+
+service$item185[service$item185 == 11]  <- 1
+service$item185[service$item185 == 12]  <- 2
+service$item185[service$item185 == 13]  <- 3
+service$item185[service$item185 == 14]  <- 4
+service$item185[service$item185 == 15]  <- 5
+
+service$item186[service$item186 == 11]  <- 1
+service$item186[service$item186 == 12]  <- 2
+service$item186[service$item186 == 13]  <- 3
+service$item186[service$item186 == 14]  <- 4
+service$item186[service$item186 == 15]  <- 5
+
+service$item187[service$item187 == 11]  <- 1
+service$item187[service$item187 == 12]  <- 2
+service$item187[service$item187 == 13]  <- 3
+service$item187[service$item187 == 14]  <- 4
+service$item187[service$item187 == 15]  <- 5
+
+service$item188[service$item188 == 11]  <- 1
+service$item188[service$item188 == 12]  <- 2
+service$item188[service$item188 == 13]  <- 3
+service$item188[service$item188 == 14]  <- 4
+service$item188[service$item188 == 15]  <- 5
+
+service$item189[service$item189 == 11]  <- 1
+service$item189[service$item189 == 12]  <- 2
+service$item189[service$item189 == 13]  <- 3
+service$item189[service$item189 == 14]  <- 4
+service$item189[service$item189 == 15]  <- 5
+
+service$item190[service$item190 == 11]  <- 1
+service$item190[service$item190 == 12]  <- 2
+service$item190[service$item190 == 13]  <- 3
+service$item190[service$item190 == 14]  <- 4
+service$item190[service$item190 == 15]  <- 5
+
+service$item191[service$item191 == 11]  <- 1
+service$item191[service$item191 == 12]  <- 2
+service$item191[service$item191 == 13]  <- 3
+service$item191[service$item191 == 14]  <- 4
+service$item191[service$item191 == 15]  <- 5
+
+service$item192[service$item192 == 11]  <- 1
+service$item192[service$item192 == 12]  <- 2
+service$item192[service$item192 == 13]  <- 3
+service$item192[service$item192 == 14]  <- 4
+service$item192[service$item192 == 15]  <- 5
+
+service$item193[service$item193 == 11]  <- 1
+service$item193[service$item193 == 12]  <- 2
+service$item193[service$item193 == 13]  <- 3
+service$item193[service$item193 == 14]  <- 4
+service$item193[service$item193 == 15]  <- 5
+
+service$item194[service$item194 == 11]  <- 1
+service$item194[service$item194 == 12]  <- 2
+service$item194[service$item194 == 13]  <- 3
+service$item194[service$item194 == 14]  <- 4
+service$item194[service$item194 == 15]  <- 5
+
+service$item195[service$item195 == 11]  <- 1
+service$item195[service$item195 == 12]  <- 2
+service$item195[service$item195 == 13]  <- 3
+service$item195[service$item195 == 14]  <- 4
+service$item195[service$item195 == 15]  <- 5
+
+service$item196[service$item196 == 11]  <- 1
+service$item196[service$item196 == 12]  <- 2
+service$item196[service$item196 == 13]  <- 3
+service$item196[service$item196 == 14]  <- 4
+service$item196[service$item196 == 15]  <- 5
+
+service$item197[service$item197 == 11]  <- 1
+service$item197[service$item197 == 12]  <- 2
+service$item197[service$item197 == 13]  <- 3
+service$item197[service$item197 == 14]  <- 4
+service$item197[service$item197 == 15]  <- 5
+
+service$item198[service$item198 == 11]  <- 1
+service$item198[service$item198 == 12]  <- 2
+service$item198[service$item198 == 13]  <- 3
+service$item198[service$item198 == 14]  <- 4
+service$item198[service$item198 == 15]  <- 5
+
+service$item199[service$item199 == 11]  <- 1
+service$item199[service$item199 == 12]  <- 2
+service$item199[service$item199 == 13]  <- 3
+service$item199[service$item199 == 14]  <- 4
+service$item199[service$item199 == 15]  <- 5
+
+service$item200[service$item200 == 11]  <- 1
+service$item200[service$item200 == 12]  <- 2
+service$item200[service$item200 == 13]  <- 3
+service$item200[service$item200 == 14]  <- 4
+service$item200[service$item200 == 15]  <- 5
+
+service$item201[service$item201 == 11]  <- 1
+service$item201[service$item201 == 12]  <- 2
+service$item201[service$item201 == 13]  <- 3
+service$item201[service$item201 == 14]  <- 4
+service$item201[service$item201 == 15]  <- 5
+
+service$item202[service$item202 == 11]  <- 1
+service$item202[service$item202 == 12]  <- 2
+service$item202[service$item202 == 13]  <- 3
+service$item202[service$item202 == 14]  <- 4
+service$item202[service$item202 == 15]  <- 5
+
+service$item203[service$item203 == 9]   <- 1
+service$item203[service$item203 == 10]  <- 2
+service$item203[service$item203 == 11]  <- 3
+service$item203[service$item203 == 12]  <- 4
+service$item203[service$item203 == 13]  <- 5
+
+service$item204[service$item204 == 11]  <- 1
+service$item204[service$item204 == 12]  <- 2
+service$item204[service$item204 == 13]  <- 3
+service$item204[service$item204 == 14]  <- 4
+service$item204[service$item204 == 15]  <- 5
+
+service$item205[service$item205 == 6]  <- 1
+service$item205[service$item205 == 7]  <- 2
+service$item205[service$item205 == 8]  <- 3
+service$item205[service$item205 == 9]  <- 4
+service$item205[service$item205 == 10] <- 5
+
+service$item206[service$item206 == 6]  <- 1
+service$item206[service$item206 == 7]  <- 2
+service$item206[service$item206 == 8]  <- 3
+service$item206[service$item206 == 9]  <- 4
+service$item206[service$item206 == 10] <- 5
+
+service$item207[service$item207 == 6]  <- 1
+service$item207[service$item207 == 7]  <- 2
+service$item207[service$item207 == 8]  <- 3
+service$item207[service$item207 == 9]  <- 4
+service$item207[service$item207 == 10] <- 5
+
+service$item208[service$item208 == 6]  <- 1
+service$item208[service$item208 == 7]  <- 2
+service$item208[service$item208 == 8]  <- 3
+service$item208[service$item208 == 9]  <- 4
+service$item208[service$item208 == 10] <- 5
+
+service$item209[service$item209 == 6]  <- 1
+service$item209[service$item209 == 7]  <- 2
+service$item209[service$item209 == 8]  <- 3
+service$item209[service$item209 == 9]  <- 4
+service$item209[service$item209 == 10] <- 5
+
+service$item210[service$item210 == 6]  <- 1
+service$item210[service$item210 == 7]  <- 2
+service$item210[service$item210 == 8]  <- 3
+service$item210[service$item210 == 9]  <- 4
+service$item210[service$item210 == 10] <- 5
+
+service$item211[service$item211 == 11]  <- 1
+service$item211[service$item211 == 12]  <- 2
+service$item211[service$item211 == 13]  <- 3
+service$item211[service$item211 == 14]  <- 4
+service$item211[service$item211 == 15]  <- 5
+
+service$item212[service$item212 == 4]  <- 1
+service$item212[service$item212 == 5]  <- 2
+service$item212[service$item212 == 6]  <- 3
+service$item212[service$item212 == 7]  <- 4
+service$item212[service$item212 == 8]  <- 5
+
+service$item213[service$item213 == 11]  <- 1
+service$item213[service$item213 == 12]  <- 2
+service$item213[service$item213 == 13]  <- 3
+service$item213[service$item213 == 14]  <- 4
+service$item213[service$item213 == 15]  <- 5
+
+service$item214[service$item214 == 11]  <- 1
+service$item214[service$item214 == 12]  <- 2
+service$item214[service$item214 == 13]  <- 3
+service$item214[service$item214 == 14]  <- 4
+service$item214[service$item214 == 15]  <- 5
+
+service$item215[service$item215 == 11]  <- 1
+service$item215[service$item215 == 12]  <- 2
+service$item215[service$item215 == 13]  <- 3
+service$item215[service$item215 == 14]  <- 4
+service$item215[service$item215 == 15]  <- 5
+
+service$item216[service$item216 == 11]  <- 1
+service$item216[service$item216 == 12]  <- 2
+service$item216[service$item216 == 13]  <- 3
+service$item216[service$item216 == 14]  <- 4
+service$item216[service$item216 == 15]  <- 5
+
+service$item217[service$item217 == 11]  <- 1
+service$item217[service$item217 == 12]  <- 2
+service$item217[service$item217 == 13]  <- 3
+service$item217[service$item217 == 14]  <- 4
+service$item217[service$item217 == 15]  <- 5
+
+service$item218[service$item218 == 11]  <- 1
+service$item218[service$item218 == 12]  <- 2
+service$item218[service$item218 == 13]  <- 3
+service$item218[service$item218 == 14]  <- 4
+service$item218[service$item218 == 15]  <- 5
+
+service$item219[service$item219 == 11]  <- 1
+service$item219[service$item219 == 12]  <- 2
+service$item219[service$item219 == 13]  <- 3
+service$item219[service$item219 == 14]  <- 4
+service$item219[service$item219 == 15]  <- 5
+
+service$item220[service$item220 == 6]  <- 1
+service$item220[service$item220 == 7]  <- 2
+service$item220[service$item220 == 8]  <- 3
+service$item220[service$item220 == 9]  <- 4
+service$item220[service$item220 == 10] <- 5
+
+service$item221[service$item221 == 6]  <- 1
+service$item221[service$item221 == 7]  <- 2
+service$item221[service$item221 == 8]  <- 3
+service$item221[service$item221 == 9]  <- 4
+service$item221[service$item221 == 10] <- 5
+
+service$item222[service$item222 == 6]  <- 1
+service$item222[service$item222 == 7]  <- 2
+service$item222[service$item222 == 8]  <- 3
+service$item222[service$item222 == 9]  <- 4
+service$item222[service$item222 == 10] <- 5
+
+service$item223[service$item223 == 16] <- 1
+service$item223[service$item223 == 17] <- 2
+service$item223[service$item223 == 18] <- 3
+service$item223[service$item223 == 19] <- 4
+service$item223[service$item223 == 20] <- 5
+
+service$item224[service$item224 == 6]  <- 1
+service$item224[service$item224 == 7]  <- 2
+service$item224[service$item224 == 8]  <- 3
+service$item224[service$item224 == 9]  <- 4
+service$item224[service$item224 == 10] <- 5
+
+service$item225[service$item225 == 6]  <- 1
+service$item225[service$item225 == 7]  <- 2
+service$item225[service$item225 == 8]  <- 3
+service$item225[service$item225 == 9]  <- 4
+service$item225[service$item225 == 10] <- 5
+
+service$item226[service$item226 == 6]  <- 1
+service$item226[service$item226 == 7]  <- 2
+service$item226[service$item226 == 8]  <- 3
+service$item226[service$item226 == 9]  <- 4
+service$item226[service$item226 == 10] <- 5
+
+service$item227[service$item227 == 6]  <- 1
+service$item227[service$item227 == 7]  <- 2
+service$item227[service$item227 == 8]  <- 3
+service$item227[service$item227 == 9]  <- 4
+service$item227[service$item227 == 10] <- 5
+
+service$item228[service$item228 == 6]  <- 1
+service$item228[service$item228 == 7]  <- 2
+service$item228[service$item228 == 8]  <- 3
+service$item228[service$item228 == 9]  <- 4
+service$item228[service$item228 == 10] <- 5
+
+service$item229[service$item229 == 6]  <- 1
+service$item229[service$item229 == 7]  <- 2
+service$item229[service$item229 == 8]  <- 3
+service$item229[service$item229 == 9]  <- 4
+service$item229[service$item229 == 10] <- 5
+
+service$item230[service$item230 == 16] <- 1
+service$item230[service$item230 == 17] <- 2
+service$item230[service$item230 == 18] <- 3
+service$item230[service$item230 == 19] <- 4
+service$item230[service$item230 == 20] <- 5
+
+service$item231[service$item231 == 6]  <- 1
+service$item231[service$item231 == 7]  <- 2
+service$item231[service$item231 == 8]  <- 3
+service$item231[service$item231 == 9]  <- 4
+service$item231[service$item231 == 10] <- 5
+
+service$item232[service$item232 == 6]  <- 1
+service$item232[service$item232 == 7]  <- 2
+service$item232[service$item232 == 8]  <- 3
+service$item232[service$item232 == 9]  <- 4
+service$item232[service$item232 == 10] <- 5
+
+service$item233[service$item233 == 6]  <- 1
+service$item233[service$item233 == 7]  <- 2
+service$item233[service$item233 == 8]  <- 3
+service$item233[service$item233 == 9]  <- 4
+service$item233[service$item233 == 10] <- 5
+
+service$item234[service$item234 == 11]  <- 1
+service$item234[service$item234 == 12]  <- 2
+service$item234[service$item234 == 13]  <- 3
+service$item234[service$item234 == 14]  <- 4
+service$item234[service$item234 == 15]  <- 5
+
+service$item235[service$item235 == 11]  <- 1
+service$item235[service$item235 == 12]  <- 2
+service$item235[service$item235 == 13]  <- 3
+service$item235[service$item235 == 14]  <- 4
+service$item235[service$item235 == 15]  <- 5
+
+service$item236[service$item236 == 11]  <- 1
+service$item236[service$item236 == 12]  <- 2
+service$item236[service$item236 == 13]  <- 3
+service$item236[service$item236 == 14]  <- 4
+service$item236[service$item236 == 15]  <- 5
+
+service$item237[service$item237 == 11]  <- 1
+service$item237[service$item237 == 12]  <- 2
+service$item237[service$item237 == 13]  <- 3
+service$item237[service$item237 == 14]  <- 4
+service$item237[service$item237 == 15]  <- 5
+
+service$item238[service$item238 == 11]  <- 1
+service$item238[service$item238 == 12]  <- 2
+service$item238[service$item238 == 13]  <- 3
+service$item238[service$item238 == 14]  <- 4
+service$item238[service$item238 == 15]  <- 5
+
+service$item239[service$item239 == 11]  <- 1
+service$item239[service$item239 == 12]  <- 2
+service$item239[service$item239 == 13]  <- 3
+service$item239[service$item239 == 14]  <- 4
+service$item239[service$item239 == 15]  <- 5
+
+service$item240[service$item240 == 11]  <- 1
+service$item240[service$item240 == 12]  <- 2
+service$item240[service$item240 == 13]  <- 3
+service$item240[service$item240 == 14]  <- 4
+service$item240[service$item240 == 15]  <- 5
+
+service$item241[service$item241 == 11]  <- 1
+service$item241[service$item241 == 12]  <- 2
+service$item241[service$item241 == 13]  <- 3
+service$item241[service$item241 == 14]  <- 4
+service$item241[service$item241 == 15]  <- 5
+
+service$item242[service$item242 == 6]  <- 1
+service$item242[service$item242 == 7]  <- 2
+service$item242[service$item242 == 8]  <- 3
+service$item242[service$item242 == 9]  <- 4
+service$item242[service$item242 == 10] <- 5
+
+service$item243[service$item243 == 11]  <- 1
+service$item243[service$item243 == 12]  <- 2
+service$item243[service$item243 == 13]  <- 3
+service$item243[service$item243 == 14]  <- 4
+service$item243[service$item243 == 15]  <- 5
+
+service$item244[service$item244 == 11]  <- 1
+service$item244[service$item244 == 12]  <- 2
+service$item244[service$item244 == 13]  <- 3
+service$item244[service$item244 == 14]  <- 4
+service$item244[service$item244 == 15]  <- 5
+
+service$item245[service$item245 == 6]  <- 1
+service$item245[service$item245 == 7]  <- 2
+service$item245[service$item245 == 8]  <- 3
+service$item245[service$item245 == 9]  <- 4
+service$item245[service$item245 == 10] <- 5
+
+service$item246[service$item246 == 11]  <- 1
+service$item246[service$item246 == 12]  <- 2
+service$item246[service$item246 == 13]  <- 3
+service$item246[service$item246 == 14]  <- 4
+service$item246[service$item246 == 15]  <- 5
+
+service$item247[service$item247 == 11]  <- 1
+service$item247[service$item247 == 12]  <- 2
+service$item247[service$item247 == 13]  <- 3
+service$item247[service$item247 == 14]  <- 4
+service$item247[service$item247 == 15]  <- 5
+
+## Attention check
+
+service$item249[service$item249 == 11]  <- 1
+service$item249[service$item249 == 12]  <- 2
+service$item249[service$item249 == 13]  <- 3
+service$item249[service$item249 == 14]  <- 4
+service$item249[service$item249 == 15]  <- 5
+
+service$item250[service$item250 == 11]  <- 1
+service$item250[service$item250 == 12]  <- 2
+service$item250[service$item250 == 13]  <- 3
+service$item250[service$item250 == 14]  <- 4
+service$item250[service$item250 == 15]  <- 5
+
+service$item251[service$item251 == 11]  <- 1
+service$item251[service$item251 == 12]  <- 2
+service$item251[service$item251 == 13]  <- 3
+service$item251[service$item251 == 14]  <- 4
+service$item251[service$item251 == 15]  <- 5
+
+service$item252[service$item252 == 18]  <- 1
+service$item252[service$item252 == 19]  <- 2
+service$item252[service$item252 == 20]  <- 3
+service$item252[service$item252 == 21]  <- 4
+service$item252[service$item252 == 22]  <- 5
+
+service$item253[service$item253 == 11]  <- 1
+service$item253[service$item253 == 12]  <- 2
+service$item253[service$item253 == 13]  <- 3
+service$item253[service$item253 == 14]  <- 4
+service$item253[service$item253 == 15]  <- 5
+
+service$item254[service$item254 == 11]  <- 1
+service$item254[service$item254 == 12]  <- 2
+service$item254[service$item254 == 13]  <- 3
+service$item254[service$item254 == 14]  <- 4
+service$item254[service$item254 == 15]  <- 5
+
+service$item255[service$item255 == 11]  <- 1
+service$item255[service$item255 == 12]  <- 2
+service$item255[service$item255 == 13]  <- 3
+service$item255[service$item255 == 14]  <- 4
+service$item255[service$item255 == 15]  <- 5
+
+service$item256[service$item256 == 11]  <- 1
+service$item256[service$item256 == 12]  <- 2
+service$item256[service$item256 == 13]  <- 3
+service$item256[service$item256 == 14]  <- 4
+service$item256[service$item256 == 15]  <- 5
+
+service$item257[service$item257 == 11]  <- 1
+service$item257[service$item257 == 12]  <- 2
+service$item257[service$item257 == 13]  <- 3
+service$item257[service$item257 == 14]  <- 4
+service$item257[service$item257 == 15]  <- 5
+
+service$item258[service$item258 == 11]  <- 1
+service$item258[service$item258 == 12]  <- 2
+service$item258[service$item258 == 13]  <- 3
+service$item258[service$item258 == 14]  <- 4
+service$item258[service$item258 == 15]  <- 5
+
+service$item259[service$item259 == 11]  <- 1
+service$item259[service$item259 == 12]  <- 2
+service$item259[service$item259 == 13]  <- 3
+service$item259[service$item259 == 14]  <- 4
+service$item259[service$item259 == 15]  <- 5
+
+service$item260[service$item260 == 11]  <- 1
+service$item260[service$item260 == 12]  <- 2
+service$item260[service$item260 == 13]  <- 3
+service$item260[service$item260 == 14]  <- 4
+service$item260[service$item260 == 15]  <- 5
+
+service$item261[service$item261 == 11]  <- 1
+service$item261[service$item261 == 12]  <- 2
+service$item261[service$item261 == 13]  <- 3
+service$item261[service$item261 == 14]  <- 4
+service$item261[service$item261 == 15]  <- 5
+
+service$item262[service$item262 == 11]  <- 1
+service$item262[service$item262 == 12]  <- 2
+service$item262[service$item262 == 13]  <- 3
+service$item262[service$item262 == 14]  <- 4
+service$item262[service$item262 == 15]  <- 5
+
+service$item263[service$item263 == 11]  <- 1
+service$item263[service$item263 == 12]  <- 2
+service$item263[service$item263 == 13]  <- 3
+service$item263[service$item263 == 14]  <- 4
+service$item263[service$item263 == 15]  <- 5
+
+service$item264[service$item264 == 11]  <- 1
+service$item264[service$item264 == 12]  <- 2
+service$item264[service$item264 == 13]  <- 3
+service$item264[service$item264 == 14]  <- 4
+service$item264[service$item264 == 15]  <- 5
+
+service$item265[service$item265 == 11]  <- 1
+service$item265[service$item265 == 12]  <- 2
+service$item265[service$item265 == 13]  <- 3
+service$item265[service$item265 == 14]  <- 4
+service$item265[service$item265 == 15]  <- 5
+
+service$item266[service$item266 == 11]  <- 1
+service$item266[service$item266 == 12]  <- 2
+service$item266[service$item266 == 13]  <- 3
+service$item266[service$item266 == 14]  <- 4
+service$item266[service$item266 == 15]  <- 5
+
+service$item267[service$item267 == 11]  <- 1
+service$item267[service$item267 == 12]  <- 2
+service$item267[service$item267 == 13]  <- 3
+service$item267[service$item267 == 14]  <- 4
+service$item267[service$item267 == 15]  <- 5
+
+service$item268[service$item268 == 11]  <- 1
+service$item268[service$item268 == 12]  <- 2
+service$item268[service$item268 == 13]  <- 3
+service$item268[service$item268 == 14]  <- 4
+service$item268[service$item268 == 15]  <- 5
+
+service$item269[service$item269 == 21]  <- 1
+service$item269[service$item269 == 22]  <- 2
+service$item269[service$item269 == 23]  <- 3
+service$item269[service$item269 == 24]  <- 4
+service$item269[service$item269 == 25]  <- 5
+
+service$item270[service$item270 == 11]  <- 1
+service$item270[service$item270 == 12]  <- 2
+service$item270[service$item270 == 13]  <- 3
+service$item270[service$item270 == 14]  <- 4
+service$item270[service$item270 == 15]  <- 5
+
+service$item271[service$item271 == 11]  <- 1
+service$item271[service$item271 == 12]  <- 2
+service$item271[service$item271 == 13]  <- 3
+service$item271[service$item271 == 14]  <- 4
+service$item271[service$item271 == 15]  <- 5
+
+service$item272[service$item272 == 11]  <- 1
+service$item272[service$item272 == 12]  <- 2
+service$item272[service$item272 == 13]  <- 3
+service$item272[service$item272 == 14]  <- 4
+service$item272[service$item272 == 15]  <- 5
+
+service$item273[service$item273 == 11]  <- 1
+service$item273[service$item273 == 12]  <- 2
+service$item273[service$item273 == 13]  <- 3
+service$item273[service$item273 == 14]  <- 4
+service$item273[service$item273 == 15]  <- 5
+
+service$item274[service$item274 == 11]  <- 1
+service$item274[service$item274 == 12]  <- 2
+service$item274[service$item274 == 13]  <- 3
+service$item274[service$item274 == 14]  <- 4
+service$item274[service$item274 == 15]  <- 5
+
+service$item275[service$item275 == 11]  <- 1
+service$item275[service$item275 == 12]  <- 2
+service$item275[service$item275 == 13]  <- 3
+service$item275[service$item275 == 14]  <- 4
+service$item275[service$item275 == 15]  <- 5
+
+service$item276[service$item276 == 11]  <- 1
+service$item276[service$item276 == 12]  <- 2
+service$item276[service$item276 == 13]  <- 3
+service$item276[service$item276 == 14]  <- 4
+service$item276[service$item276 == 15]  <- 5
+
+service$item277[service$item277 == 11]  <- 1
+service$item277[service$item277 == 12]  <- 2
+service$item277[service$item277 == 13]  <- 3
+service$item277[service$item277 == 14]  <- 4
+service$item277[service$item277 == 15]  <- 5
+
+service$item278[service$item278 == 11]  <- 1
+service$item278[service$item278 == 12]  <- 2
+service$item278[service$item278 == 13]  <- 3
+service$item278[service$item278 == 14]  <- 4
+service$item278[service$item278 == 15]  <- 5
+
+service$item279[service$item279 == 11]  <- 1
+service$item279[service$item279 == 12]  <- 2
+service$item279[service$item279 == 13]  <- 3
+service$item279[service$item279 == 14]  <- 4
+service$item279[service$item279 == 15]  <- 5
+
+service$item280[service$item280 == 11]  <- 1
+service$item280[service$item280 == 12]  <- 2
+service$item280[service$item280 == 13]  <- 3
+service$item280[service$item280 == 14]  <- 4
+service$item280[service$item280 == 15]  <- 5
+
+service$item281[service$item281 == 11]  <- 1
+service$item281[service$item281 == 12]  <- 2
+service$item281[service$item281 == 13]  <- 3
+service$item281[service$item281 == 14]  <- 4
+service$item281[service$item281 == 15]  <- 5
+
+service$item282[service$item282 == 11]  <- 1
+service$item282[service$item282 == 12]  <- 2
+service$item282[service$item282 == 13]  <- 3
+service$item282[service$item282 == 14]  <- 4
+service$item282[service$item282 == 15]  <- 5
+
+service$item283[service$item283 == 11]  <- 1
+service$item283[service$item283 == 12]  <- 2
+service$item283[service$item283 == 13]  <- 3
+service$item283[service$item283 == 14]  <- 4
+service$item283[service$item283 == 15]  <- 5
+
+service$item284[service$item284 == 11]  <- 1
+service$item284[service$item284 == 12]  <- 2
+service$item284[service$item284 == 13]  <- 3
+service$item284[service$item284 == 14]  <- 4
+service$item284[service$item284 == 15]  <- 5
+
+service$item285[service$item285 == 11]  <- 1
+service$item285[service$item285 == 12]  <- 2
+service$item285[service$item285 == 13]  <- 3
+service$item285[service$item285 == 14]  <- 4
+service$item285[service$item285 == 15]  <- 5
+
+service$item286[service$item286 == 11]  <- 1
+service$item286[service$item286 == 12]  <- 2
+service$item286[service$item286 == 13]  <- 3
+service$item286[service$item286 == 14]  <- 4
+service$item286[service$item286 == 15]  <- 5
+
+service$item287[service$item287 == 11]  <- 1
+service$item287[service$item287 == 12]  <- 2
+service$item287[service$item287 == 13]  <- 3
+service$item287[service$item287 == 14]  <- 4
+service$item287[service$item287 == 15]  <- 5
+
+service$item288[service$item288 == 9]   <- 1
+service$item288[service$item288 == 10]  <- 2
+service$item288[service$item288 == 11]  <- 3
+service$item288[service$item288 == 12]  <- 4
+service$item288[service$item288 == 13]  <- 5
+
+service$item289[service$item289 == 11]  <- 1
+service$item289[service$item289 == 12]  <- 2
+service$item289[service$item289 == 13]  <- 3
+service$item289[service$item289 == 14]  <- 4
+service$item289[service$item289 == 15]  <- 5
+
+service$item290[service$item290 == 6]  <- 1
+service$item290[service$item290 == 7]  <- 2
+service$item290[service$item290 == 8]  <- 3
+service$item290[service$item290 == 9]  <- 4
+service$item290[service$item290 == 10] <- 5
+
+service$item291[service$item291 == 6]  <- 1
+service$item291[service$item291 == 7]  <- 2
+service$item291[service$item291 == 8]  <- 3
+service$item291[service$item291 == 9]  <- 4
+service$item291[service$item291 == 10] <- 5
+
+service$item292[service$item292 == 6]  <- 1
+service$item292[service$item292 == 7]  <- 2
+service$item292[service$item292 == 8]  <- 3
+service$item292[service$item292 == 9]  <- 4
+service$item292[service$item292 == 10] <- 5
+
+service$item293[service$item293 == 6]  <- 1
+service$item293[service$item293 == 7]  <- 2
+service$item293[service$item293 == 8]  <- 3
+service$item293[service$item293 == 9]  <- 4
+service$item293[service$item293 == 10] <- 5
+
+service$item294[service$item294 == 6]  <- 1
+service$item294[service$item294 == 7]  <- 2
+service$item294[service$item294 == 8]  <- 3
+service$item294[service$item294 == 9]  <- 4
+service$item294[service$item294 == 10] <- 5
+
+service$item295[service$item295 == 6]  <- 1
+service$item295[service$item295 == 7]  <- 2
+service$item295[service$item295 == 8]  <- 3
+service$item295[service$item295 == 9]  <- 4
+service$item295[service$item295 == 10] <- 5
+
+service$item296[service$item296 == 11]  <- 1
+service$item296[service$item296 == 12]  <- 2
+service$item296[service$item296 == 13]  <- 3
+service$item296[service$item296 == 14]  <- 4
+service$item296[service$item296 == 15]  <- 5
+
+service$item297[service$item297 == 4]  <- 1
+service$item297[service$item297 == 5]  <- 2
+service$item297[service$item297 == 6]  <- 3
+service$item297[service$item297 == 7]  <- 4
+service$item297[service$item297 == 8]  <- 5
+
+service$item298[service$item298 == 11]  <- 1
+service$item298[service$item298 == 12]  <- 2
+service$item298[service$item298 == 13]  <- 3
+service$item298[service$item298 == 14]  <- 4
+service$item298[service$item298 == 15]  <- 5
+
+service$item299[service$item299 == 11]  <- 1
+service$item299[service$item299 == 12]  <- 2
+service$item299[service$item299 == 13]  <- 3
+service$item299[service$item299 == 14]  <- 4
+service$item299[service$item299 == 15]  <- 5
+
+service$item300[service$item300 == 11]  <- 1
+service$item300[service$item300 == 12]  <- 2
+service$item300[service$item300 == 13]  <- 3
+service$item300[service$item300 == 14]  <- 4
+service$item300[service$item300 == 15]  <- 5
+
+service$item301[service$item301 == 11]  <- 1
+service$item301[service$item301 == 12]  <- 2
+service$item301[service$item301 == 13]  <- 3
+service$item301[service$item301 == 14]  <- 4
+service$item301[service$item301 == 15]  <- 5
+
+service$item302[service$item302 == 11]  <- 1
+service$item302[service$item302 == 12]  <- 2
+service$item302[service$item302 == 13]  <- 3
+service$item302[service$item302 == 14]  <- 4
+service$item302[service$item302 == 15]  <- 5
+
+service$item303[service$item303 == 11]  <- 1
+service$item303[service$item303 == 12]  <- 2
+service$item303[service$item303 == 13]  <- 3
+service$item303[service$item303 == 14]  <- 4
+service$item303[service$item303 == 15]  <- 5
+
+service$item304[service$item304 == 11]  <- 1
+service$item304[service$item304 == 12]  <- 2
+service$item304[service$item304 == 13]  <- 3
+service$item304[service$item304 == 14]  <- 4
+service$item304[service$item304 == 15]  <- 5
+
+service$item305[service$item305 == 6]  <- 1
+service$item305[service$item305 == 7]  <- 2
+service$item305[service$item305 == 8]  <- 3
+service$item305[service$item305 == 9]  <- 4
+service$item305[service$item305 == 10] <- 5
+
+service$item306[service$item306 == 6]  <- 1
+service$item306[service$item306 == 7]  <- 2
+service$item306[service$item306 == 8]  <- 3
+service$item306[service$item306 == 9]  <- 4
+service$item306[service$item306 == 10] <- 5
+
+service$item307[service$item307 == 6]  <- 1
+service$item307[service$item307 == 7]  <- 2
+service$item307[service$item307 == 8]  <- 3
+service$item307[service$item307 == 9]  <- 4
+service$item307[service$item307 == 10] <- 5
+
+## Attention check
+
+service$item309[service$item309 == 16]  <- 1
+service$item309[service$item309 == 17]  <- 2
+service$item309[service$item309 == 18]  <- 3
+service$item309[service$item309 == 19]  <- 4
+service$item309[service$item309 == 20]  <- 5
+
+service$item310[service$item310 == 6]  <- 1
+service$item310[service$item310 == 7]  <- 2
+service$item310[service$item310 == 8]  <- 3
+service$item310[service$item310 == 9]  <- 4
+service$item310[service$item310 == 10] <- 5
+
+service$item311[service$item311 == 6]  <- 1
+service$item311[service$item311 == 7]  <- 2
+service$item311[service$item311 == 8]  <- 3
+service$item311[service$item311 == 9]  <- 4
+service$item311[service$item311 == 10] <- 5
+
+service$item312[service$item312 == 6]  <- 1
+service$item312[service$item312 == 7]  <- 2
+service$item312[service$item312 == 8]  <- 3
+service$item312[service$item312 == 9]  <- 4
+service$item312[service$item312 == 10] <- 5
+
+service$item313[service$item313 == 6]  <- 1
+service$item313[service$item313 == 7]  <- 2
+service$item313[service$item313 == 8]  <- 3
+service$item313[service$item313 == 9]  <- 4
+service$item313[service$item313 == 10] <- 5
+
+service$item314[service$item314 == 6]  <- 1
+service$item314[service$item314 == 7]  <- 2
+service$item314[service$item314 == 8]  <- 3
+service$item314[service$item314 == 9]  <- 4
+service$item314[service$item314 == 10] <- 5
+
+service$item315[service$item315 == 6]  <- 1
+service$item315[service$item315 == 7]  <- 2
+service$item315[service$item315 == 8]  <- 3
+service$item315[service$item315 == 9]  <- 4
+service$item315[service$item315 == 10] <- 5
+
+service$item316[service$item316 == 16]  <- 1
+service$item316[service$item316 == 17]  <- 2
+service$item316[service$item316 == 18]  <- 3
+service$item316[service$item316 == 19]  <- 4
+service$item316[service$item316 == 20]  <- 5
+
+service$item317[service$item317 == 6]  <- 1
+service$item317[service$item317 == 7]  <- 2
+service$item317[service$item317 == 8]  <- 3
+service$item317[service$item317 == 9]  <- 4
+service$item317[service$item317 == 10] <- 5
+
+service$item318[service$item318 == 6]  <- 1
+service$item318[service$item318 == 7]  <- 2
+service$item318[service$item318 == 8]  <- 3
+service$item318[service$item318 == 9]  <- 4
+service$item318[service$item318 == 10] <- 5
+
+service$item319[service$item319 == 6]  <- 1
+service$item319[service$item319 == 7]  <- 2
+service$item319[service$item319 == 8]  <- 3
+service$item319[service$item319 == 9]  <- 4
+service$item319[service$item319 == 10] <- 5
+
+service$item320[service$item320 == 11] <- 1
+service$item320[service$item320 == 12] <- 2
+service$item320[service$item320 == 13] <- 3
+service$item320[service$item320 == 14] <- 4
+service$item320[service$item320 == 15] <- 5
+
+service$item321[service$item321 == 11] <- 1
+service$item321[service$item321 == 12] <- 2
+service$item321[service$item321 == 13] <- 3
+service$item321[service$item321 == 14] <- 4
+service$item321[service$item321 == 15] <- 5
+
+service$item322[service$item322 == 11] <- 1
+service$item322[service$item322 == 12] <- 2
+service$item322[service$item322 == 13] <- 3
+service$item322[service$item322 == 14] <- 4
+service$item322[service$item322 == 15] <- 5
+
+service$item323[service$item323 == 11] <- 1
+service$item323[service$item323 == 12] <- 2
+service$item323[service$item323 == 13] <- 3
+service$item323[service$item323 == 14] <- 4
+service$item323[service$item323 == 15] <- 5
+
+service$item324[service$item324 == 11] <- 1
+service$item324[service$item324 == 12] <- 2
+service$item324[service$item324 == 13] <- 3
+service$item324[service$item324 == 14] <- 4
+service$item324[service$item324 == 15] <- 5
+
+service$item325[service$item325 == 11] <- 1
+service$item325[service$item325 == 12] <- 2
+service$item325[service$item325 == 13] <- 3
+service$item325[service$item325 == 14] <- 4
+service$item325[service$item325 == 15] <- 5
+
+service$item326[service$item326 == 11] <- 1
+service$item326[service$item326 == 12] <- 2
+service$item326[service$item326 == 13] <- 3
+service$item326[service$item326 == 14] <- 4
+service$item326[service$item326 == 15] <- 5
+
+service$item327[service$item327 == 11] <- 1
+service$item327[service$item327 == 12] <- 2
+service$item327[service$item327 == 13] <- 3
+service$item327[service$item327 == 14] <- 4
+service$item327[service$item327 == 15] <- 5
+
+service$item328[service$item328 == 6]  <- 1
+service$item328[service$item328 == 7]  <- 2
+service$item328[service$item328 == 8]  <- 3
+service$item328[service$item328 == 9]  <- 4
+service$item328[service$item328 == 10] <- 5
+
+service$item329[service$item329 == 11] <- 1
+service$item329[service$item329 == 12] <- 2
+service$item329[service$item329 == 13] <- 3
+service$item329[service$item329 == 14] <- 4
+service$item329[service$item329 == 15] <- 5
+
+service$item330[service$item330 == 11] <- 1
+service$item330[service$item330 == 12] <- 2
+service$item330[service$item330 == 13] <- 3
+service$item330[service$item330 == 14] <- 4
+service$item330[service$item330 == 15] <- 5
+
+service$item331[service$item331 == 6]  <- 1
+service$item331[service$item331 == 7]  <- 2
+service$item331[service$item331 == 8]  <- 3
+service$item331[service$item331 == 9]  <- 4
+service$item331[service$item331 == 10] <- 5
+
+service$item332[service$item332 == 11] <- 1
+service$item332[service$item332 == 12] <- 2
+service$item332[service$item332 == 13] <- 3
+service$item332[service$item332 == 14] <- 4
+service$item332[service$item332 == 15] <- 5
+
+service$item333[service$item333 == 11] <- 1
+service$item333[service$item333 == 12] <- 2
+service$item333[service$item333 == 13] <- 3
+service$item333[service$item333 == 14] <- 4
+service$item333[service$item333 == 15] <- 5
+
+service$item334[service$item334 == 11] <- 1
+service$item334[service$item334 == 12] <- 2
+service$item334[service$item334 == 13] <- 3
+service$item334[service$item334 == 14] <- 4
+service$item334[service$item334 == 15] <- 5
+
+service$item335[service$item335 == 11] <- 1
+service$item335[service$item335 == 12] <- 2
+service$item335[service$item335 == 13] <- 3
+service$item335[service$item335 == 14] <- 4
+service$item335[service$item335 == 15] <- 5
+
+service$item336[service$item336 == 11] <- 1
+service$item336[service$item336 == 12] <- 2
+service$item336[service$item336 == 13] <- 3
+service$item336[service$item336 == 14] <- 4
+service$item336[service$item336 == 15] <- 5
+
+service$item337[service$item337 == 18] <- 1
+service$item337[service$item337 == 19] <- 2
+service$item337[service$item337 == 20] <- 3
+service$item337[service$item337 == 21] <- 4
+service$item337[service$item337 == 22] <- 5
+
+service$item338[service$item338 == 11] <- 1
+service$item338[service$item338 == 12] <- 2
+service$item338[service$item338 == 13] <- 3
+service$item338[service$item338 == 14] <- 4
+service$item338[service$item338 == 15] <- 5
+
+service$item339[service$item339 == 11] <- 1
+service$item339[service$item339 == 12] <- 2
+service$item339[service$item339 == 13] <- 3
+service$item339[service$item339 == 14] <- 4
+service$item339[service$item339 == 15] <- 5
+
+service$item340[service$item340 == 11] <- 1
+service$item340[service$item340 == 12] <- 2
+service$item340[service$item340 == 13] <- 3
+service$item340[service$item340 == 14] <- 4
+service$item340[service$item340 == 15] <- 5
+
+service$item341[service$item341 == 11] <- 1
+service$item341[service$item341 == 12] <- 2
+service$item341[service$item341 == 13] <- 3
+service$item341[service$item341 == 14] <- 4
+service$item341[service$item341 == 15] <- 5
+
+service$item342[service$item342 == 11] <- 1
+service$item342[service$item342 == 12] <- 2
+service$item342[service$item342 == 13] <- 3
+service$item342[service$item342 == 14] <- 4
+service$item342[service$item342 == 15] <- 5
+
+service$item343[service$item343 == 11] <- 1
+service$item343[service$item343 == 12] <- 2
+service$item343[service$item343 == 13] <- 3
+service$item343[service$item343 == 14] <- 4
+service$item343[service$item343 == 15] <- 5
+
+service$item344[service$item344 == 11] <- 1
+service$item344[service$item344 == 12] <- 2
+service$item344[service$item344 == 13] <- 3
+service$item344[service$item344 == 14] <- 4
+service$item344[service$item344 == 15] <- 5
+
+service$item345[service$item345 == 11] <- 1
+service$item345[service$item345 == 12] <- 2
+service$item345[service$item345 == 13] <- 3
+service$item345[service$item345 == 14] <- 4
+service$item345[service$item345 == 15] <- 5
+
+service$item346[service$item346 == 11] <- 1
+service$item346[service$item346 == 12] <- 2
+service$item346[service$item346 == 13] <- 3
+service$item346[service$item346 == 14] <- 4
+service$item346[service$item346 == 15] <- 5
+
+service$item347[service$item347 == 11] <- 1
+service$item347[service$item347 == 12] <- 2
+service$item347[service$item347 == 13] <- 3
+service$item347[service$item347 == 14] <- 4
+service$item347[service$item347 == 15] <- 5
+
+service$item348[service$item348 == 11] <- 1
+service$item348[service$item348 == 12] <- 2
+service$item348[service$item348 == 13] <- 3
+service$item348[service$item348 == 14] <- 4
+service$item348[service$item348 == 15] <- 5
+
+service$item349[service$item349 == 11] <- 1
+service$item349[service$item349 == 12] <- 2
+service$item349[service$item349 == 13] <- 3
+service$item349[service$item349 == 14] <- 4
+service$item349[service$item349 == 15] <- 5
+
+service$item350[service$item350 == 11] <- 1
+service$item350[service$item350 == 12] <- 2
+service$item350[service$item350 == 13] <- 3
+service$item350[service$item350 == 14] <- 4
+service$item350[service$item350 == 15] <- 5
+
+service$item351[service$item351 == 11] <- 1
+service$item351[service$item351 == 12] <- 2
+service$item351[service$item351 == 13] <- 3
+service$item351[service$item351 == 14] <- 4
+service$item351[service$item351 == 15] <- 5
+
+service$item352[service$item352 == 11] <- 1
+service$item352[service$item352 == 12] <- 2
+service$item352[service$item352 == 13] <- 3
+service$item352[service$item352 == 14] <- 4
+service$item352[service$item352 == 15] <- 5
+
+service$item353[service$item353 == 11] <- 1
+service$item353[service$item353 == 12] <- 2
+service$item353[service$item353 == 13] <- 3
+service$item353[service$item353 == 14] <- 4
+service$item353[service$item353 == 15] <- 5
+
+service$item354[service$item354 == 21] <- 1
+service$item354[service$item354 == 22] <- 2
+service$item354[service$item354 == 23] <- 3
+service$item354[service$item354 == 24] <- 4
+service$item354[service$item354 == 25] <- 5
+
+service$item355[service$item355 == 11] <- 1
+service$item355[service$item355 == 12] <- 2
+service$item355[service$item355 == 13] <- 3
+service$item355[service$item355 == 14] <- 4
+service$item355[service$item355 == 15] <- 5
+
+service$item356[service$item356 == 11] <- 1
+service$item356[service$item356 == 12] <- 2
+service$item356[service$item356 == 13] <- 3
+service$item356[service$item356 == 14] <- 4
+service$item356[service$item356 == 15] <- 5
+
+service$item357[service$item357 == 11] <- 1
+service$item357[service$item357 == 12] <- 2
+service$item357[service$item357 == 13] <- 3
+service$item357[service$item357 == 14] <- 4
+service$item357[service$item357 == 15] <- 5
+
+service$item358[service$item358 == 11] <- 1
+service$item358[service$item358 == 12] <- 2
+service$item358[service$item358 == 13] <- 3
+service$item358[service$item358 == 14] <- 4
+service$item358[service$item358 == 15] <- 5
+
+service$item359[service$item359 == 11] <- 1
+service$item359[service$item359 == 12] <- 2
+service$item359[service$item359 == 13] <- 3
+service$item359[service$item359 == 14] <- 4
+service$item359[service$item359 == 15] <- 5
+
+service$item360[service$item360 == 11] <- 1
+service$item360[service$item360 == 12] <- 2
+service$item360[service$item360 == 13] <- 3
+service$item360[service$item360 == 14] <- 4
+service$item360[service$item360 == 15] <- 5
+
+service$item361[service$item361 == 11] <- 1
+service$item361[service$item361 == 12] <- 2
+service$item361[service$item361 == 13] <- 3
+service$item361[service$item361 == 14] <- 4
+service$item361[service$item361 == 15] <- 5
+
+service$item362[service$item362 == 11] <- 1
+service$item362[service$item362 == 12] <- 2
+service$item362[service$item362 == 13] <- 3
+service$item362[service$item362 == 14] <- 4
+service$item362[service$item362 == 15] <- 5
+
+service$item363[service$item363 == 11] <- 1
+service$item363[service$item363 == 12] <- 2
+service$item363[service$item363 == 13] <- 3
+service$item363[service$item363 == 14] <- 4
+service$item363[service$item363 == 15] <- 5
+
+service$item364[service$item364 == 11] <- 1
+service$item364[service$item364 == 12] <- 2
+service$item364[service$item364 == 13] <- 3
+service$item364[service$item364 == 14] <- 4
+service$item364[service$item364 == 15] <- 5
+
+service$item365[service$item365 == 11] <- 1
+service$item365[service$item365 == 12] <- 2
+service$item365[service$item365 == 13] <- 3
+service$item365[service$item365 == 14] <- 4
+service$item365[service$item365 == 15] <- 5
+
+service$item366[service$item366 == 11] <- 1
+service$item366[service$item366 == 12] <- 2
+service$item366[service$item366 == 13] <- 3
+service$item366[service$item366 == 14] <- 4
+service$item366[service$item366 == 15] <- 5
+
+service$item367[service$item367 == 11] <- 1
+service$item367[service$item367 == 12] <- 2
+service$item367[service$item367 == 13] <- 3
+service$item367[service$item367 == 14] <- 4
+service$item367[service$item367 == 15] <- 5
+
+service$item368[service$item368 == 11] <- 1
+service$item368[service$item368 == 12] <- 2
+service$item368[service$item368 == 13] <- 3
+service$item368[service$item368 == 14] <- 4
+service$item368[service$item368 == 15] <- 5
+
+service$item369[service$item369 == 11] <- 1
+service$item369[service$item369 == 12] <- 2
+service$item369[service$item369 == 13] <- 3
+service$item369[service$item369 == 14] <- 4
+service$item369[service$item369 == 15] <- 5
+
+service$item370[service$item370 == 11] <- 1
+service$item370[service$item370 == 12] <- 2
+service$item370[service$item370 == 13] <- 3
+service$item370[service$item370 == 14] <- 4
+service$item370[service$item370 == 15] <- 5
+
+service$item371[service$item371 == 11] <- 1
+service$item371[service$item371 == 12] <- 2
+service$item371[service$item371 == 13] <- 3
+service$item371[service$item371 == 14] <- 4
+service$item371[service$item371 == 15] <- 5
+
+service$item372[service$item372 == 11] <- 1
+service$item372[service$item372 == 12] <- 2
+service$item372[service$item372 == 13] <- 3
+service$item372[service$item372 == 14] <- 4
+service$item372[service$item372 == 15] <- 5
+
+```
+
+```{r knowledgerecodes}
+## Qualtrics data all messed up
+
+knowledge$item82[knowledge$item82 == 8]  <- 1
+knowledge$item82[knowledge$item82 == 9]  <- 2
+knowledge$item82[knowledge$item82 == 10] <- 3
+knowledge$item82[knowledge$item82 == 11] <- 4
+knowledge$item82[knowledge$item82 == 12] <- 5
+
+knowledge$item118[knowledge$item118 == 9]  <- 1
+knowledge$item118[knowledge$item118 == 10] <- 2
+knowledge$item118[knowledge$item118 == 11] <- 3
+knowledge$item118[knowledge$item118 == 12] <- 4
+knowledge$item118[knowledge$item118 == 13] <- 5
+
+knowledge$item119[knowledge$item119 == 11] <- 1
+knowledge$item119[knowledge$item119 == 12] <- 2
+knowledge$item119[knowledge$item119 == 13] <- 3
+knowledge$item119[knowledge$item119 == 14] <- 4
+knowledge$item119[knowledge$item119 == 15] <- 5
+
+knowledge$item120[knowledge$item120 == 6]  <- 1
+knowledge$item120[knowledge$item120 == 7]  <- 2
+knowledge$item120[knowledge$item120 == 8]  <- 3
+knowledge$item120[knowledge$item120 == 9]  <- 4
+knowledge$item120[knowledge$item120 == 10] <- 5
+
+knowledge$item121[knowledge$item121 == 6]  <- 1
+knowledge$item121[knowledge$item121 == 7]  <- 2
+knowledge$item121[knowledge$item121 == 8]  <- 3
+knowledge$item121[knowledge$item121 == 9]  <- 4
+knowledge$item121[knowledge$item121 == 10] <- 5
+
+knowledge$item122[knowledge$item122 == 6]  <- 1
+knowledge$item122[knowledge$item122 == 7]  <- 2
+knowledge$item122[knowledge$item122 == 8]  <- 3
+knowledge$item122[knowledge$item122 == 9]  <- 4
+knowledge$item122[knowledge$item122 == 10] <- 5
+
+knowledge$item123[knowledge$item123 == 6]  <- 1
+knowledge$item123[knowledge$item123 == 7]  <- 2
+knowledge$item123[knowledge$item123 == 8]  <- 3
+knowledge$item123[knowledge$item123 == 9]  <- 4
+knowledge$item123[knowledge$item123 == 10] <- 5
+
+knowledge$item124[knowledge$item124 == 6]  <- 1
+knowledge$item124[knowledge$item124 == 7]  <- 2
+knowledge$item124[knowledge$item124 == 8]  <- 3
+knowledge$item124[knowledge$item124 == 9]  <- 4
+knowledge$item124[knowledge$item124 == 10] <- 5
+
+knowledge$item125[knowledge$item125 == 6]  <- 1
+knowledge$item125[knowledge$item125 == 7]  <- 2
+knowledge$item125[knowledge$item125 == 8]  <- 3
+knowledge$item125[knowledge$item125 == 9]  <- 4
+knowledge$item125[knowledge$item125 == 10] <- 5
+
+knowledge$item126[knowledge$item126 == 11]  <- 1
+knowledge$item126[knowledge$item126 == 12]  <- 2
+knowledge$item126[knowledge$item126 == 13]  <- 3
+knowledge$item126[knowledge$item126 == 14]  <- 4
+knowledge$item126[knowledge$item126 == 15]  <- 5
+
+knowledge$item127[knowledge$item127 == 4]  <- 1
+knowledge$item127[knowledge$item127 == 5]  <- 2
+knowledge$item127[knowledge$item127 == 6]  <- 3
+knowledge$item127[knowledge$item127 == 7]  <- 4
+knowledge$item127[knowledge$item127 == 8]  <- 5
+
+knowledge$item128[knowledge$item128 == 11]  <- 1
+knowledge$item128[knowledge$item128 == 12]  <- 2
+knowledge$item128[knowledge$item128 == 13]  <- 3
+knowledge$item128[knowledge$item128 == 14]  <- 4
+knowledge$item128[knowledge$item128 == 15]  <- 5
+
+knowledge$item129[knowledge$item129 == 11]  <- 1
+knowledge$item129[knowledge$item129 == 12]  <- 2
+knowledge$item129[knowledge$item129 == 13]  <- 3
+knowledge$item129[knowledge$item129 == 14]  <- 4
+knowledge$item129[knowledge$item129 == 15]  <- 5
+
+knowledge$item130[knowledge$item130 == 11]  <- 1
+knowledge$item130[knowledge$item130 == 12]  <- 2
+knowledge$item130[knowledge$item130 == 13]  <- 3
+knowledge$item130[knowledge$item130 == 14]  <- 4
+knowledge$item130[knowledge$item130 == 15]  <- 5
+
+knowledge$item131[knowledge$item131 == 11]  <- 1
+knowledge$item131[knowledge$item131 == 12]  <- 2
+knowledge$item131[knowledge$item131 == 13]  <- 3
+knowledge$item131[knowledge$item131 == 14]  <- 4
+knowledge$item131[knowledge$item131 == 15]  <- 5
+
+knowledge$item132[knowledge$item132 == 11]  <- 1
+knowledge$item132[knowledge$item132 == 12]  <- 2
+knowledge$item132[knowledge$item132 == 13]  <- 3
+knowledge$item132[knowledge$item132 == 14]  <- 4
+knowledge$item132[knowledge$item132 == 15]  <- 5
+
+knowledge$item133[knowledge$item133 == 11]  <- 1
+knowledge$item133[knowledge$item133 == 12]  <- 2
+knowledge$item133[knowledge$item133 == 13]  <- 3
+knowledge$item133[knowledge$item133 == 14]  <- 4
+knowledge$item133[knowledge$item133 == 15]  <- 5
+
+knowledge$item134[knowledge$item134 == 11]  <- 1
+knowledge$item134[knowledge$item134 == 12]  <- 2
+knowledge$item134[knowledge$item134 == 13]  <- 3
+knowledge$item134[knowledge$item134 == 14]  <- 4
+knowledge$item134[knowledge$item134 == 15]  <- 5
+
+knowledge$item135[knowledge$item135 == 6]  <- 1
+knowledge$item135[knowledge$item135 == 7]  <- 2
+knowledge$item135[knowledge$item135 == 8]  <- 3
+knowledge$item135[knowledge$item135 == 9]  <- 4
+knowledge$item135[knowledge$item135 == 10] <- 5
+
+knowledge$item136[knowledge$item136 == 6]  <- 1
+knowledge$item136[knowledge$item136 == 7]  <- 2
+knowledge$item136[knowledge$item136 == 8]  <- 3
+knowledge$item136[knowledge$item136 == 9]  <- 4
+knowledge$item136[knowledge$item136 == 10] <- 5
+
+knowledge$item137[knowledge$item137 == 6]  <- 1
+knowledge$item137[knowledge$item137 == 7]  <- 2
+knowledge$item137[knowledge$item137 == 8]  <- 3
+knowledge$item137[knowledge$item137 == 9]  <- 4
+knowledge$item137[knowledge$item137 == 10] <- 5
+
+knowledge$item138[knowledge$item138 == 16]  <- 1
+knowledge$item138[knowledge$item138 == 17]  <- 2
+knowledge$item138[knowledge$item138 == 18]  <- 3
+knowledge$item138[knowledge$item138 == 19]  <- 4
+knowledge$item138[knowledge$item138 == 20]  <- 5
+
+knowledge$item139[knowledge$item139 == 6]  <- 1
+knowledge$item139[knowledge$item139 == 7]  <- 2
+knowledge$item139[knowledge$item139 == 8]  <- 3
+knowledge$item139[knowledge$item139 == 9]  <- 4
+knowledge$item139[knowledge$item139 == 10] <- 5
+
+knowledge$item140[knowledge$item140 == 6]  <- 1
+knowledge$item140[knowledge$item140 == 7]  <- 2
+knowledge$item140[knowledge$item140 == 8]  <- 3
+knowledge$item140[knowledge$item140 == 9]  <- 4
+knowledge$item140[knowledge$item140 == 10] <- 5
+
+knowledge$item141[knowledge$item141 == 6]  <- 1
+knowledge$item141[knowledge$item141 == 7]  <- 2
+knowledge$item141[knowledge$item141 == 8]  <- 3
+knowledge$item141[knowledge$item141 == 9]  <- 4
+knowledge$item141[knowledge$item141 == 10] <- 5
+
+knowledge$item142[knowledge$item142 == 6]  <- 1
+knowledge$item142[knowledge$item142 == 7]  <- 2
+knowledge$item142[knowledge$item142 == 8]  <- 3
+knowledge$item142[knowledge$item142 == 9]  <- 4
+knowledge$item142[knowledge$item142 == 10] <- 5
+
+knowledge$item143[knowledge$item143 == 6]  <- 1
+knowledge$item143[knowledge$item143 == 7]  <- 2
+knowledge$item143[knowledge$item143 == 8]  <- 3
+knowledge$item143[knowledge$item143 == 9]  <- 4
+knowledge$item143[knowledge$item143 == 10] <- 5
+
+knowledge$item144[knowledge$item144 == 6]  <- 1
+knowledge$item144[knowledge$item144 == 7]  <- 2
+knowledge$item144[knowledge$item144 == 8]  <- 3
+knowledge$item144[knowledge$item144 == 9]  <- 4
+knowledge$item144[knowledge$item144 == 10] <- 5
+
+## Attention check = 145
+
+knowledge$item146[knowledge$item146 == 16]  <- 1
+knowledge$item146[knowledge$item146 == 17]  <- 2
+knowledge$item146[knowledge$item146 == 18]  <- 3
+knowledge$item146[knowledge$item146 == 19]  <- 4
+knowledge$item146[knowledge$item146 == 20]  <- 5
+
+knowledge$item147[knowledge$item147 == 6]  <- 1
+knowledge$item147[knowledge$item147 == 7]  <- 2
+knowledge$item147[knowledge$item147 == 8]  <- 3
+knowledge$item147[knowledge$item147 == 9]  <- 4
+knowledge$item147[knowledge$item147 == 10] <- 5
+
+knowledge$item148[knowledge$item148 == 6]  <- 1
+knowledge$item148[knowledge$item148 == 7]  <- 2
+knowledge$item148[knowledge$item148 == 8]  <- 3
+knowledge$item148[knowledge$item148 == 9]  <- 4
+knowledge$item148[knowledge$item148 == 10] <- 5
+
+knowledge$item149[knowledge$item149 == 6]  <- 1
+knowledge$item149[knowledge$item149 == 7]  <- 2
+knowledge$item149[knowledge$item149 == 8]  <- 3
+knowledge$item149[knowledge$item149 == 9]  <- 4
+knowledge$item149[knowledge$item149 == 10] <- 5
+
+knowledge$item150[knowledge$item150 == 11]  <- 1
+knowledge$item150[knowledge$item150 == 12]  <- 2
+knowledge$item150[knowledge$item150 == 13]  <- 3
+knowledge$item150[knowledge$item150 == 14]  <- 4
+knowledge$item150[knowledge$item150 == 15]  <- 5
+
+knowledge$item151[knowledge$item151 == 11]  <- 1
+knowledge$item151[knowledge$item151 == 12]  <- 2
+knowledge$item151[knowledge$item151 == 13]  <- 3
+knowledge$item151[knowledge$item151 == 14]  <- 4
+knowledge$item151[knowledge$item151 == 15]  <- 5
+
+knowledge$item152[knowledge$item152 == 11]  <- 1
+knowledge$item152[knowledge$item152 == 12]  <- 2
+knowledge$item152[knowledge$item152 == 13]  <- 3
+knowledge$item152[knowledge$item152 == 14]  <- 4
+knowledge$item152[knowledge$item152 == 15]  <- 5
+
+knowledge$item153[knowledge$item153 == 11]  <- 1
+knowledge$item153[knowledge$item153 == 12]  <- 2
+knowledge$item153[knowledge$item153 == 13]  <- 3
+knowledge$item153[knowledge$item153 == 14]  <- 4
+knowledge$item153[knowledge$item153 == 15]  <- 5
+
+knowledge$item154[knowledge$item154 == 11]  <- 1
+knowledge$item154[knowledge$item154 == 12]  <- 2
+knowledge$item154[knowledge$item154 == 13]  <- 3
+knowledge$item154[knowledge$item154 == 14]  <- 4
+knowledge$item154[knowledge$item154 == 15]  <- 5
+
+knowledge$item155[knowledge$item155 == 11]  <- 1
+knowledge$item155[knowledge$item155 == 12]  <- 2
+knowledge$item155[knowledge$item155 == 13]  <- 3
+knowledge$item155[knowledge$item155 == 14]  <- 4
+knowledge$item155[knowledge$item155 == 15]  <- 5
+
+knowledge$item156[knowledge$item156 == 11]  <- 1
+knowledge$item156[knowledge$item156 == 12]  <- 2
+knowledge$item156[knowledge$item156 == 13]  <- 3
+knowledge$item156[knowledge$item156 == 14]  <- 4
+knowledge$item156[knowledge$item156 == 15]  <- 5
+
+knowledge$item157[knowledge$item157 == 11]  <- 1
+knowledge$item157[knowledge$item157 == 12]  <- 2
+knowledge$item157[knowledge$item157 == 13]  <- 3
+knowledge$item157[knowledge$item157 == 14]  <- 4
+knowledge$item157[knowledge$item157 == 15]  <- 5
+
+knowledge$item158[knowledge$item158 == 6]  <- 1
+knowledge$item158[knowledge$item158 == 7]  <- 2
+knowledge$item158[knowledge$item158 == 8]  <- 3
+knowledge$item158[knowledge$item158 == 9]  <- 4
+knowledge$item158[knowledge$item158 == 10] <- 5
+
+knowledge$item159[knowledge$item159 == 11]  <- 1
+knowledge$item159[knowledge$item159 == 12]  <- 2
+knowledge$item159[knowledge$item159 == 13]  <- 3
+knowledge$item159[knowledge$item159 == 14]  <- 4
+knowledge$item159[knowledge$item159 == 15]  <- 5
+
+knowledge$item160[knowledge$item160 == 11]  <- 1
+knowledge$item160[knowledge$item160 == 12]  <- 2
+knowledge$item160[knowledge$item160 == 13]  <- 3
+knowledge$item160[knowledge$item160 == 14]  <- 4
+knowledge$item160[knowledge$item160 == 15]  <- 5
+
+knowledge$item161[knowledge$item161 == 6]  <- 1
+knowledge$item161[knowledge$item161 == 7]  <- 2
+knowledge$item161[knowledge$item161 == 8]  <- 3
+knowledge$item161[knowledge$item161 == 9]  <- 4
+knowledge$item161[knowledge$item161 == 10] <- 5
+
+knowledge$item162[knowledge$item162 == 11]  <- 1
+knowledge$item162[knowledge$item162 == 12]  <- 2
+knowledge$item162[knowledge$item162 == 13]  <- 3
+knowledge$item162[knowledge$item162 == 14]  <- 4
+knowledge$item162[knowledge$item162 == 15]  <- 5
+
+knowledge$item163[knowledge$item163 == 11]  <- 1
+knowledge$item163[knowledge$item163 == 12]  <- 2
+knowledge$item163[knowledge$item163 == 13]  <- 3
+knowledge$item163[knowledge$item163 == 14]  <- 4
+knowledge$item163[knowledge$item163 == 15]  <- 5
+
+knowledge$item164[knowledge$item164 == 11]  <- 1
+knowledge$item164[knowledge$item164 == 12]  <- 2
+knowledge$item164[knowledge$item164 == 13]  <- 3
+knowledge$item164[knowledge$item164 == 14]  <- 4
+knowledge$item164[knowledge$item164 == 15]  <- 5
+
+knowledge$item165[knowledge$item165 == 11]  <- 1
+knowledge$item165[knowledge$item165 == 12]  <- 2
+knowledge$item165[knowledge$item165 == 13]  <- 3
+knowledge$item165[knowledge$item165 == 14]  <- 4
+knowledge$item165[knowledge$item165 == 15]  <- 5
+
+knowledge$item166[knowledge$item166 == 11]  <- 1
+knowledge$item166[knowledge$item166 == 12]  <- 2
+knowledge$item166[knowledge$item166 == 13]  <- 3
+knowledge$item166[knowledge$item166 == 14]  <- 4
+knowledge$item166[knowledge$item166 == 15]  <- 5
+
+knowledge$item167[knowledge$item167 == 18]  <- 1
+knowledge$item167[knowledge$item167 == 19]  <- 2
+knowledge$item167[knowledge$item167 == 20]  <- 3
+knowledge$item167[knowledge$item167 == 21]  <- 4
+knowledge$item167[knowledge$item167 == 22]  <- 5
+
+knowledge$item168[knowledge$item168 == 11]  <- 1
+knowledge$item168[knowledge$item168 == 12]  <- 2
+knowledge$item168[knowledge$item168 == 13]  <- 3
+knowledge$item168[knowledge$item168 == 14]  <- 4
+knowledge$item168[knowledge$item168 == 15]  <- 5
+
+knowledge$item169[knowledge$item169 == 11]  <- 1
+knowledge$item169[knowledge$item169 == 12]  <- 2
+knowledge$item169[knowledge$item169 == 13]  <- 3
+knowledge$item169[knowledge$item169 == 14]  <- 4
+knowledge$item169[knowledge$item169 == 15]  <- 5
+
+knowledge$item170[knowledge$item170 == 11]  <- 1
+knowledge$item170[knowledge$item170 == 12]  <- 2
+knowledge$item170[knowledge$item170 == 13]  <- 3
+knowledge$item170[knowledge$item170 == 14]  <- 4
+knowledge$item170[knowledge$item170 == 15]  <- 5
+
+knowledge$item171[knowledge$item171 == 11]  <- 1
+knowledge$item171[knowledge$item171 == 12]  <- 2
+knowledge$item171[knowledge$item171 == 13]  <- 3
+knowledge$item171[knowledge$item171 == 14]  <- 4
+knowledge$item171[knowledge$item171 == 15]  <- 5
+
+knowledge$item172[knowledge$item172 == 11]  <- 1
+knowledge$item172[knowledge$item172 == 12]  <- 2
+knowledge$item172[knowledge$item172 == 13]  <- 3
+knowledge$item172[knowledge$item172 == 14]  <- 4
+knowledge$item172[knowledge$item172 == 15]  <- 5
+
+knowledge$item173[knowledge$item173 == 11]  <- 1
+knowledge$item173[knowledge$item173 == 12]  <- 2
+knowledge$item173[knowledge$item173 == 13]  <- 3
+knowledge$item173[knowledge$item173 == 14]  <- 4
+knowledge$item173[knowledge$item173 == 15]  <- 5
+
+knowledge$item174[knowledge$item174 == 11]  <- 1
+knowledge$item174[knowledge$item174 == 12]  <- 2
+knowledge$item174[knowledge$item174 == 13]  <- 3
+knowledge$item174[knowledge$item174 == 14]  <- 4
+knowledge$item174[knowledge$item174 == 15]  <- 5
+
+knowledge$item175[knowledge$item175 == 11]  <- 1
+knowledge$item175[knowledge$item175 == 12]  <- 2
+knowledge$item175[knowledge$item175 == 13]  <- 3
+knowledge$item175[knowledge$item175 == 14]  <- 4
+knowledge$item175[knowledge$item175 == 15]  <- 5
+
+knowledge$item176[knowledge$item176 == 11]  <- 1
+knowledge$item176[knowledge$item176 == 12]  <- 2
+knowledge$item176[knowledge$item176 == 13]  <- 3
+knowledge$item176[knowledge$item176 == 14]  <- 4
+knowledge$item176[knowledge$item176 == 15]  <- 5
+
+knowledge$item177[knowledge$item177 == 11]  <- 1
+knowledge$item177[knowledge$item177 == 12]  <- 2
+knowledge$item177[knowledge$item177 == 13]  <- 3
+knowledge$item177[knowledge$item177 == 14]  <- 4
+knowledge$item177[knowledge$item177 == 15]  <- 5
+
+knowledge$item178[knowledge$item178 == 11]  <- 1
+knowledge$item178[knowledge$item178 == 12]  <- 2
+knowledge$item178[knowledge$item178 == 13]  <- 3
+knowledge$item178[knowledge$item178 == 14]  <- 4
+knowledge$item178[knowledge$item178 == 15]  <- 5
+
+knowledge$item179[knowledge$item179 == 11]  <- 1
+knowledge$item179[knowledge$item179 == 12]  <- 2
+knowledge$item179[knowledge$item179 == 13]  <- 3
+knowledge$item179[knowledge$item179 == 14]  <- 4
+knowledge$item179[knowledge$item179 == 15]  <- 5
+
+knowledge$item180[knowledge$item180 == 11]  <- 1
+knowledge$item180[knowledge$item180 == 12]  <- 2
+knowledge$item180[knowledge$item180 == 13]  <- 3
+knowledge$item180[knowledge$item180 == 14]  <- 4
+knowledge$item180[knowledge$item180 == 15]  <- 5
+
+knowledge$item181[knowledge$item181 == 11]  <- 1
+knowledge$item181[knowledge$item181 == 12]  <- 2
+knowledge$item181[knowledge$item181 == 13]  <- 3
+knowledge$item181[knowledge$item181 == 14]  <- 4
+knowledge$item181[knowledge$item181 == 15]  <- 5
+
+knowledge$item182[knowledge$item182 == 11]  <- 1
+knowledge$item182[knowledge$item182 == 12]  <- 2
+knowledge$item182[knowledge$item182 == 13]  <- 3
+knowledge$item182[knowledge$item182 == 14]  <- 4
+knowledge$item182[knowledge$item182 == 15]  <- 5
+
+knowledge$item183[knowledge$item183 == 11]  <- 1
+knowledge$item183[knowledge$item183 == 12]  <- 2
+knowledge$item183[knowledge$item183 == 13]  <- 3
+knowledge$item183[knowledge$item183 == 14]  <- 4
+knowledge$item183[knowledge$item183 == 15]  <- 5
+
+knowledge$item184[knowledge$item184 == 21]  <- 1
+knowledge$item184[knowledge$item184 == 22]  <- 2
+knowledge$item184[knowledge$item184 == 23]  <- 3
+knowledge$item184[knowledge$item184 == 24]  <- 4
+knowledge$item184[knowledge$item184 == 25]  <- 5
+
+knowledge$item185[knowledge$item185 == 11]  <- 1
+knowledge$item185[knowledge$item185 == 12]  <- 2
+knowledge$item185[knowledge$item185 == 13]  <- 3
+knowledge$item185[knowledge$item185 == 14]  <- 4
+knowledge$item185[knowledge$item185 == 15]  <- 5
+
+knowledge$item186[knowledge$item186 == 11]  <- 1
+knowledge$item186[knowledge$item186 == 12]  <- 2
+knowledge$item186[knowledge$item186 == 13]  <- 3
+knowledge$item186[knowledge$item186 == 14]  <- 4
+knowledge$item186[knowledge$item186 == 15]  <- 5
+
+knowledge$item187[knowledge$item187 == 11]  <- 1
+knowledge$item187[knowledge$item187 == 12]  <- 2
+knowledge$item187[knowledge$item187 == 13]  <- 3
+knowledge$item187[knowledge$item187 == 14]  <- 4
+knowledge$item187[knowledge$item187 == 15]  <- 5
+
+knowledge$item188[knowledge$item188 == 11]  <- 1
+knowledge$item188[knowledge$item188 == 12]  <- 2
+knowledge$item188[knowledge$item188 == 13]  <- 3
+knowledge$item188[knowledge$item188 == 14]  <- 4
+knowledge$item188[knowledge$item188 == 15]  <- 5
+
+knowledge$item189[knowledge$item189 == 11]  <- 1
+knowledge$item189[knowledge$item189 == 12]  <- 2
+knowledge$item189[knowledge$item189 == 13]  <- 3
+knowledge$item189[knowledge$item189 == 14]  <- 4
+knowledge$item189[knowledge$item189 == 15]  <- 5
+
+knowledge$item190[knowledge$item190 == 11]  <- 1
+knowledge$item190[knowledge$item190 == 12]  <- 2
+knowledge$item190[knowledge$item190 == 13]  <- 3
+knowledge$item190[knowledge$item190 == 14]  <- 4
+knowledge$item190[knowledge$item190 == 15]  <- 5
+
+knowledge$item191[knowledge$item191 == 11]  <- 1
+knowledge$item191[knowledge$item191 == 12]  <- 2
+knowledge$item191[knowledge$item191 == 13]  <- 3
+knowledge$item191[knowledge$item191 == 14]  <- 4
+knowledge$item191[knowledge$item191 == 15]  <- 5
+
+knowledge$item192[knowledge$item192 == 11]  <- 1
+knowledge$item192[knowledge$item192 == 12]  <- 2
+knowledge$item192[knowledge$item192 == 13]  <- 3
+knowledge$item192[knowledge$item192 == 14]  <- 4
+knowledge$item192[knowledge$item192 == 15]  <- 5
+
+knowledge$item193[knowledge$item193 == 11]  <- 1
+knowledge$item193[knowledge$item193 == 12]  <- 2
+knowledge$item193[knowledge$item193 == 13]  <- 3
+knowledge$item193[knowledge$item193 == 14]  <- 4
+knowledge$item193[knowledge$item193 == 15]  <- 5
+
+knowledge$item194[knowledge$item194 == 11]  <- 1
+knowledge$item194[knowledge$item194 == 12]  <- 2
+knowledge$item194[knowledge$item194 == 13]  <- 3
+knowledge$item194[knowledge$item194 == 14]  <- 4
+knowledge$item194[knowledge$item194 == 15]  <- 5
+
+knowledge$item195[knowledge$item195 == 11]  <- 1
+knowledge$item195[knowledge$item195 == 12]  <- 2
+knowledge$item195[knowledge$item195 == 13]  <- 3
+knowledge$item195[knowledge$item195 == 14]  <- 4
+knowledge$item195[knowledge$item195 == 15]  <- 5
+
+knowledge$item196[knowledge$item196 == 11]  <- 1
+knowledge$item196[knowledge$item196 == 12]  <- 2
+knowledge$item196[knowledge$item196 == 13]  <- 3
+knowledge$item196[knowledge$item196 == 14]  <- 4
+knowledge$item196[knowledge$item196 == 15]  <- 5
+
+knowledge$item197[knowledge$item197 == 11]  <- 1
+knowledge$item197[knowledge$item197 == 12]  <- 2
+knowledge$item197[knowledge$item197 == 13]  <- 3
+knowledge$item197[knowledge$item197 == 14]  <- 4
+knowledge$item197[knowledge$item197 == 15]  <- 5
+
+knowledge$item198[knowledge$item198 == 11]  <- 1
+knowledge$item198[knowledge$item198 == 12]  <- 2
+knowledge$item198[knowledge$item198 == 13]  <- 3
+knowledge$item198[knowledge$item198 == 14]  <- 4
+knowledge$item198[knowledge$item198 == 15]  <- 5
+
+knowledge$item199[knowledge$item199 == 11]  <- 1
+knowledge$item199[knowledge$item199 == 12]  <- 2
+knowledge$item199[knowledge$item199 == 13]  <- 3
+knowledge$item199[knowledge$item199 == 14]  <- 4
+knowledge$item199[knowledge$item199 == 15]  <- 5
+
+knowledge$item200[knowledge$item200 == 11]  <- 1
+knowledge$item200[knowledge$item200 == 12]  <- 2
+knowledge$item200[knowledge$item200 == 13]  <- 3
+knowledge$item200[knowledge$item200 == 14]  <- 4
+knowledge$item200[knowledge$item200 == 15]  <- 5
+
+knowledge$item201[knowledge$item201 == 11]  <- 1
+knowledge$item201[knowledge$item201 == 12]  <- 2
+knowledge$item201[knowledge$item201 == 13]  <- 3
+knowledge$item201[knowledge$item201 == 14]  <- 4
+knowledge$item201[knowledge$item201 == 15]  <- 5
+
+knowledge$item202[knowledge$item202 == 11]  <- 1
+knowledge$item202[knowledge$item202 == 12]  <- 2
+knowledge$item202[knowledge$item202 == 13]  <- 3
+knowledge$item202[knowledge$item202 == 14]  <- 4
+knowledge$item202[knowledge$item202 == 15]  <- 5
+
+knowledge$item203[knowledge$item203 == 9]   <- 1
+knowledge$item203[knowledge$item203 == 10]  <- 2
+knowledge$item203[knowledge$item203 == 11]  <- 3
+knowledge$item203[knowledge$item203 == 12]  <- 4
+knowledge$item203[knowledge$item203 == 13]  <- 5
+
+knowledge$item204[knowledge$item204 == 11]  <- 1
+knowledge$item204[knowledge$item204 == 12]  <- 2
+knowledge$item204[knowledge$item204 == 13]  <- 3
+knowledge$item204[knowledge$item204 == 14]  <- 4
+knowledge$item204[knowledge$item204 == 15]  <- 5
+
+knowledge$item205[knowledge$item205 == 6]  <- 1
+knowledge$item205[knowledge$item205 == 7]  <- 2
+knowledge$item205[knowledge$item205 == 8]  <- 3
+knowledge$item205[knowledge$item205 == 9]  <- 4
+knowledge$item205[knowledge$item205 == 10] <- 5
+
+knowledge$item206[knowledge$item206 == 6]  <- 1
+knowledge$item206[knowledge$item206 == 7]  <- 2
+knowledge$item206[knowledge$item206 == 8]  <- 3
+knowledge$item206[knowledge$item206 == 9]  <- 4
+knowledge$item206[knowledge$item206 == 10] <- 5
+
+knowledge$item207[knowledge$item207 == 6]  <- 1
+knowledge$item207[knowledge$item207 == 7]  <- 2
+knowledge$item207[knowledge$item207 == 8]  <- 3
+knowledge$item207[knowledge$item207 == 9]  <- 4
+knowledge$item207[knowledge$item207 == 10] <- 5
+
+knowledge$item208[knowledge$item208 == 6]  <- 1
+knowledge$item208[knowledge$item208 == 7]  <- 2
+knowledge$item208[knowledge$item208 == 8]  <- 3
+knowledge$item208[knowledge$item208 == 9]  <- 4
+knowledge$item208[knowledge$item208 == 10] <- 5
+
+knowledge$item209[knowledge$item209 == 6]  <- 1
+knowledge$item209[knowledge$item209 == 7]  <- 2
+knowledge$item209[knowledge$item209 == 8]  <- 3
+knowledge$item209[knowledge$item209 == 9]  <- 4
+knowledge$item209[knowledge$item209 == 10] <- 5
+
+knowledge$item210[knowledge$item210 == 6]  <- 1
+knowledge$item210[knowledge$item210 == 7]  <- 2
+knowledge$item210[knowledge$item210 == 8]  <- 3
+knowledge$item210[knowledge$item210 == 9]  <- 4
+knowledge$item210[knowledge$item210 == 10] <- 5
+
+knowledge$item211[knowledge$item211 == 11]  <- 1
+knowledge$item211[knowledge$item211 == 12]  <- 2
+knowledge$item211[knowledge$item211 == 13]  <- 3
+knowledge$item211[knowledge$item211 == 14]  <- 4
+knowledge$item211[knowledge$item211 == 15]  <- 5
+
+knowledge$item212[knowledge$item212 == 4]  <- 1
+knowledge$item212[knowledge$item212 == 5]  <- 2
+knowledge$item212[knowledge$item212 == 6]  <- 3
+knowledge$item212[knowledge$item212 == 7]  <- 4
+knowledge$item212[knowledge$item212 == 8]  <- 5
+
+knowledge$item213[knowledge$item213 == 11]  <- 1
+knowledge$item213[knowledge$item213 == 12]  <- 2
+knowledge$item213[knowledge$item213 == 13]  <- 3
+knowledge$item213[knowledge$item213 == 14]  <- 4
+knowledge$item213[knowledge$item213 == 15]  <- 5
+
+knowledge$item214[knowledge$item214 == 11]  <- 1
+knowledge$item214[knowledge$item214 == 12]  <- 2
+knowledge$item214[knowledge$item214 == 13]  <- 3
+knowledge$item214[knowledge$item214 == 14]  <- 4
+knowledge$item214[knowledge$item214 == 15]  <- 5
+
+knowledge$item215[knowledge$item215 == 11]  <- 1
+knowledge$item215[knowledge$item215 == 12]  <- 2
+knowledge$item215[knowledge$item215 == 13]  <- 3
+knowledge$item215[knowledge$item215 == 14]  <- 4
+knowledge$item215[knowledge$item215 == 15]  <- 5
+
+knowledge$item216[knowledge$item216 == 11]  <- 1
+knowledge$item216[knowledge$item216 == 12]  <- 2
+knowledge$item216[knowledge$item216 == 13]  <- 3
+knowledge$item216[knowledge$item216 == 14]  <- 4
+knowledge$item216[knowledge$item216 == 15]  <- 5
+
+knowledge$item217[knowledge$item217 == 11]  <- 1
+knowledge$item217[knowledge$item217 == 12]  <- 2
+knowledge$item217[knowledge$item217 == 13]  <- 3
+knowledge$item217[knowledge$item217 == 14]  <- 4
+knowledge$item217[knowledge$item217 == 15]  <- 5
+
+knowledge$item218[knowledge$item218 == 11]  <- 1
+knowledge$item218[knowledge$item218 == 12]  <- 2
+knowledge$item218[knowledge$item218 == 13]  <- 3
+knowledge$item218[knowledge$item218 == 14]  <- 4
+knowledge$item218[knowledge$item218 == 15]  <- 5
+
+knowledge$item219[knowledge$item219 == 11]  <- 1
+knowledge$item219[knowledge$item219 == 12]  <- 2
+knowledge$item219[knowledge$item219 == 13]  <- 3
+knowledge$item219[knowledge$item219 == 14]  <- 4
+knowledge$item219[knowledge$item219 == 15]  <- 5
+
+knowledge$item220[knowledge$item220 == 6]  <- 1
+knowledge$item220[knowledge$item220 == 7]  <- 2
+knowledge$item220[knowledge$item220 == 8]  <- 3
+knowledge$item220[knowledge$item220 == 9]  <- 4
+knowledge$item220[knowledge$item220 == 10] <- 5
+
+knowledge$item221[knowledge$item221 == 6]  <- 1
+knowledge$item221[knowledge$item221 == 7]  <- 2
+knowledge$item221[knowledge$item221 == 8]  <- 3
+knowledge$item221[knowledge$item221 == 9]  <- 4
+knowledge$item221[knowledge$item221 == 10] <- 5
+
+knowledge$item222[knowledge$item222 == 6]  <- 1
+knowledge$item222[knowledge$item222 == 7]  <- 2
+knowledge$item222[knowledge$item222 == 8]  <- 3
+knowledge$item222[knowledge$item222 == 9]  <- 4
+knowledge$item222[knowledge$item222 == 10] <- 5
+
+knowledge$item223[knowledge$item223 == 16] <- 1
+knowledge$item223[knowledge$item223 == 17] <- 2
+knowledge$item223[knowledge$item223 == 18] <- 3
+knowledge$item223[knowledge$item223 == 19] <- 4
+knowledge$item223[knowledge$item223 == 20] <- 5
+
+knowledge$item224[knowledge$item224 == 6]  <- 1
+knowledge$item224[knowledge$item224 == 7]  <- 2
+knowledge$item224[knowledge$item224 == 8]  <- 3
+knowledge$item224[knowledge$item224 == 9]  <- 4
+knowledge$item224[knowledge$item224 == 10] <- 5
+
+knowledge$item225[knowledge$item225 == 6]  <- 1
+knowledge$item225[knowledge$item225 == 7]  <- 2
+knowledge$item225[knowledge$item225 == 8]  <- 3
+knowledge$item225[knowledge$item225 == 9]  <- 4
+knowledge$item225[knowledge$item225 == 10] <- 5
+
+knowledge$item226[knowledge$item226 == 6]  <- 1
+knowledge$item226[knowledge$item226 == 7]  <- 2
+knowledge$item226[knowledge$item226 == 8]  <- 3
+knowledge$item226[knowledge$item226 == 9]  <- 4
+knowledge$item226[knowledge$item226 == 10] <- 5
+
+knowledge$item227[knowledge$item227 == 6]  <- 1
+knowledge$item227[knowledge$item227 == 7]  <- 2
+knowledge$item227[knowledge$item227 == 8]  <- 3
+knowledge$item227[knowledge$item227 == 9]  <- 4
+knowledge$item227[knowledge$item227 == 10] <- 5
+
+knowledge$item228[knowledge$item228 == 6]  <- 1
+knowledge$item228[knowledge$item228 == 7]  <- 2
+knowledge$item228[knowledge$item228 == 8]  <- 3
+knowledge$item228[knowledge$item228 == 9]  <- 4
+knowledge$item228[knowledge$item228 == 10] <- 5
+
+knowledge$item229[knowledge$item229 == 6]  <- 1
+knowledge$item229[knowledge$item229 == 7]  <- 2
+knowledge$item229[knowledge$item229 == 8]  <- 3
+knowledge$item229[knowledge$item229 == 9]  <- 4
+knowledge$item229[knowledge$item229 == 10] <- 5
+
+knowledge$item230[knowledge$item230 == 16] <- 1
+knowledge$item230[knowledge$item230 == 17] <- 2
+knowledge$item230[knowledge$item230 == 18] <- 3
+knowledge$item230[knowledge$item230 == 19] <- 4
+knowledge$item230[knowledge$item230 == 20] <- 5
+
+knowledge$item231[knowledge$item231 == 6]  <- 1
+knowledge$item231[knowledge$item231 == 7]  <- 2
+knowledge$item231[knowledge$item231 == 8]  <- 3
+knowledge$item231[knowledge$item231 == 9]  <- 4
+knowledge$item231[knowledge$item231 == 10] <- 5
+
+knowledge$item232[knowledge$item232 == 6]  <- 1
+knowledge$item232[knowledge$item232 == 7]  <- 2
+knowledge$item232[knowledge$item232 == 8]  <- 3
+knowledge$item232[knowledge$item232 == 9]  <- 4
+knowledge$item232[knowledge$item232 == 10] <- 5
+
+knowledge$item233[knowledge$item233 == 6]  <- 1
+knowledge$item233[knowledge$item233 == 7]  <- 2
+knowledge$item233[knowledge$item233 == 8]  <- 3
+knowledge$item233[knowledge$item233 == 9]  <- 4
+knowledge$item233[knowledge$item233 == 10] <- 5
+
+knowledge$item234[knowledge$item234 == 11]  <- 1
+knowledge$item234[knowledge$item234 == 12]  <- 2
+knowledge$item234[knowledge$item234 == 13]  <- 3
+knowledge$item234[knowledge$item234 == 14]  <- 4
+knowledge$item234[knowledge$item234 == 15]  <- 5
+
+knowledge$item235[knowledge$item235 == 11]  <- 1
+knowledge$item235[knowledge$item235 == 12]  <- 2
+knowledge$item235[knowledge$item235 == 13]  <- 3
+knowledge$item235[knowledge$item235 == 14]  <- 4
+knowledge$item235[knowledge$item235 == 15]  <- 5
+
+knowledge$item236[knowledge$item236 == 11]  <- 1
+knowledge$item236[knowledge$item236 == 12]  <- 2
+knowledge$item236[knowledge$item236 == 13]  <- 3
+knowledge$item236[knowledge$item236 == 14]  <- 4
+knowledge$item236[knowledge$item236 == 15]  <- 5
+
+knowledge$item237[knowledge$item237 == 11]  <- 1
+knowledge$item237[knowledge$item237 == 12]  <- 2
+knowledge$item237[knowledge$item237 == 13]  <- 3
+knowledge$item237[knowledge$item237 == 14]  <- 4
+knowledge$item237[knowledge$item237 == 15]  <- 5
+
+knowledge$item238[knowledge$item238 == 11]  <- 1
+knowledge$item238[knowledge$item238 == 12]  <- 2
+knowledge$item238[knowledge$item238 == 13]  <- 3
+knowledge$item238[knowledge$item238 == 14]  <- 4
+knowledge$item238[knowledge$item238 == 15]  <- 5
+
+knowledge$item239[knowledge$item239 == 11]  <- 1
+knowledge$item239[knowledge$item239 == 12]  <- 2
+knowledge$item239[knowledge$item239 == 13]  <- 3
+knowledge$item239[knowledge$item239 == 14]  <- 4
+knowledge$item239[knowledge$item239 == 15]  <- 5
+
+knowledge$item240[knowledge$item240 == 11]  <- 1
+knowledge$item240[knowledge$item240 == 12]  <- 2
+knowledge$item240[knowledge$item240 == 13]  <- 3
+knowledge$item240[knowledge$item240 == 14]  <- 4
+knowledge$item240[knowledge$item240 == 15]  <- 5
+
+knowledge$item241[knowledge$item241 == 11]  <- 1
+knowledge$item241[knowledge$item241 == 12]  <- 2
+knowledge$item241[knowledge$item241 == 13]  <- 3
+knowledge$item241[knowledge$item241 == 14]  <- 4
+knowledge$item241[knowledge$item241 == 15]  <- 5
+
+knowledge$item242[knowledge$item242 == 6]  <- 1
+knowledge$item242[knowledge$item242 == 7]  <- 2
+knowledge$item242[knowledge$item242 == 8]  <- 3
+knowledge$item242[knowledge$item242 == 9]  <- 4
+knowledge$item242[knowledge$item242 == 10] <- 5
+
+knowledge$item243[knowledge$item243 == 11]  <- 1
+knowledge$item243[knowledge$item243 == 12]  <- 2
+knowledge$item243[knowledge$item243 == 13]  <- 3
+knowledge$item243[knowledge$item243 == 14]  <- 4
+knowledge$item243[knowledge$item243 == 15]  <- 5
+
+knowledge$item244[knowledge$item244 == 11]  <- 1
+knowledge$item244[knowledge$item244 == 12]  <- 2
+knowledge$item244[knowledge$item244 == 13]  <- 3
+knowledge$item244[knowledge$item244 == 14]  <- 4
+knowledge$item244[knowledge$item244 == 15]  <- 5
+
+knowledge$item245[knowledge$item245 == 6]  <- 1
+knowledge$item245[knowledge$item245 == 7]  <- 2
+knowledge$item245[knowledge$item245 == 8]  <- 3
+knowledge$item245[knowledge$item245 == 9]  <- 4
+knowledge$item245[knowledge$item245 == 10] <- 5
+
+knowledge$item246[knowledge$item246 == 11]  <- 1
+knowledge$item246[knowledge$item246 == 12]  <- 2
+knowledge$item246[knowledge$item246 == 13]  <- 3
+knowledge$item246[knowledge$item246 == 14]  <- 4
+knowledge$item246[knowledge$item246 == 15]  <- 5
+
+knowledge$item247[knowledge$item247 == 11]  <- 1
+knowledge$item247[knowledge$item247 == 12]  <- 2
+knowledge$item247[knowledge$item247 == 13]  <- 3
+knowledge$item247[knowledge$item247 == 14]  <- 4
+knowledge$item247[knowledge$item247 == 15]  <- 5
+
+## Attention check
+
+knowledge$item249[knowledge$item249 == 11]  <- 1
+knowledge$item249[knowledge$item249 == 12]  <- 2
+knowledge$item249[knowledge$item249 == 13]  <- 3
+knowledge$item249[knowledge$item249 == 14]  <- 4
+knowledge$item249[knowledge$item249 == 15]  <- 5
+
+knowledge$item250[knowledge$item250 == 11]  <- 1
+knowledge$item250[knowledge$item250 == 12]  <- 2
+knowledge$item250[knowledge$item250 == 13]  <- 3
+knowledge$item250[knowledge$item250 == 14]  <- 4
+knowledge$item250[knowledge$item250 == 15]  <- 5
+
+knowledge$item251[knowledge$item251 == 11]  <- 1
+knowledge$item251[knowledge$item251 == 12]  <- 2
+knowledge$item251[knowledge$item251 == 13]  <- 3
+knowledge$item251[knowledge$item251 == 14]  <- 4
+knowledge$item251[knowledge$item251 == 15]  <- 5
+
+knowledge$item252[knowledge$item252 == 18]  <- 1
+knowledge$item252[knowledge$item252 == 19]  <- 2
+knowledge$item252[knowledge$item252 == 20]  <- 3
+knowledge$item252[knowledge$item252 == 21]  <- 4
+knowledge$item252[knowledge$item252 == 22]  <- 5
+
+knowledge$item253[knowledge$item253 == 11]  <- 1
+knowledge$item253[knowledge$item253 == 12]  <- 2
+knowledge$item253[knowledge$item253 == 13]  <- 3
+knowledge$item253[knowledge$item253 == 14]  <- 4
+knowledge$item253[knowledge$item253 == 15]  <- 5
+
+knowledge$item254[knowledge$item254 == 11]  <- 1
+knowledge$item254[knowledge$item254 == 12]  <- 2
+knowledge$item254[knowledge$item254 == 13]  <- 3
+knowledge$item254[knowledge$item254 == 14]  <- 4
+knowledge$item254[knowledge$item254 == 15]  <- 5
+
+knowledge$item255[knowledge$item255 == 11]  <- 1
+knowledge$item255[knowledge$item255 == 12]  <- 2
+knowledge$item255[knowledge$item255 == 13]  <- 3
+knowledge$item255[knowledge$item255 == 14]  <- 4
+knowledge$item255[knowledge$item255 == 15]  <- 5
+
+knowledge$item256[knowledge$item256 == 11]  <- 1
+knowledge$item256[knowledge$item256 == 12]  <- 2
+knowledge$item256[knowledge$item256 == 13]  <- 3
+knowledge$item256[knowledge$item256 == 14]  <- 4
+knowledge$item256[knowledge$item256 == 15]  <- 5
+
+knowledge$item257[knowledge$item257 == 11]  <- 1
+knowledge$item257[knowledge$item257 == 12]  <- 2
+knowledge$item257[knowledge$item257 == 13]  <- 3
+knowledge$item257[knowledge$item257 == 14]  <- 4
+knowledge$item257[knowledge$item257 == 15]  <- 5
+
+knowledge$item258[knowledge$item258 == 11]  <- 1
+knowledge$item258[knowledge$item258 == 12]  <- 2
+knowledge$item258[knowledge$item258 == 13]  <- 3
+knowledge$item258[knowledge$item258 == 14]  <- 4
+knowledge$item258[knowledge$item258 == 15]  <- 5
+
+knowledge$item259[knowledge$item259 == 11]  <- 1
+knowledge$item259[knowledge$item259 == 12]  <- 2
+knowledge$item259[knowledge$item259 == 13]  <- 3
+knowledge$item259[knowledge$item259 == 14]  <- 4
+knowledge$item259[knowledge$item259 == 15]  <- 5
+
+knowledge$item260[knowledge$item260 == 11]  <- 1
+knowledge$item260[knowledge$item260 == 12]  <- 2
+knowledge$item260[knowledge$item260 == 13]  <- 3
+knowledge$item260[knowledge$item260 == 14]  <- 4
+knowledge$item260[knowledge$item260 == 15]  <- 5
+
+knowledge$item261[knowledge$item261 == 11]  <- 1
+knowledge$item261[knowledge$item261 == 12]  <- 2
+knowledge$item261[knowledge$item261 == 13]  <- 3
+knowledge$item261[knowledge$item261 == 14]  <- 4
+knowledge$item261[knowledge$item261 == 15]  <- 5
+
+knowledge$item262[knowledge$item262 == 11]  <- 1
+knowledge$item262[knowledge$item262 == 12]  <- 2
+knowledge$item262[knowledge$item262 == 13]  <- 3
+knowledge$item262[knowledge$item262 == 14]  <- 4
+knowledge$item262[knowledge$item262 == 15]  <- 5
+
+knowledge$item263[knowledge$item263 == 11]  <- 1
+knowledge$item263[knowledge$item263 == 12]  <- 2
+knowledge$item263[knowledge$item263 == 13]  <- 3
+knowledge$item263[knowledge$item263 == 14]  <- 4
+knowledge$item263[knowledge$item263 == 15]  <- 5
+
+knowledge$item264[knowledge$item264 == 11]  <- 1
+knowledge$item264[knowledge$item264 == 12]  <- 2
+knowledge$item264[knowledge$item264 == 13]  <- 3
+knowledge$item264[knowledge$item264 == 14]  <- 4
+knowledge$item264[knowledge$item264 == 15]  <- 5
+
+knowledge$item265[knowledge$item265 == 11]  <- 1
+knowledge$item265[knowledge$item265 == 12]  <- 2
+knowledge$item265[knowledge$item265 == 13]  <- 3
+knowledge$item265[knowledge$item265 == 14]  <- 4
+knowledge$item265[knowledge$item265 == 15]  <- 5
+
+knowledge$item266[knowledge$item266 == 11]  <- 1
+knowledge$item266[knowledge$item266 == 12]  <- 2
+knowledge$item266[knowledge$item266 == 13]  <- 3
+knowledge$item266[knowledge$item266 == 14]  <- 4
+knowledge$item266[knowledge$item266 == 15]  <- 5
+
+knowledge$item267[knowledge$item267 == 11]  <- 1
+knowledge$item267[knowledge$item267 == 12]  <- 2
+knowledge$item267[knowledge$item267 == 13]  <- 3
+knowledge$item267[knowledge$item267 == 14]  <- 4
+knowledge$item267[knowledge$item267 == 15]  <- 5
+
+knowledge$item268[knowledge$item268 == 11]  <- 1
+knowledge$item268[knowledge$item268 == 12]  <- 2
+knowledge$item268[knowledge$item268 == 13]  <- 3
+knowledge$item268[knowledge$item268 == 14]  <- 4
+knowledge$item268[knowledge$item268 == 15]  <- 5
+
+knowledge$item269[knowledge$item269 == 21]  <- 1
+knowledge$item269[knowledge$item269 == 22]  <- 2
+knowledge$item269[knowledge$item269 == 23]  <- 3
+knowledge$item269[knowledge$item269 == 24]  <- 4
+knowledge$item269[knowledge$item269 == 25]  <- 5
+
+knowledge$item270[knowledge$item270 == 11]  <- 1
+knowledge$item270[knowledge$item270 == 12]  <- 2
+knowledge$item270[knowledge$item270 == 13]  <- 3
+knowledge$item270[knowledge$item270 == 14]  <- 4
+knowledge$item270[knowledge$item270 == 15]  <- 5
+
+knowledge$item271[knowledge$item271 == 11]  <- 1
+knowledge$item271[knowledge$item271 == 12]  <- 2
+knowledge$item271[knowledge$item271 == 13]  <- 3
+knowledge$item271[knowledge$item271 == 14]  <- 4
+knowledge$item271[knowledge$item271 == 15]  <- 5
+
+knowledge$item272[knowledge$item272 == 11]  <- 1
+knowledge$item272[knowledge$item272 == 12]  <- 2
+knowledge$item272[knowledge$item272 == 13]  <- 3
+knowledge$item272[knowledge$item272 == 14]  <- 4
+knowledge$item272[knowledge$item272 == 15]  <- 5
+
+knowledge$item273[knowledge$item273 == 11]  <- 1
+knowledge$item273[knowledge$item273 == 12]  <- 2
+knowledge$item273[knowledge$item273 == 13]  <- 3
+knowledge$item273[knowledge$item273 == 14]  <- 4
+knowledge$item273[knowledge$item273 == 15]  <- 5
+
+knowledge$item274[knowledge$item274 == 11]  <- 1
+knowledge$item274[knowledge$item274 == 12]  <- 2
+knowledge$item274[knowledge$item274 == 13]  <- 3
+knowledge$item274[knowledge$item274 == 14]  <- 4
+knowledge$item274[knowledge$item274 == 15]  <- 5
+
+knowledge$item275[knowledge$item275 == 11]  <- 1
+knowledge$item275[knowledge$item275 == 12]  <- 2
+knowledge$item275[knowledge$item275 == 13]  <- 3
+knowledge$item275[knowledge$item275 == 14]  <- 4
+knowledge$item275[knowledge$item275 == 15]  <- 5
+
+knowledge$item276[knowledge$item276 == 11]  <- 1
+knowledge$item276[knowledge$item276 == 12]  <- 2
+knowledge$item276[knowledge$item276 == 13]  <- 3
+knowledge$item276[knowledge$item276 == 14]  <- 4
+knowledge$item276[knowledge$item276 == 15]  <- 5
+
+knowledge$item277[knowledge$item277 == 11]  <- 1
+knowledge$item277[knowledge$item277 == 12]  <- 2
+knowledge$item277[knowledge$item277 == 13]  <- 3
+knowledge$item277[knowledge$item277 == 14]  <- 4
+knowledge$item277[knowledge$item277 == 15]  <- 5
+
+knowledge$item278[knowledge$item278 == 11]  <- 1
+knowledge$item278[knowledge$item278 == 12]  <- 2
+knowledge$item278[knowledge$item278 == 13]  <- 3
+knowledge$item278[knowledge$item278 == 14]  <- 4
+knowledge$item278[knowledge$item278 == 15]  <- 5
+
+knowledge$item279[knowledge$item279 == 11]  <- 1
+knowledge$item279[knowledge$item279 == 12]  <- 2
+knowledge$item279[knowledge$item279 == 13]  <- 3
+knowledge$item279[knowledge$item279 == 14]  <- 4
+knowledge$item279[knowledge$item279 == 15]  <- 5
+
+knowledge$item280[knowledge$item280 == 11]  <- 1
+knowledge$item280[knowledge$item280 == 12]  <- 2
+knowledge$item280[knowledge$item280 == 13]  <- 3
+knowledge$item280[knowledge$item280 == 14]  <- 4
+knowledge$item280[knowledge$item280 == 15]  <- 5
+
+knowledge$item281[knowledge$item281 == 11]  <- 1
+knowledge$item281[knowledge$item281 == 12]  <- 2
+knowledge$item281[knowledge$item281 == 13]  <- 3
+knowledge$item281[knowledge$item281 == 14]  <- 4
+knowledge$item281[knowledge$item281 == 15]  <- 5
+
+knowledge$item282[knowledge$item282 == 11]  <- 1
+knowledge$item282[knowledge$item282 == 12]  <- 2
+knowledge$item282[knowledge$item282 == 13]  <- 3
+knowledge$item282[knowledge$item282 == 14]  <- 4
+knowledge$item282[knowledge$item282 == 15]  <- 5
+
+knowledge$item283[knowledge$item283 == 11]  <- 1
+knowledge$item283[knowledge$item283 == 12]  <- 2
+knowledge$item283[knowledge$item283 == 13]  <- 3
+knowledge$item283[knowledge$item283 == 14]  <- 4
+knowledge$item283[knowledge$item283 == 15]  <- 5
+
+knowledge$item284[knowledge$item284 == 11]  <- 1
+knowledge$item284[knowledge$item284 == 12]  <- 2
+knowledge$item284[knowledge$item284 == 13]  <- 3
+knowledge$item284[knowledge$item284 == 14]  <- 4
+knowledge$item284[knowledge$item284 == 15]  <- 5
+
+knowledge$item285[knowledge$item285 == 11]  <- 1
+knowledge$item285[knowledge$item285 == 12]  <- 2
+knowledge$item285[knowledge$item285 == 13]  <- 3
+knowledge$item285[knowledge$item285 == 14]  <- 4
+knowledge$item285[knowledge$item285 == 15]  <- 5
+
+knowledge$item286[knowledge$item286 == 11]  <- 1
+knowledge$item286[knowledge$item286 == 12]  <- 2
+knowledge$item286[knowledge$item286 == 13]  <- 3
+knowledge$item286[knowledge$item286 == 14]  <- 4
+knowledge$item286[knowledge$item286 == 15]  <- 5
+
+knowledge$item287[knowledge$item287 == 11]  <- 1
+knowledge$item287[knowledge$item287 == 12]  <- 2
+knowledge$item287[knowledge$item287 == 13]  <- 3
+knowledge$item287[knowledge$item287 == 14]  <- 4
+knowledge$item287[knowledge$item287 == 15]  <- 5
+
+knowledge$item288[knowledge$item288 == 9]   <- 1
+knowledge$item288[knowledge$item288 == 10]  <- 2
+knowledge$item288[knowledge$item288 == 11]  <- 3
+knowledge$item288[knowledge$item288 == 12]  <- 4
+knowledge$item288[knowledge$item288 == 13]  <- 5
+
+knowledge$item289[knowledge$item289 == 11]  <- 1
+knowledge$item289[knowledge$item289 == 12]  <- 2
+knowledge$item289[knowledge$item289 == 13]  <- 3
+knowledge$item289[knowledge$item289 == 14]  <- 4
+knowledge$item289[knowledge$item289 == 15]  <- 5
+
+knowledge$item290[knowledge$item290 == 6]  <- 1
+knowledge$item290[knowledge$item290 == 7]  <- 2
+knowledge$item290[knowledge$item290 == 8]  <- 3
+knowledge$item290[knowledge$item290 == 9]  <- 4
+knowledge$item290[knowledge$item290 == 10] <- 5
+
+knowledge$item291[knowledge$item291 == 6]  <- 1
+knowledge$item291[knowledge$item291 == 7]  <- 2
+knowledge$item291[knowledge$item291 == 8]  <- 3
+knowledge$item291[knowledge$item291 == 9]  <- 4
+knowledge$item291[knowledge$item291 == 10] <- 5
+
+knowledge$item292[knowledge$item292 == 6]  <- 1
+knowledge$item292[knowledge$item292 == 7]  <- 2
+knowledge$item292[knowledge$item292 == 8]  <- 3
+knowledge$item292[knowledge$item292 == 9]  <- 4
+knowledge$item292[knowledge$item292 == 10] <- 5
+
+knowledge$item293[knowledge$item293 == 6]  <- 1
+knowledge$item293[knowledge$item293 == 7]  <- 2
+knowledge$item293[knowledge$item293 == 8]  <- 3
+knowledge$item293[knowledge$item293 == 9]  <- 4
+knowledge$item293[knowledge$item293 == 10] <- 5
+
+knowledge$item294[knowledge$item294 == 6]  <- 1
+knowledge$item294[knowledge$item294 == 7]  <- 2
+knowledge$item294[knowledge$item294 == 8]  <- 3
+knowledge$item294[knowledge$item294 == 9]  <- 4
+knowledge$item294[knowledge$item294 == 10] <- 5
+
+knowledge$item295[knowledge$item295 == 6]  <- 1
+knowledge$item295[knowledge$item295 == 7]  <- 2
+knowledge$item295[knowledge$item295 == 8]  <- 3
+knowledge$item295[knowledge$item295 == 9]  <- 4
+knowledge$item295[knowledge$item295 == 10] <- 5
+
+knowledge$item296[knowledge$item296 == 11]  <- 1
+knowledge$item296[knowledge$item296 == 12]  <- 2
+knowledge$item296[knowledge$item296 == 13]  <- 3
+knowledge$item296[knowledge$item296 == 14]  <- 4
+knowledge$item296[knowledge$item296 == 15]  <- 5
+
+knowledge$item297[knowledge$item297 == 4]  <- 1
+knowledge$item297[knowledge$item297 == 5]  <- 2
+knowledge$item297[knowledge$item297 == 6]  <- 3
+knowledge$item297[knowledge$item297 == 7]  <- 4
+knowledge$item297[knowledge$item297 == 8]  <- 5
+
+knowledge$item298[knowledge$item298 == 11]  <- 1
+knowledge$item298[knowledge$item298 == 12]  <- 2
+knowledge$item298[knowledge$item298 == 13]  <- 3
+knowledge$item298[knowledge$item298 == 14]  <- 4
+knowledge$item298[knowledge$item298 == 15]  <- 5
+
+knowledge$item299[knowledge$item299 == 11]  <- 1
+knowledge$item299[knowledge$item299 == 12]  <- 2
+knowledge$item299[knowledge$item299 == 13]  <- 3
+knowledge$item299[knowledge$item299 == 14]  <- 4
+knowledge$item299[knowledge$item299 == 15]  <- 5
+
+knowledge$item300[knowledge$item300 == 11]  <- 1
+knowledge$item300[knowledge$item300 == 12]  <- 2
+knowledge$item300[knowledge$item300 == 13]  <- 3
+knowledge$item300[knowledge$item300 == 14]  <- 4
+knowledge$item300[knowledge$item300 == 15]  <- 5
+
+knowledge$item301[knowledge$item301 == 11]  <- 1
+knowledge$item301[knowledge$item301 == 12]  <- 2
+knowledge$item301[knowledge$item301 == 13]  <- 3
+knowledge$item301[knowledge$item301 == 14]  <- 4
+knowledge$item301[knowledge$item301 == 15]  <- 5
+
+knowledge$item302[knowledge$item302 == 11]  <- 1
+knowledge$item302[knowledge$item302 == 12]  <- 2
+knowledge$item302[knowledge$item302 == 13]  <- 3
+knowledge$item302[knowledge$item302 == 14]  <- 4
+knowledge$item302[knowledge$item302 == 15]  <- 5
+
+knowledge$item303[knowledge$item303 == 11]  <- 1
+knowledge$item303[knowledge$item303 == 12]  <- 2
+knowledge$item303[knowledge$item303 == 13]  <- 3
+knowledge$item303[knowledge$item303 == 14]  <- 4
+knowledge$item303[knowledge$item303 == 15]  <- 5
+
+knowledge$item304[knowledge$item304 == 11]  <- 1
+knowledge$item304[knowledge$item304 == 12]  <- 2
+knowledge$item304[knowledge$item304 == 13]  <- 3
+knowledge$item304[knowledge$item304 == 14]  <- 4
+knowledge$item304[knowledge$item304 == 15]  <- 5
+
+knowledge$item305[knowledge$item305 == 6]  <- 1
+knowledge$item305[knowledge$item305 == 7]  <- 2
+knowledge$item305[knowledge$item305 == 8]  <- 3
+knowledge$item305[knowledge$item305 == 9]  <- 4
+knowledge$item305[knowledge$item305 == 10] <- 5
+
+knowledge$item306[knowledge$item306 == 6]  <- 1
+knowledge$item306[knowledge$item306 == 7]  <- 2
+knowledge$item306[knowledge$item306 == 8]  <- 3
+knowledge$item306[knowledge$item306 == 9]  <- 4
+knowledge$item306[knowledge$item306 == 10] <- 5
+
+knowledge$item307[knowledge$item307 == 6]  <- 1
+knowledge$item307[knowledge$item307 == 7]  <- 2
+knowledge$item307[knowledge$item307 == 8]  <- 3
+knowledge$item307[knowledge$item307 == 9]  <- 4
+knowledge$item307[knowledge$item307 == 10] <- 5
+
+## Attention check
+
+knowledge$item309[knowledge$item309 == 16]  <- 1
+knowledge$item309[knowledge$item309 == 17]  <- 2
+knowledge$item309[knowledge$item309 == 18]  <- 3
+knowledge$item309[knowledge$item309 == 19]  <- 4
+knowledge$item309[knowledge$item309 == 20]  <- 5
+
+knowledge$item310[knowledge$item310 == 6]  <- 1
+knowledge$item310[knowledge$item310 == 7]  <- 2
+knowledge$item310[knowledge$item310 == 8]  <- 3
+knowledge$item310[knowledge$item310 == 9]  <- 4
+knowledge$item310[knowledge$item310 == 10] <- 5
+
+knowledge$item311[knowledge$item311 == 6]  <- 1
+knowledge$item311[knowledge$item311 == 7]  <- 2
+knowledge$item311[knowledge$item311 == 8]  <- 3
+knowledge$item311[knowledge$item311 == 9]  <- 4
+knowledge$item311[knowledge$item311 == 10] <- 5
+
+knowledge$item312[knowledge$item312 == 6]  <- 1
+knowledge$item312[knowledge$item312 == 7]  <- 2
+knowledge$item312[knowledge$item312 == 8]  <- 3
+knowledge$item312[knowledge$item312 == 9]  <- 4
+knowledge$item312[knowledge$item312 == 10] <- 5
+
+knowledge$item313[knowledge$item313 == 6]  <- 1
+knowledge$item313[knowledge$item313 == 7]  <- 2
+knowledge$item313[knowledge$item313 == 8]  <- 3
+knowledge$item313[knowledge$item313 == 9]  <- 4
+knowledge$item313[knowledge$item313 == 10] <- 5
+
+knowledge$item314[knowledge$item314 == 6]  <- 1
+knowledge$item314[knowledge$item314 == 7]  <- 2
+knowledge$item314[knowledge$item314 == 8]  <- 3
+knowledge$item314[knowledge$item314 == 9]  <- 4
+knowledge$item314[knowledge$item314 == 10] <- 5
+
+knowledge$item315[knowledge$item315 == 6]  <- 1
+knowledge$item315[knowledge$item315 == 7]  <- 2
+knowledge$item315[knowledge$item315 == 8]  <- 3
+knowledge$item315[knowledge$item315 == 9]  <- 4
+knowledge$item315[knowledge$item315 == 10] <- 5
+
+knowledge$item316[knowledge$item316 == 16]  <- 1
+knowledge$item316[knowledge$item316 == 17]  <- 2
+knowledge$item316[knowledge$item316 == 18]  <- 3
+knowledge$item316[knowledge$item316 == 19]  <- 4
+knowledge$item316[knowledge$item316 == 20]  <- 5
+
+knowledge$item317[knowledge$item317 == 6]  <- 1
+knowledge$item317[knowledge$item317 == 7]  <- 2
+knowledge$item317[knowledge$item317 == 8]  <- 3
+knowledge$item317[knowledge$item317 == 9]  <- 4
+knowledge$item317[knowledge$item317 == 10] <- 5
+
+knowledge$item318[knowledge$item318 == 6]  <- 1
+knowledge$item318[knowledge$item318 == 7]  <- 2
+knowledge$item318[knowledge$item318 == 8]  <- 3
+knowledge$item318[knowledge$item318 == 9]  <- 4
+knowledge$item318[knowledge$item318 == 10] <- 5
+
+knowledge$item319[knowledge$item319 == 6]  <- 1
+knowledge$item319[knowledge$item319 == 7]  <- 2
+knowledge$item319[knowledge$item319 == 8]  <- 3
+knowledge$item319[knowledge$item319 == 9]  <- 4
+knowledge$item319[knowledge$item319 == 10] <- 5
+
+knowledge$item320[knowledge$item320 == 11] <- 1
+knowledge$item320[knowledge$item320 == 12] <- 2
+knowledge$item320[knowledge$item320 == 13] <- 3
+knowledge$item320[knowledge$item320 == 14] <- 4
+knowledge$item320[knowledge$item320 == 15] <- 5
+
+knowledge$item321[knowledge$item321 == 11] <- 1
+knowledge$item321[knowledge$item321 == 12] <- 2
+knowledge$item321[knowledge$item321 == 13] <- 3
+knowledge$item321[knowledge$item321 == 14] <- 4
+knowledge$item321[knowledge$item321 == 15] <- 5
+
+knowledge$item322[knowledge$item322 == 11] <- 1
+knowledge$item322[knowledge$item322 == 12] <- 2
+knowledge$item322[knowledge$item322 == 13] <- 3
+knowledge$item322[knowledge$item322 == 14] <- 4
+knowledge$item322[knowledge$item322 == 15] <- 5
+
+knowledge$item323[knowledge$item323 == 11] <- 1
+knowledge$item323[knowledge$item323 == 12] <- 2
+knowledge$item323[knowledge$item323 == 13] <- 3
+knowledge$item323[knowledge$item323 == 14] <- 4
+knowledge$item323[knowledge$item323 == 15] <- 5
+
+knowledge$item324[knowledge$item324 == 11] <- 1
+knowledge$item324[knowledge$item324 == 12] <- 2
+knowledge$item324[knowledge$item324 == 13] <- 3
+knowledge$item324[knowledge$item324 == 14] <- 4
+knowledge$item324[knowledge$item324 == 15] <- 5
+
+knowledge$item325[knowledge$item325 == 11] <- 1
+knowledge$item325[knowledge$item325 == 12] <- 2
+knowledge$item325[knowledge$item325 == 13] <- 3
+knowledge$item325[knowledge$item325 == 14] <- 4
+knowledge$item325[knowledge$item325 == 15] <- 5
+
+knowledge$item326[knowledge$item326 == 11] <- 1
+knowledge$item326[knowledge$item326 == 12] <- 2
+knowledge$item326[knowledge$item326 == 13] <- 3
+knowledge$item326[knowledge$item326 == 14] <- 4
+knowledge$item326[knowledge$item326 == 15] <- 5
+
+knowledge$item327[knowledge$item327 == 11] <- 1
+knowledge$item327[knowledge$item327 == 12] <- 2
+knowledge$item327[knowledge$item327 == 13] <- 3
+knowledge$item327[knowledge$item327 == 14] <- 4
+knowledge$item327[knowledge$item327 == 15] <- 5
+
+knowledge$item328[knowledge$item328 == 6]  <- 1
+knowledge$item328[knowledge$item328 == 7]  <- 2
+knowledge$item328[knowledge$item328 == 8]  <- 3
+knowledge$item328[knowledge$item328 == 9]  <- 4
+knowledge$item328[knowledge$item328 == 10] <- 5
+
+knowledge$item329[knowledge$item329 == 11] <- 1
+knowledge$item329[knowledge$item329 == 12] <- 2
+knowledge$item329[knowledge$item329 == 13] <- 3
+knowledge$item329[knowledge$item329 == 14] <- 4
+knowledge$item329[knowledge$item329 == 15] <- 5
+
+knowledge$item330[knowledge$item330 == 11] <- 1
+knowledge$item330[knowledge$item330 == 12] <- 2
+knowledge$item330[knowledge$item330 == 13] <- 3
+knowledge$item330[knowledge$item330 == 14] <- 4
+knowledge$item330[knowledge$item330 == 15] <- 5
+
+knowledge$item331[knowledge$item331 == 6]  <- 1
+knowledge$item331[knowledge$item331 == 7]  <- 2
+knowledge$item331[knowledge$item331 == 8]  <- 3
+knowledge$item331[knowledge$item331 == 9]  <- 4
+knowledge$item331[knowledge$item331 == 10] <- 5
+
+knowledge$item332[knowledge$item332 == 11] <- 1
+knowledge$item332[knowledge$item332 == 12] <- 2
+knowledge$item332[knowledge$item332 == 13] <- 3
+knowledge$item332[knowledge$item332 == 14] <- 4
+knowledge$item332[knowledge$item332 == 15] <- 5
+
+knowledge$item333[knowledge$item333 == 11] <- 1
+knowledge$item333[knowledge$item333 == 12] <- 2
+knowledge$item333[knowledge$item333 == 13] <- 3
+knowledge$item333[knowledge$item333 == 14] <- 4
+knowledge$item333[knowledge$item333 == 15] <- 5
+
+knowledge$item334[knowledge$item334 == 11] <- 1
+knowledge$item334[knowledge$item334 == 12] <- 2
+knowledge$item334[knowledge$item334 == 13] <- 3
+knowledge$item334[knowledge$item334 == 14] <- 4
+knowledge$item334[knowledge$item334 == 15] <- 5
+
+knowledge$item335[knowledge$item335 == 11] <- 1
+knowledge$item335[knowledge$item335 == 12] <- 2
+knowledge$item335[knowledge$item335 == 13] <- 3
+knowledge$item335[knowledge$item335 == 14] <- 4
+knowledge$item335[knowledge$item335 == 15] <- 5
+
+knowledge$item336[knowledge$item336 == 11] <- 1
+knowledge$item336[knowledge$item336 == 12] <- 2
+knowledge$item336[knowledge$item336 == 13] <- 3
+knowledge$item336[knowledge$item336 == 14] <- 4
+knowledge$item336[knowledge$item336 == 15] <- 5
+
+knowledge$item337[knowledge$item337 == 18] <- 1
+knowledge$item337[knowledge$item337 == 19] <- 2
+knowledge$item337[knowledge$item337 == 20] <- 3
+knowledge$item337[knowledge$item337 == 21] <- 4
+knowledge$item337[knowledge$item337 == 22] <- 5
+
+knowledge$item338[knowledge$item338 == 11] <- 1
+knowledge$item338[knowledge$item338 == 12] <- 2
+knowledge$item338[knowledge$item338 == 13] <- 3
+knowledge$item338[knowledge$item338 == 14] <- 4
+knowledge$item338[knowledge$item338 == 15] <- 5
+
+knowledge$item339[knowledge$item339 == 11] <- 1
+knowledge$item339[knowledge$item339 == 12] <- 2
+knowledge$item339[knowledge$item339 == 13] <- 3
+knowledge$item339[knowledge$item339 == 14] <- 4
+knowledge$item339[knowledge$item339 == 15] <- 5
+
+knowledge$item340[knowledge$item340 == 11] <- 1
+knowledge$item340[knowledge$item340 == 12] <- 2
+knowledge$item340[knowledge$item340 == 13] <- 3
+knowledge$item340[knowledge$item340 == 14] <- 4
+knowledge$item340[knowledge$item340 == 15] <- 5
+
+knowledge$item341[knowledge$item341 == 11] <- 1
+knowledge$item341[knowledge$item341 == 12] <- 2
+knowledge$item341[knowledge$item341 == 13] <- 3
+knowledge$item341[knowledge$item341 == 14] <- 4
+knowledge$item341[knowledge$item341 == 15] <- 5
+
+knowledge$item342[knowledge$item342 == 11] <- 1
+knowledge$item342[knowledge$item342 == 12] <- 2
+knowledge$item342[knowledge$item342 == 13] <- 3
+knowledge$item342[knowledge$item342 == 14] <- 4
+knowledge$item342[knowledge$item342 == 15] <- 5
+
+knowledge$item343[knowledge$item343 == 11] <- 1
+knowledge$item343[knowledge$item343 == 12] <- 2
+knowledge$item343[knowledge$item343 == 13] <- 3
+knowledge$item343[knowledge$item343 == 14] <- 4
+knowledge$item343[knowledge$item343 == 15] <- 5
+
+knowledge$item344[knowledge$item344 == 11] <- 1
+knowledge$item344[knowledge$item344 == 12] <- 2
+knowledge$item344[knowledge$item344 == 13] <- 3
+knowledge$item344[knowledge$item344 == 14] <- 4
+knowledge$item344[knowledge$item344 == 15] <- 5
+
+knowledge$item345[knowledge$item345 == 11] <- 1
+knowledge$item345[knowledge$item345 == 12] <- 2
+knowledge$item345[knowledge$item345 == 13] <- 3
+knowledge$item345[knowledge$item345 == 14] <- 4
+knowledge$item345[knowledge$item345 == 15] <- 5
+
+knowledge$item346[knowledge$item346 == 11] <- 1
+knowledge$item346[knowledge$item346 == 12] <- 2
+knowledge$item346[knowledge$item346 == 13] <- 3
+knowledge$item346[knowledge$item346 == 14] <- 4
+knowledge$item346[knowledge$item346 == 15] <- 5
+
+knowledge$item347[knowledge$item347 == 11] <- 1
+knowledge$item347[knowledge$item347 == 12] <- 2
+knowledge$item347[knowledge$item347 == 13] <- 3
+knowledge$item347[knowledge$item347 == 14] <- 4
+knowledge$item347[knowledge$item347 == 15] <- 5
+
+knowledge$item348[knowledge$item348 == 11] <- 1
+knowledge$item348[knowledge$item348 == 12] <- 2
+knowledge$item348[knowledge$item348 == 13] <- 3
+knowledge$item348[knowledge$item348 == 14] <- 4
+knowledge$item348[knowledge$item348 == 15] <- 5
+
+knowledge$item349[knowledge$item349 == 11] <- 1
+knowledge$item349[knowledge$item349 == 12] <- 2
+knowledge$item349[knowledge$item349 == 13] <- 3
+knowledge$item349[knowledge$item349 == 14] <- 4
+knowledge$item349[knowledge$item349 == 15] <- 5
+
+knowledge$item350[knowledge$item350 == 11] <- 1
+knowledge$item350[knowledge$item350 == 12] <- 2
+knowledge$item350[knowledge$item350 == 13] <- 3
+knowledge$item350[knowledge$item350 == 14] <- 4
+knowledge$item350[knowledge$item350 == 15] <- 5
+
+knowledge$item351[knowledge$item351 == 11] <- 1
+knowledge$item351[knowledge$item351 == 12] <- 2
+knowledge$item351[knowledge$item351 == 13] <- 3
+knowledge$item351[knowledge$item351 == 14] <- 4
+knowledge$item351[knowledge$item351 == 15] <- 5
+
+knowledge$item352[knowledge$item352 == 11] <- 1
+knowledge$item352[knowledge$item352 == 12] <- 2
+knowledge$item352[knowledge$item352 == 13] <- 3
+knowledge$item352[knowledge$item352 == 14] <- 4
+knowledge$item352[knowledge$item352 == 15] <- 5
+
+knowledge$item353[knowledge$item353 == 11] <- 1
+knowledge$item353[knowledge$item353 == 12] <- 2
+knowledge$item353[knowledge$item353 == 13] <- 3
+knowledge$item353[knowledge$item353 == 14] <- 4
+knowledge$item353[knowledge$item353 == 15] <- 5
+
+knowledge$item354[knowledge$item354 == 21] <- 1
+knowledge$item354[knowledge$item354 == 22] <- 2
+knowledge$item354[knowledge$item354 == 23] <- 3
+knowledge$item354[knowledge$item354 == 24] <- 4
+knowledge$item354[knowledge$item354 == 25] <- 5
+
+knowledge$item355[knowledge$item355 == 11] <- 1
+knowledge$item355[knowledge$item355 == 12] <- 2
+knowledge$item355[knowledge$item355 == 13] <- 3
+knowledge$item355[knowledge$item355 == 14] <- 4
+knowledge$item355[knowledge$item355 == 15] <- 5
+
+knowledge$item356[knowledge$item356 == 11] <- 1
+knowledge$item356[knowledge$item356 == 12] <- 2
+knowledge$item356[knowledge$item356 == 13] <- 3
+knowledge$item356[knowledge$item356 == 14] <- 4
+knowledge$item356[knowledge$item356 == 15] <- 5
+
+knowledge$item357[knowledge$item357 == 11] <- 1
+knowledge$item357[knowledge$item357 == 12] <- 2
+knowledge$item357[knowledge$item357 == 13] <- 3
+knowledge$item357[knowledge$item357 == 14] <- 4
+knowledge$item357[knowledge$item357 == 15] <- 5
+
+knowledge$item358[knowledge$item358 == 11] <- 1
+knowledge$item358[knowledge$item358 == 12] <- 2
+knowledge$item358[knowledge$item358 == 13] <- 3
+knowledge$item358[knowledge$item358 == 14] <- 4
+knowledge$item358[knowledge$item358 == 15] <- 5
+
+knowledge$item359[knowledge$item359 == 11] <- 1
+knowledge$item359[knowledge$item359 == 12] <- 2
+knowledge$item359[knowledge$item359 == 13] <- 3
+knowledge$item359[knowledge$item359 == 14] <- 4
+knowledge$item359[knowledge$item359 == 15] <- 5
+
+knowledge$item360[knowledge$item360 == 11] <- 1
+knowledge$item360[knowledge$item360 == 12] <- 2
+knowledge$item360[knowledge$item360 == 13] <- 3
+knowledge$item360[knowledge$item360 == 14] <- 4
+knowledge$item360[knowledge$item360 == 15] <- 5
+
+knowledge$item361[knowledge$item361 == 11] <- 1
+knowledge$item361[knowledge$item361 == 12] <- 2
+knowledge$item361[knowledge$item361 == 13] <- 3
+knowledge$item361[knowledge$item361 == 14] <- 4
+knowledge$item361[knowledge$item361 == 15] <- 5
+
+knowledge$item362[knowledge$item362 == 11] <- 1
+knowledge$item362[knowledge$item362 == 12] <- 2
+knowledge$item362[knowledge$item362 == 13] <- 3
+knowledge$item362[knowledge$item362 == 14] <- 4
+knowledge$item362[knowledge$item362 == 15] <- 5
+
+knowledge$item363[knowledge$item363 == 11] <- 1
+knowledge$item363[knowledge$item363 == 12] <- 2
+knowledge$item363[knowledge$item363 == 13] <- 3
+knowledge$item363[knowledge$item363 == 14] <- 4
+knowledge$item363[knowledge$item363 == 15] <- 5
+
+knowledge$item364[knowledge$item364 == 11] <- 1
+knowledge$item364[knowledge$item364 == 12] <- 2
+knowledge$item364[knowledge$item364 == 13] <- 3
+knowledge$item364[knowledge$item364 == 14] <- 4
+knowledge$item364[knowledge$item364 == 15] <- 5
+
+knowledge$item365[knowledge$item365 == 11] <- 1
+knowledge$item365[knowledge$item365 == 12] <- 2
+knowledge$item365[knowledge$item365 == 13] <- 3
+knowledge$item365[knowledge$item365 == 14] <- 4
+knowledge$item365[knowledge$item365 == 15] <- 5
+
+knowledge$item366[knowledge$item366 == 11] <- 1
+knowledge$item366[knowledge$item366 == 12] <- 2
+knowledge$item366[knowledge$item366 == 13] <- 3
+knowledge$item366[knowledge$item366 == 14] <- 4
+knowledge$item366[knowledge$item366 == 15] <- 5
+
+knowledge$item367[knowledge$item367 == 11] <- 1
+knowledge$item367[knowledge$item367 == 12] <- 2
+knowledge$item367[knowledge$item367 == 13] <- 3
+knowledge$item367[knowledge$item367 == 14] <- 4
+knowledge$item367[knowledge$item367 == 15] <- 5
+
+knowledge$item368[knowledge$item368 == 11] <- 1
+knowledge$item368[knowledge$item368 == 12] <- 2
+knowledge$item368[knowledge$item368 == 13] <- 3
+knowledge$item368[knowledge$item368 == 14] <- 4
+knowledge$item368[knowledge$item368 == 15] <- 5
+
+knowledge$item369[knowledge$item369 == 11] <- 1
+knowledge$item369[knowledge$item369 == 12] <- 2
+knowledge$item369[knowledge$item369 == 13] <- 3
+knowledge$item369[knowledge$item369 == 14] <- 4
+knowledge$item369[knowledge$item369 == 15] <- 5
+
+knowledge$item370[knowledge$item370 == 11] <- 1
+knowledge$item370[knowledge$item370 == 12] <- 2
+knowledge$item370[knowledge$item370 == 13] <- 3
+knowledge$item370[knowledge$item370 == 14] <- 4
+knowledge$item370[knowledge$item370 == 15] <- 5
+
+knowledge$item371[knowledge$item371 == 11] <- 1
+knowledge$item371[knowledge$item371 == 12] <- 2
+knowledge$item371[knowledge$item371 == 13] <- 3
+knowledge$item371[knowledge$item371 == 14] <- 4
+knowledge$item371[knowledge$item371 == 15] <- 5
+
+knowledge$item372[knowledge$item372 == 11] <- 1
+knowledge$item372[knowledge$item372 == 12] <- 2
+knowledge$item372[knowledge$item372 == 13] <- 3
+knowledge$item372[knowledge$item372 == 14] <- 4
+knowledge$item372[knowledge$item372 == 15] <- 5
+
+```
+
 ## top 15 demands and resources, divided by skilled versus knowledge workers
 
-```{r rankings}
+```{r generalrankings}
 
 #######################################################
 #######################################################
@@ -1713,6 +4803,8 @@ chars$description <- labels[c(22:117),1]
 chars$mean <- round(rowMeans(chars[1:nrow(data)], na.rm=TRUE),2)
 chars$sd   <- round(apply(chars[1:nrow(data)], 1, sd, na.rm=TRUE),2)
 
+chars <- chars[ which(chars$sd > 0), ]        
+
 chars <- chars[,-61]   ## attention check
 
 sortchars <- chars[order(-chars$mean),]
@@ -1726,7 +4818,7 @@ write.csv(topchars, "topchars.csv")
 topchars <- read.csv("topchars.csv")[2:4]
 
 papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work characteristics.",
+                  caption = "Top 10 work characteristics (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1738,7 +4830,7 @@ write.csv(bottomchars, "bottomchars.csv")
 bottomchars <- read.csv("bottomchars.csv")[2:4]
 
 papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work characteristics.",
+                  caption = "Bottom 10 work characteristics (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1765,7 +4857,7 @@ write.csv(topresource, "topresource.csv")
 topresource <- read.csv("topresource.csv")[2:4]
 
 papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work resources.",
+                  caption = "Top 10 work resources (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1776,7 +4868,7 @@ write.csv(bottomresource, "bottomresource.csv")
 bottomresource <- read.csv("bottomresource.csv")[2:4]
 
 papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work resources.",
+                  caption = "Bottom 10 work resources (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1789,7 +4881,7 @@ hindrance$description <- labels[c(203:287),1]
 hindrance$mean <- round(rowMeans(hindrance[1:nrow(data)], na.rm=TRUE),2)
 hindrance$sd   <- round(apply(hindrance[1:nrow(data)], 1, sd, na.rm=TRUE),2)
 
-hindrance <- chars[,-248]   ## attention check
+hindrance <- hindrance[,-248]   ## attention check
 
 sorthindrance <- hindrance[order(-hindrance$mean),]
 
@@ -1803,7 +4895,7 @@ write.csv(tophindrance, "tophindrance.csv")
 tophindrance <- read.csv("tophindrance.csv")[2:4]
 
 papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work hindrances.",
+                  caption = "Top 10 work hindrances (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1814,7 +4906,7 @@ write.csv(bottomhindrance, "bottomhindrance.csv")
 bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
 
 papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work hindrances.",
+                  caption = "Bottom 10 work hindrances (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1840,7 +4932,7 @@ write.csv(topchallenge, "topchallenge.csv")
 topchallenge <- read.csv("topchallenge.csv")[2:4]
 
 papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work challenges.",
+                  caption = "Top 10 work challenges (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
@@ -1851,14 +4943,336 @@ write.csv(bottomchallenge, "bottomchallenge.csv")
 bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
 
 papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work challenges.",
+                  caption = "Bottom 10 work challenges (all occupations).",
                   align = c("m{14cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
 
 ```
 
+### Knowledge
 
+```{r knowledgerankings}
+
+#######################################################
+#######################################################
+#######################################################
+## Study 1 rankings
+
+chars <- as.data.frame(t(knowledge[22:117]))            ## isolating characteristics
+
+labels <- read.csv("truncatedlabels.csv")                 ## grabbing codebook for item labels
+
+chars$description <- labels[c(22:117),1]
+chars$mean <- round(rowMeans(chars[1:nrow(knowledge)], na.rm=TRUE),2)
+chars$sd   <- round(apply(chars[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+chars <- chars[,-61]   ## attention check
+
+sortchars <- chars[order(-chars$mean),]
+
+topchars <- head(sortchars, 10)
+bottomchars <- tail(sortchars,10)
+
+topchars <- topchars[tail(names(topchars),3)]         ## taking last two columns
+#topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
+write.csv(topchars, "topchars.csv")
+topchars <- read.csv("topchars.csv")[2:4]
+
+papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work characteristics (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchars <- bottomchars[tail(names(bottomchars),3)]         ## taking last two columns
+#bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
+
+write.csv(bottomchars, "bottomchars.csv")
+bottomchars <- read.csv("bottomchars.csv")[2:4]
+
+papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work characteristics (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+resource <- as.data.frame(t(knowledge[118:202]))            ## isolating characteristics
+
+resource$description <- labels[c(118:202),1]
+resource$mean <- round(rowMeans(resource[1:nrow(knowledge)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+resource <- resource[,-145]   ## attention check
+
+sortresource <- resource[order(-resource$mean),]
+
+topresource <- head(sortresource, 10)
+bottomresource <- tail(sortresource,10)
+
+topresource <- topresource[tail(names(topresource),3)]         ## taking last two columns
+#topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
+
+write.csv(topresource, "topresource.csv")
+topresource <- read.csv("topresource.csv")[2:4]
+
+papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work resources (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomresource <- bottomresource[tail(names(bottomresource),3)]         ## taking last two columns
+#bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
+write.csv(bottomresource, "bottomresource.csv")
+bottomresource <- read.csv("bottomresource.csv")[2:4]
+
+papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work resources (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+hindrance <- as.data.frame(t(knowledge[203:287]))            ## isolating characteristics
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(knowledge)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- chars[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$mean),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last two columns
+#tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
+
+write.csv(tophindrance, "tophindrance.csv")
+tophindrance <- read.csv("tophindrance.csv")[2:4]
+
+papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work hindrances (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
+#bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
+write.csv(bottomhindrance, "bottomhindrance.csv")
+bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
+
+papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work hindrances (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+challenge <- as.data.frame(t(knowledge[288:372]))            ## isolating characteristics
+
+challenge$description <- labels[c(288:372),1]
+challenge$mean <- round(rowMeans(challenge[1:nrow(knowledge)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[,-308]   ## attention check
+
+sortchallenge <- challenge[order(-challenge$mean),]
+
+topchallenge <- head(sortchallenge, 10)
+bottomchallenge <- tail(sortchallenge,10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last two columns
+#topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
+write.csv(topchallenge, "topchallenge.csv")
+topchallenge <- read.csv("topchallenge.csv")[2:4]
+
+papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work challenges (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
+#bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
+write.csv(bottomchallenge, "bottomchallenge.csv")
+bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
+
+papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work challenges (knowledge jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+```
+
+### Service
+
+```{r servicerankings}
+
+#######################################################
+#######################################################
+#######################################################
+## Study 1 rankings
+
+chars <- as.data.frame(t(service[22:117]))            ## isolating characteristics
+
+labels <- read.csv("truncatedlabels.csv")                 ## grabbing codebook for item labels
+
+chars$description <- labels[c(22:117),1]
+chars$mean <- round(rowMeans(chars[1:nrow(service)], na.rm=TRUE),2)
+chars$sd   <- round(apply(chars[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+chars <- chars[,-61]   ## attention check
+
+sortchars <- chars[order(-chars$mean),]
+
+topchars <- head(sortchars, 10)
+bottomchars <- tail(sortchars,10)
+
+topchars <- topchars[tail(names(topchars),3)]         ## taking last two columns
+#topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
+write.csv(topchars, "topchars.csv")
+topchars <- read.csv("topchars.csv")[2:4]
+
+papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work characteristics (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchars <- bottomchars[tail(names(bottomchars),3)]         ## taking last two columns
+#bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
+
+write.csv(bottomchars, "bottomchars.csv")
+bottomchars <- read.csv("bottomchars.csv")[2:4]
+
+papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work characteristics (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+resource <- as.data.frame(t(service[118:202]))            ## isolating characteristics
+
+resource$description <- labels[c(118:202),1]
+resource$mean <- round(rowMeans(resource[1:nrow(service)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+resource <- resource[,-145]   ## attention check
+
+sortresource <- resource[order(-resource$mean),]
+
+topresource <- head(sortresource, 10)
+bottomresource <- tail(sortresource,10)
+
+topresource <- topresource[tail(names(topresource),3)]         ## taking last two columns
+#topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
+
+write.csv(topresource, "topresource.csv")
+topresource <- read.csv("topresource.csv")[2:4]
+
+papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work resources (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomresource <- bottomresource[tail(names(bottomresource),3)]         ## taking last two columns
+#bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
+write.csv(bottomresource, "bottomresource.csv")
+bottomresource <- read.csv("bottomresource.csv")[2:4]
+
+papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work resources (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+hindrance <- as.data.frame(t(service[203:287]))            ## isolating characteristics
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(service)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- chars[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$mean),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last two columns
+#tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
+
+write.csv(tophindrance, "tophindrance.csv")
+tophindrance <- read.csv("tophindrance.csv")[2:4]
+
+papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work hindrances (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
+#bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
+write.csv(bottomhindrance, "bottomhindrance.csv")
+bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
+
+papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work hindrances (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+###############################################
+
+challenge <- as.data.frame(t(service[288:372]))            ## isolating characteristics
+
+challenge$description <- labels[c(288:372),1]
+challenge$mean <- round(rowMeans(challenge[1:nrow(service)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[,-308]   ## attention check
+
+sortchallenge <- challenge[order(-challenge$mean),]
+
+topchallenge <- head(sortchallenge, 10)
+bottomchallenge <- tail(sortchallenge,10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last two columns
+#topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
+write.csv(topchallenge, "topchallenge.csv")
+topchallenge <- read.csv("topchallenge.csv")[2:4]
+
+papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 work challenges (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
+#bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
+write.csv(bottomchallenge, "bottomchallenge.csv")
+bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
+
+papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
+                  caption = "Bottom 10 work challenges (service jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+```
 
 ## Study 2  
 
@@ -1949,10 +5363,6 @@ Average rating of each category by item and focus on the ones with low SDs.
 # Discussion 
 
 Could be another piece of info onet uses along with descriptions – could list resource challenge hinderance 
-
-## Participants  
-
-Prolific respondent panels were utilized. Our sample participants had an average tenure of `r round(mean(data[,401], na.rm=TRUE),2)` (SD = `r round(sd(data[,401], na.rm=TRUE),2)`) and an average age of `r round(mean(data[,403], na.rm=TRUE),2)` years (SD = `r round(sd(data[,403], na.rm=TRUE),2)`). The sample was `r ((sum(data[,402] == 'Female'))/(nrow(data)))`% female.
 
 ## Materials  
 

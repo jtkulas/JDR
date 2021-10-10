@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.21)  9 OCT 2021 19:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.9.21)  9 OCT 2021 22:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -656,25 +656,67 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 \l__pdf_internal_box=\box62
 ) (./SIOPjdr.aux
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
 
 
-LaTeX Warning: Label `tab:rankings' multiply defined.
+LaTeX Warning: Label `tab:generalrankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:knowledgerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
+
+
+LaTeX Warning: Label `tab:servicerankings' multiply defined.
 
 )
 \openout1 = `SIOPjdr.aux'.
@@ -828,10 +870,7 @@ Underfull \vbox (badness 7649) has occurred while \output is active []
 [8] [9] [10]
 \openout3 = `SIOPjdr.ttt'.
 
-(SIOPjdr.ttt) [11] [12] [13] [14]
-Underfull \vbox (badness 1248) has occurred while \output is active []
-
-[15] [16] [17] [18]
+(SIOPjdr.ttt) [11] [12] [13] [14] [15] [16] [17] [18]
 Underfull \vbox (badness 1389) has occurred while \output is active []
 
 [19] [20] [21] AED endfloat: Processing end Figures and Tables [22] (./SIOPjdr.
@@ -859,15 +898,79 @@ ttt [23
 
 
 
-] [30
+] [30] [31
 
 
 
-] [31] [32
+] [32] [33
 
 
 
-] [33
+] [34
+
+
+
+] [35
+
+
+
+] [36
+
+
+
+] [37] [38
+
+
+
+] [39
+
+
+
+] [40
+
+
+
+] [41
+
+
+
+] [42] [43
+
+
+
+] [44
+
+
+
+] [45
+
+
+
+] [46
+
+
+
+] [47] [48
+
+
+
+] [49
+
+
+
+] [50
+
+
+
+] [51
+
+
+
+] [52] [53
+
+
+
+] [54
 
 
 
@@ -876,13 +979,13 @@ ttt [23
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `SIOPjdr.out' has not changed.
-(rerunfilecheck)             Checksum: B346CCDE1DA006127FEE2D6052B06298;4998.
+(rerunfilecheck)             Checksum: 79209C94912B84DC912B47E31FD5907A;5075.
  ) 
 Here is how much of TeX's memory you used:
- 14931 strings out of 480559
- 229111 string characters out of 5901528
- 559834 words of memory out of 5000000
- 32143 multiletter control sequences out of 15000+600000
+ 14991 strings out of 480559
+ 229579 string characters out of 5901528
+ 577463 words of memory out of 5000000
+ 32163 multiletter control sequences out of 15000+600000
  446649 words of font info for 62 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  72i,11n,80p,2246b,637s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -895,10 +998,10 @@ lic/lm/lmmi12.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fonts/type
 type1/public/lm/lmr8.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dist/fon
 ts/type1/public/lm/lmri12.pfb><c:/Users/jtkul/AppData/Roaming/TinyTeX/texmf-dis
 t/fonts/type1/public/lm/lmss8.pfb>
-Output written on SIOPjdr.pdf (33 pages, 187097 bytes).
+Output written on SIOPjdr.pdf (54 pages, 208701 bytes).
 PDF statistics:
- 414 PDF objects out of 1000 (max. 8388607)
- 356 compressed objects within 4 object streams
- 136 named destinations out of 1000 (max. 500000)
- 225 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 551 PDF objects out of 1000 (max. 8388607)
+ 460 compressed objects within 5 object streams
+ 176 named destinations out of 1000 (max. 500000)
+ 233 words of extra memory for PDF output out of 10000 (max. 10000000)
 
