@@ -4816,8 +4816,9 @@ bottomchars <- bottomchars[tail(names(bottomchars),3)]
 
 library(ggplot2)
 
-overall.chars.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", 
+           position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip() 
 
 overall.chars.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
   scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
