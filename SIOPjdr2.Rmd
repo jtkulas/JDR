@@ -5065,15 +5065,15 @@ challenge.knowledge.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean
 
 ## Challenge Demands - Top 10
 ```{r}
-challenge.overall.b
+challenge.overall.t
 ```
 
 ```{r}
-challenge.knowledge.b
+challenge.knowledge.t
 ```
 
 ```{r}
-challenge.service.b
+challenge.service.t
 ```
 ## Hindrance Demands - Top 10
 
@@ -5164,15 +5164,15 @@ hindrance.knowledge.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean
 ```
 
 ```{r}
-hindrance.overall.b
+hindrance.overall.t
 ```
 
 ```{r}
-hindrance.knowledge.b
+hindrance.knowledge.t
 ```
 
 ```{r}
-hindrance.service.b
+hindrance.service.t
 ```
 
 Perhaps to a Hotelling's T across knowledge and service?
