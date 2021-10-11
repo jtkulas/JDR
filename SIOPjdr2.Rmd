@@ -1726,7 +1726,7 @@ data$item372[data$item372 == 13] <- 3
 data$item372[data$item372 == 14] <- 4
 data$item372[data$item372 == 15] <- 5
 
-write.csv(psych::describe(data[18:372]), "checkingrecodes.csv")
+# write.csv(psych::describe(data[18:372]), "checkingrecodes.csv")
 
 ```
 
@@ -4792,14 +4792,29 @@ knowledge$item372[knowledge$item372 == 15] <- 5
 
 ```{r generalrankings}
 
-#######################################################
-#######################################################
-#######################################################
-## Study 1 rankings
+labels <- read.csv("truncatedlabels.csv")            
 
-chars <- as.data.frame(t(data[22:117]))            ## isolating characteristics
+chars$description <- labels[c(22:117),1]
+chars$mean <- round(rowMeans(chars[1:nrow(service)], na.rm=TRUE),2)
+chars$sd   <- round(apply(chars[1:nrow(service)], 1, sd, na.rm=TRUE),2)
 
-labels <- read.csv("truncatedlabels.csv")                 ## grabbing codebook for item labels
+chars <- chars[,-61]   ## attention check
+
+sortchars <- chars[order(-chars$mean),]
+
+topchars <- head(sortchars, 10)
+bottomchars <- tail(sortchars,10)
+
+topchars <- topchars[tail(names(topchars),3)]         
+write.csv(topchars, "topchars.csv")
+topchars.service <- read.csv("topchars.csv")[2:4]
+
+bottomchars <- bottomchars[tail(names(bottomchars),3)]         
+write.csv(bottomchars, "bottomchars.csv")
+bottomchars.service <- read.csv("bottomchars.csv")[2:4]
+
+
+chars <- as.data.frame(t(data[22:117]))           
 
 chars$description <- labels[c(22:117),1]
 chars$mean <- round(rowMeans(chars[1:nrow(data)], na.rm=TRUE),2)
@@ -4814,28 +4829,25 @@ sortchars <- chars[order(-chars$mean),]
 topchars <- head(sortchars, 10)
 bottomchars <- tail(sortchars,10)
 
-topchars <- topchars[tail(names(topchars),3)]         ## taking last two columns
-#topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
+topchars <- topchars[tail(names(topchars),3)]        
 write.csv(topchars, "topchars.csv")
-topchars <- read.csv("topchars.csv")[2:4]
+topchars.over <- read.csv("topchars.csv")[2:4]
 
-papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work characteristics (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomchars <- bottomchars[tail(names(bottomchars),3)]         ## taking last two columns
-#bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
-
+bottomchars <- bottomchars[tail(names(bottomchars),3)]  
 write.csv(bottomchars, "bottomchars.csv")
-bottomchars <- read.csv("bottomchars.csv")[2:4]
+bottomchars.over <- read.csv("bottomchars.csv")[2:4]
 
-papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work characteristics (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+topchars.over$Worker <- "All"
+bottomchars.over$Worker <- "All"
+topchars.service$Worker <- "Service"
+bottomchars.service$Worker <- "Service"
+
+chars.all <- rbind(topchars.over,topchars.service)
+
+library(ggplot2)
+
+ggplot(chars.all, aes(x=description, y=mean)) + geom_bar(stat="identity") + facet_wrap(~Worker) + coord_flip()
+
 
 ###############################################
 
@@ -5118,48 +5130,10 @@ papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_
 
 ```{r servicerankings}
 
-#######################################################
-#######################################################
-#######################################################
-## Study 1 rankings
-
 chars <- as.data.frame(t(service[22:117]))            ## isolating characteristics
 
-labels <- read.csv("truncatedlabels.csv")                 ## grabbing codebook for item labels
 
-chars$description <- labels[c(22:117),1]
-chars$mean <- round(rowMeans(chars[1:nrow(service)], na.rm=TRUE),2)
-chars$sd   <- round(apply(chars[1:nrow(service)], 1, sd, na.rm=TRUE),2)
 
-chars <- chars[,-61]   ## attention check
-
-sortchars <- chars[order(-chars$mean),]
-
-topchars <- head(sortchars, 10)
-bottomchars <- tail(sortchars,10)
-
-topchars <- topchars[tail(names(topchars),3)]         ## taking last two columns
-#topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
-write.csv(topchars, "topchars.csv")
-topchars <- read.csv("topchars.csv")[2:4]
-
-papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work characteristics (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomchars <- bottomchars[tail(names(bottomchars),3)]         ## taking last two columns
-#bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
-
-write.csv(bottomchars, "bottomchars.csv")
-bottomchars <- read.csv("bottomchars.csv")[2:4]
-
-papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work characteristics (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
 
 ###############################################
 
@@ -5220,22 +5194,10 @@ tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last
 write.csv(tophindrance, "tophindrance.csv")
 tophindrance <- read.csv("tophindrance.csv")[2:4]
 
-papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work hindrances (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
 bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
 #bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
 write.csv(bottomhindrance, "bottomhindrance.csv")
 bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
-
-papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work hindrances (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
 
 ###############################################
 
@@ -5257,24 +5219,16 @@ topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last
 write.csv(topchallenge, "topchallenge.csv")
 topchallenge <- read.csv("topchallenge.csv")[2:4]
 
-papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work challenges (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
 
 bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
 #bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
 write.csv(bottomchallenge, "bottomchallenge.csv")
 bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
 
-papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work challenges (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+
 
 ```
+
 
 ## Study 2  
 
