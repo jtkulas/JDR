@@ -1730,6 +1730,7 @@ data$item372[data$item372 == 15] <- 5
 
 ```
 
+
 ```{r servicerecodes}
 ## Qualtrics data all messed up
 
@@ -4788,31 +4789,12 @@ knowledge$item372[knowledge$item372 == 15] <- 5
 
 ```
 
+
 ## top 15 demands and resources, divided by skilled versus knowledge workers
 
 ```{r generalrankings}
 
 labels <- read.csv("truncatedlabels.csv")            
-
-chars$description <- labels[c(22:117),1]
-chars$mean <- round(rowMeans(chars[1:nrow(service)], na.rm=TRUE),2)
-chars$sd   <- round(apply(chars[1:nrow(service)], 1, sd, na.rm=TRUE),2)
-
-chars <- chars[,-61]   ## attention check
-
-sortchars <- chars[order(-chars$mean),]
-
-topchars <- head(sortchars, 10)
-bottomchars <- tail(sortchars,10)
-
-topchars <- topchars[tail(names(topchars),3)]         
-write.csv(topchars, "topchars.csv")
-topchars.service <- read.csv("topchars.csv")[2:4]
-
-bottomchars <- bottomchars[tail(names(bottomchars),3)]         
-write.csv(bottomchars, "bottomchars.csv")
-bottomchars.service <- read.csv("bottomchars.csv")[2:4]
-
 
 chars <- as.data.frame(t(data[22:117]))           
 
@@ -4830,156 +4812,25 @@ topchars <- head(sortchars, 10)
 bottomchars <- tail(sortchars,10)
 
 topchars <- topchars[tail(names(topchars),3)]        
-write.csv(topchars, "topchars.csv")
-topchars.over <- read.csv("topchars.csv")[2:4]
-
 bottomchars <- bottomchars[tail(names(bottomchars),3)]  
-write.csv(bottomchars, "bottomchars.csv")
-bottomchars.over <- read.csv("bottomchars.csv")[2:4]
-
-topchars.over$Worker <- "All"
-bottomchars.over$Worker <- "All"
-topchars.service$Worker <- "Service"
-bottomchars.service$Worker <- "Service"
-
-chars.all <- rbind(topchars.over,topchars.service)
 
 library(ggplot2)
 
-ggplot(chars.all, aes(x=description, y=mean)) + geom_bar(stat="identity") + facet_wrap(~Worker) + coord_flip()
+overall.chars.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
 
+overall.chars.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
 
-###############################################
+#### Service
 
-resource <- as.data.frame(t(data[118:202]))            ## isolating characteristics
-
-resource$description <- labels[c(118:202),1]
-resource$mean <- round(rowMeans(resource[1:nrow(data)], na.rm=TRUE),2)
-resource$sd   <- round(apply(resource[1:nrow(data)], 1, sd, na.rm=TRUE),2)
-
-resource <- resource[,-145]   ## attention check
-
-sortresource <- resource[order(-resource$mean),]
-
-topresource <- head(sortresource, 10)
-bottomresource <- tail(sortresource,10)
-
-topresource <- topresource[tail(names(topresource),3)]         ## taking last two columns
-#topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
-
-write.csv(topresource, "topresource.csv")
-topresource <- read.csv("topresource.csv")[2:4]
-
-papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work resources (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomresource <- bottomresource[tail(names(bottomresource),3)]         ## taking last two columns
-#bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
-write.csv(bottomresource, "bottomresource.csv")
-bottomresource <- read.csv("bottomresource.csv")[2:4]
-
-papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work resources (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-###############################################
-
-hindrance <- as.data.frame(t(data[203:287]))            ## isolating characteristics
-
-hindrance$description <- labels[c(203:287),1]
-hindrance$mean <- round(rowMeans(hindrance[1:nrow(data)], na.rm=TRUE),2)
-hindrance$sd   <- round(apply(hindrance[1:nrow(data)], 1, sd, na.rm=TRUE),2)
-
-hindrance <- hindrance[,-248]   ## attention check
-
-sorthindrance <- hindrance[order(-hindrance$mean),]
-
-tophindrance <- head(sorthindrance, 10)
-bottomhindrance <- tail(sorthindrance,10)
-
-tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last two columns
-#tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
-
-write.csv(tophindrance, "tophindrance.csv")
-tophindrance <- read.csv("tophindrance.csv")[2:4]
-
-papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work hindrances (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
-#bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
-write.csv(bottomhindrance, "bottomhindrance.csv")
-bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
-
-papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work hindrances (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-###############################################
-
-challenge <- as.data.frame(t(data[288:372]))            ## isolating characteristics
-
-challenge$description <- labels[c(288:372),1]
-challenge$mean <- round(rowMeans(challenge[1:nrow(data)], na.rm=TRUE),2)
-challenge$sd   <- round(apply(challenge[1:nrow(data)], 1, sd, na.rm=TRUE),2)
-
-challenge <- challenge[,-308]   ## attention check
-
-sortchallenge <- challenge[order(-challenge$mean),]
-
-topchallenge <- head(sortchallenge, 10)
-bottomchallenge <- tail(sortchallenge,10)
-
-topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last two columns
-#topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
-write.csv(topchallenge, "topchallenge.csv")
-topchallenge <- read.csv("topchallenge.csv")[2:4]
-
-papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work challenges (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
-#bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
-write.csv(bottomchallenge, "bottomchallenge.csv")
-bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
-
-papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work challenges (all occupations).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-```
-
-### Knowledge
-
-```{r knowledgerankings}
-
-#######################################################
-#######################################################
-#######################################################
-## Study 1 rankings
-
-chars <- as.data.frame(t(knowledge[22:117]))            ## isolating characteristics
-
-labels <- read.csv("truncatedlabels.csv")                 ## grabbing codebook for item labels
+chars <- as.data.frame(t(service[22:117]))           
 
 chars$description <- labels[c(22:117),1]
-chars$mean <- round(rowMeans(chars[1:nrow(knowledge)], na.rm=TRUE),2)
-chars$sd   <- round(apply(chars[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+chars$mean <- round(rowMeans(chars[1:nrow(service)], na.rm=TRUE),2)
+chars$sd   <- round(apply(chars[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+chars <- chars[ which(chars$sd > 0), ]        
 
 chars <- chars[,-61]   ## attention check
 
@@ -4988,36 +4839,57 @@ sortchars <- chars[order(-chars$mean),]
 topchars <- head(sortchars, 10)
 bottomchars <- tail(sortchars,10)
 
-topchars <- topchars[tail(names(topchars),3)]         ## taking last two columns
-#topchars$label <- substr(topchars$label, 32,100)      ## shortening labels
-write.csv(topchars, "topchars.csv")
-topchars <- read.csv("topchars.csv")[2:4]
+topchars <- topchars[tail(names(topchars),3)]        
+bottomchars <- bottomchars[tail(names(bottomchars),3)]  
 
-papaja::apa_table(topchars, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work characteristics (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
 
-bottomchars <- bottomchars[tail(names(bottomchars),3)]         ## taking last two columns
-#bottomchars$label <- substr(bottomchars$label, 32,100)      ## shortening labels
+service.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
 
-write.csv(bottomchars, "bottomchars.csv")
-bottomchars <- read.csv("bottomchars.csv")[2:4]
+service.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
 
-papaja::apa_table(bottomchars, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work characteristics (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+## Knowledge
 
-###############################################
+chars <- as.data.frame(t(knowledge[22:117]))           
 
-resource <- as.data.frame(t(knowledge[118:202]))            ## isolating characteristics
+chars$description <- labels[c(22:117),1]
+chars$mean <- round(rowMeans(chars[1:nrow(knowledge)], na.rm=TRUE),2)
+chars$sd   <- round(apply(chars[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+chars <- chars[ which(chars$sd > 0), ]        
+
+chars <- chars[,-61]   ## attention check
+
+sortchars <- chars[order(-chars$mean),]
+
+topchars <- head(sortchars, 10)
+bottomchars <- tail(sortchars,10)
+
+topchars <- topchars[tail(names(topchars),3)]        
+bottomchars <- bottomchars[tail(names(bottomchars),3)]  
+
+
+knowledge.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+
+knowledge.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+
+
+```
+
+```{r resources}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+resource <- as.data.frame(t(data[118:202]))           
 
 resource$description <- labels[c(118:202),1]
-resource$mean <- round(rowMeans(resource[1:nrow(knowledge)], na.rm=TRUE),2)
-resource$sd   <- round(apply(resource[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+resource$mean <- round(rowMeans(resource[1:nrow(data)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+resource <- resource[ which(resource$sd > 0), ]        
 
 resource <- resource[,-145]   ## attention check
 
@@ -5026,123 +4898,27 @@ sortresource <- resource[order(-resource$mean),]
 topresource <- head(sortresource, 10)
 bottomresource <- tail(sortresource,10)
 
-topresource <- topresource[tail(names(topresource),3)]         ## taking last two columns
-#topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
+topresource <- topresource[tail(names(topresource),3)]        
+bottomresource <- bottomresource[tail(names(bottomresource),3)]  
 
-write.csv(topresource, "topresource.csv")
-topresource <- read.csv("topresource.csv")[2:4]
+library(ggplot2)
 
-papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work resources (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+resource.overall.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
 
-bottomresource <- bottomresource[tail(names(bottomresource),3)]         ## taking last two columns
-#bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
-write.csv(bottomresource, "bottomresource.csv")
-bottomresource <- read.csv("bottomresource.csv")[2:4]
+resource.overall.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
 
-papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work resources (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+#### Service
 
-###############################################
-
-hindrance <- as.data.frame(t(knowledge[203:287]))            ## isolating characteristics
-
-hindrance$description <- labels[c(203:287),1]
-hindrance$mean <- round(rowMeans(hindrance[1:nrow(knowledge)], na.rm=TRUE),2)
-hindrance$sd   <- round(apply(hindrance[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
-
-hindrance <- chars[,-248]   ## attention check
-
-sorthindrance <- hindrance[order(-hindrance$mean),]
-
-tophindrance <- head(sorthindrance, 10)
-bottomhindrance <- tail(sorthindrance,10)
-
-tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last two columns
-#tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
-
-write.csv(tophindrance, "tophindrance.csv")
-tophindrance <- read.csv("tophindrance.csv")[2:4]
-
-papaja::apa_table(tophindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work hindrances (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
-#bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
-write.csv(bottomhindrance, "bottomhindrance.csv")
-bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
-
-papaja::apa_table(bottomhindrance, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work hindrances (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-###############################################
-
-challenge <- as.data.frame(t(knowledge[288:372]))            ## isolating characteristics
-
-challenge$description <- labels[c(288:372),1]
-challenge$mean <- round(rowMeans(challenge[1:nrow(knowledge)], na.rm=TRUE),2)
-challenge$sd   <- round(apply(challenge[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
-
-challenge <- challenge[,-308]   ## attention check
-
-sortchallenge <- challenge[order(-challenge$mean),]
-
-topchallenge <- head(sortchallenge, 10)
-bottomchallenge <- tail(sortchallenge,10)
-
-topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last two columns
-#topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
-write.csv(topchallenge, "topchallenge.csv")
-topchallenge <- read.csv("topchallenge.csv")[2:4]
-
-papaja::apa_table(topchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work challenges (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
-#bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
-write.csv(bottomchallenge, "bottomchallenge.csv")
-bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
-
-papaja::apa_table(bottomchallenge, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work challenges (knowledge jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
-
-```
-
-### Service
-
-```{r servicerankings}
-
-chars <- as.data.frame(t(service[22:117]))            ## isolating characteristics
-
-
-
-
-###############################################
-
-resource <- as.data.frame(t(service[118:202]))            ## isolating characteristics
+resource <- as.data.frame(t(service[118:202]))           
 
 resource$description <- labels[c(118:202),1]
 resource$mean <- round(rowMeans(resource[1:nrow(service)], na.rm=TRUE),2)
 resource$sd   <- round(apply(resource[1:nrow(service)], 1, sd, na.rm=TRUE),2)
 
+resource <- resource[ which(resource$sd > 0), ]        
+
 resource <- resource[,-145]   ## attention check
 
 sortresource <- resource[order(-resource$mean),]
@@ -5150,62 +4926,68 @@ sortresource <- resource[order(-resource$mean),]
 topresource <- head(sortresource, 10)
 bottomresource <- tail(sortresource,10)
 
-topresource <- topresource[tail(names(topresource),3)]         ## taking last two columns
-#topresource$label <- substr(topresource$label, 32,100)      ## shortening labels
+topresource <- topresource[tail(names(topresource),3)]        
+bottomresource <- bottomresource[tail(names(bottomresource),3)]  
 
-write.csv(topresource, "topresource.csv")
-topresource <- read.csv("topresource.csv")[2:4]
 
-papaja::apa_table(topresource, # apa contains the data.frame needed for apa_table
-                  caption = "Top 10 work resources (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+resource.service.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
 
-bottomresource <- bottomresource[tail(names(bottomresource),3)]         ## taking last two columns
-#bottomresource$label <- substr(bottomresource$label, 32,100)      ## shortening labels
-write.csv(bottomresource, "bottomresource.csv")
-bottomresource <- read.csv("bottomresource.csv")[2:4]
+resource.service.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
 
-papaja::apa_table(bottomresource, # apa contains the data.frame needed for apa_table
-                  caption = "Bottom 10 work resources (service jobs).",
-                  align = c("m{14cm}","m{1cm}","m{1cm}"),
-                  landscape = TRUE,
-                  escape = F)
+## Knowledge
 
-###############################################
+resource <- as.data.frame(t(knowledge[118:202]))           
 
-hindrance <- as.data.frame(t(service[203:287]))            ## isolating characteristics
+resource$description <- labels[c(118:202),1]
+resource$mean <- round(rowMeans(resource[1:nrow(knowledge)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
 
-hindrance$description <- labels[c(203:287),1]
-hindrance$mean <- round(rowMeans(hindrance[1:nrow(service)], na.rm=TRUE),2)
-hindrance$sd   <- round(apply(hindrance[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+resource <- resource[ which(resource$sd > 0), ]        
 
-hindrance <- chars[,-248]   ## attention check
+resource <- resource[,-145]   ## attention check
 
-sorthindrance <- hindrance[order(-hindrance$mean),]
+sortresource <- resource[order(-resource$mean),]
 
-tophindrance <- head(sorthindrance, 10)
-bottomhindrance <- tail(sorthindrance,10)
+topresource <- head(sortresource, 10)
+bottomresource <- tail(sortresource,10)
 
-tophindrance <- tophindrance[tail(names(tophindrance),3)]         ## taking last two columns
-#tophindrance$label <- substr(tophindrance$label, 32,100)      ## shortening labels
+topresource <- topresource[tail(names(topresource),3)]        
+bottomresource <- bottomresource[tail(names(bottomresource),3)]  
 
-write.csv(tophindrance, "tophindrance.csv")
-tophindrance <- read.csv("tophindrance.csv")[2:4]
 
-bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]         ## taking last two columns
-#bottomhindrance$label <- substr(bottomhindrance$label, 32,100)      ## shortening labels
-write.csv(bottomhindrance, "bottomhindrance.csv")
-bottomhindrance <- read.csv("bottomhindrance.csv")[2:4]
+resource.knowledge.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
 
-###############################################
+resource.knowledge.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
 
-challenge <- as.data.frame(t(service[288:372]))            ## isolating characteristics
+```
+## Resources - Top 10
+```{r}
+resource.overall.t
+```
+
+```{r}
+resource.knowledge.t
+```
+
+```{r}
+resource.service.t
+```
+
+```{r challenges}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+challenge <- as.data.frame(t(data[288:372]))           
 
 challenge$description <- labels[c(288:372),1]
-challenge$mean <- round(rowMeans(challenge[1:nrow(service)], na.rm=TRUE),2)
-challenge$sd   <- round(apply(challenge[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+challenge$mean <- round(rowMeans(challenge[1:nrow(data)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[ which(challenge$sd > 0), ]        
 
 challenge <- challenge[,-308]   ## attention check
 
@@ -5214,21 +4996,186 @@ sortchallenge <- challenge[order(-challenge$mean),]
 topchallenge <- head(sortchallenge, 10)
 bottomchallenge <- tail(sortchallenge,10)
 
-topchallenge <- topchallenge[tail(names(topchallenge),3)]         ## taking last two columns
-#topchallenge$label <- substr(topchallenge$label, 32,100)      ## shortening labels
-write.csv(topchallenge, "topchallenge.csv")
-topchallenge <- read.csv("topchallenge.csv")[2:4]
+topchallenge <- topchallenge[tail(names(topchallenge),3)]        
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]  
+
+library(ggplot2)
+
+challenge.overall.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+
+challenge.overall.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+
+#### Service
+
+challenge <- as.data.frame(t(service[288:372]))           
+
+challenge$description <- labels[c(288:372),1]
+challenge$mean <- round(rowMeans(challenge[1:nrow(service)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[ which(challenge$sd > 0), ]        
+
+challenge <- challenge[,-308]   ## attention check
+
+sortchallenge <- challenge[order(-challenge$mean),]
+
+topchallenge <- head(sortchallenge, 10)
+bottomchallenge <- tail(sortchallenge,10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]        
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]  
 
 
-bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]         ## taking last two columns
-#bottomchallenge$label <- substr(bottomchallenge$label, 32,100)      ## shortening labels
-write.csv(bottomchallenge, "bottomchallenge.csv")
-bottomchallenge <- read.csv("bottomchallenge.csv")[2:4]
+challenge.service.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+
+challenge.service.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+
+## Knowledge
+
+challenge <- as.data.frame(t(knowledge[288:372]))           
+
+challenge$description <- labels[c(288:372),1]
+challenge$mean <- round(rowMeans(challenge[1:nrow(knowledge)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[ which(challenge$sd > 0), ]        
+
+challenge <- challenge[,-308]   ## attention check
+
+sortchallenge <- challenge[order(-challenge$mean),]
+
+topchallenge <- head(sortchallenge, 10)
+bottomchallenge <- tail(sortchallenge,10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]        
+bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]  
 
 
+challenge.knowledge.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+
+challenge.knowledge.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
 
 ```
 
+## Challenge Demands - Top 10
+```{r}
+challenge.overall.b
+```
+
+```{r}
+challenge.knowledge.b
+```
+
+```{r}
+challenge.service.b
+```
+## Hindrance Demands - Top 10
+
+```{r hindrances}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+hindrance <- as.data.frame(t(data[203:287]))           
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(data)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- hindrance[ which(hindrance$sd > 0), ]        
+
+hindrance <- hindrance[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$mean),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]        
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]  
+
+library(ggplot2)
+
+hindrance.overall.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+
+hindrance.overall.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+
+#### Service
+
+hindrance <- as.data.frame(t(service[203:287]))           
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(service)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(service)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- hindrance[ which(hindrance$sd > 0), ]        
+
+hindrance <- hindrance[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$mean),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]        
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]  
+
+
+hindrance.service.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+
+hindrance.service.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+
+## Knowledge
+
+hindrance <- as.data.frame(t(knowledge[203:287]))           
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(knowledge)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(knowledge)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- hindrance[ which(hindrance$sd > 0), ]        
+
+hindrance <- hindrance[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$mean),]
+
+tophindrance <- head(sorthindrance, 10)
+bottomhindrance <- tail(sorthindrance,10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]        
+bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]  
+
+
+hindrance.knowledge.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+
+hindrance.knowledge.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+
+```
+
+```{r}
+hindrance.overall.b
+```
+
+```{r}
+hindrance.knowledge.b
+```
+
+```{r}
+hindrance.service.b
+```
+
+Perhaps to a Hotelling's T across knowledge and service?
 
 ## Study 2  
 
@@ -5260,8 +5207,6 @@ burnout and stress components (correlations),
 
 data$item387      <- 7- data$item387           ## only reflected engagement item
 
-data$engage       <- rowMeans(data[380:399], na.rm=TRUE)
-
 data$absorption   <- rowMeans(data[c(380:386)], na.rm=TRUE)
 data$vigor        <- rowMeans(data[c(387:392)], na.rm=TRUE) 
 data$dedication   <- rowMeans(data[c(393:399)], na.rm=TRUE) 
@@ -5276,7 +5221,7 @@ data$burnout      <- rowMeans(data[c(373:376)], na.rm=TRUE)
 data$stress       <- rowMeans(data[c(377:379)], na.rm=TRUE)
 
 
-r <- corx::corx(data[,405:413],                     ## can extend if needed
+r <- corx::corx(data[,405:412],                     ## can extend if needed
                 triangle = "lower",
                 stars = c(0.05, 0.01, 0.001),
                 describe = c(`$M$` = mean, `$SD$` = sd))
