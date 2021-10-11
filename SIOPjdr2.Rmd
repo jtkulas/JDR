@@ -4790,7 +4790,7 @@ knowledge$item372[knowledge$item372 == 15] <- 5
 ```
 
 
-## top 15 demands and resources, divided by skilled versus knowledge workers
+## top 10 demands and resources, divided by skilled versus knowledge workers
 
 ```{r generalrankings}
 
@@ -5175,64 +5175,185 @@ hindrance.knowledge.t
 hindrance.service.t
 ```
 
-Perhaps to a Hotelling's T across knowledge and service?
+### Hypothesis 2 
 
-## Study 2  
+Hypothesis 2a predicted that job demands with the greatest variability would be moderated by worker type.
 
-We evaluate associations between the antecedants and proximal outcomes of the Job Demands-Resources model [@demerouti2001job; @bakker2003dual; @bakker2017job]. Specifically we focus on job engagement, job stress, and burnout with a U.S. workforce representative sample.
+Hypothesis 2b predicted that job resources with the greatest variability would be moderated by worker type.
 
-burnout and stress components (correlations), 
+```{r resources_variability}
 
->*Hypothesis 1a*: Job characteristics appraised as resources will be positively associated with engagement. 
+labels <- read.csv("truncatedlabels.csv")            
 
->*Hypothesis 1b*: Job characteristics appraised as resources will be negatively associated with stress.
+resource <- as.data.frame(t(data[118:202]))           
 
->*Hypothesis 1c*: Job characteristics appraised as resources will be negatively associated with burnout.
+resource$description <- labels[c(118:202),1]
+resource$overallmean <- round(rowMeans(resource[1:nrow(data)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(data)], 1, sd, na.rm=TRUE),2)
 
->*Hypothesis 2a*: Job characteristics appraised as challenge demands will be positively associated with engagement. 
+resource <- resource[,-145]   ## attention check
 
->*Hypothesis 2b*: Job characteristics appraised as challenge demands will be negatively associated with stress.
+sortresource <- resource[order(-resource$sd),]
 
->*Hypothesis 2c*: Job characteristics appraised as challenge demands will be negatively associated with burnout.
+topresource <- head(sortresource, 10)
 
->*Hypothesis 3a*: Job characteristics appraised as hinderance demands will be negatively associated with engagement. 
+topresource <- topresource[tail(names(topresource),3)]        
+ 
 
->*Hypothesis 3b*: Job characteristics appraised as hinderance demands will be positively associated with stress.
+data$worker[m3$iscoGroup == "1" | m3$iscoGroup == "2"] <- "Knowledge"
+data$worker[m3$iscoGroup == "3" | m3$iscoGroup == "4" | m3$iscoGroup == "5" | m3$iscoGroup == "6" | m3$iscoGroup == "7" | m3$iscoGroup == "8" | m3$iscoGroup == "9"] <- "Skill"
 
->*Hypothesis 3c*: Job characteristics appraised as hinderance demands will be positively associated with burnout.
+t1 <- t.test(item152~worker,data)
+t2 <- t.test(item146~worker,data)
+t3 <- t.test(item133~worker,data)
+t4 <- t.test(item124~worker,data)
+t5 <- t.test(item125~worker,data)
+t6 <- t.test(item122~worker,data)
+t7 <- t.test(item136~worker,data)
+t8 <- t.test(item132~worker,data)
+t9 <- t.test(item161~worker,data)
+t10 <- t.test(item141~worker,data)
 
-```{r study2}
+t <- rbind(t1$statistic,t2$statistic,t3$statistic,t4$statistic,t5$statistic,t6$statistic,t7$statistic,t8$statistic,t9$statistic,t10$statistic)
+p <- rbind(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value,t7$p.value,t8$p.value,t9$p.value,t10$p.value)
+Knowledge <- rbind(t1$estimate[[1]],t2$estimate[[1]],t3$estimate[[1]],t4$estimate[[1]],t5$estimate[[1]],t6$estimate[[1]],t7$estimate[[1]],t8$estimate[[1]],t9$estimate[[1]],t10$estimate[[1]])
+Skill <- rbind(t1$estimate[[2]],t2$estimate[[2]],t3$estimate[[2]],t4$estimate[[2]],t5$estimate[[2]],t6$estimate[[2]],t7$estimate[[2]],t8$estimate[[2]],t9$estimate[[2]],t10$estimate[[2]])
 
-## Study 2 DVs
+write.csv(topresource, "topresource.csv")
+topresource <- read.csv("topresource.csv")[2:4]
 
-data$item387      <- 7- data$item387           ## only reflected engagement item
+topresourceplot <- cbind(topresource,t,p,Knowledge,Skill)
+topresourceplot$p <- round(topresourceplot$p,3)
+topresourceplot$Knowledge <- round(topresourceplot$Knowledge,2)
+topresourceplot$Skill <- round(topresourceplot$Skill,2)
 
-data$absorption   <- rowMeans(data[c(380:386)], na.rm=TRUE)
-data$vigor        <- rowMeans(data[c(387:392)], na.rm=TRUE) 
-data$dedication   <- rowMeans(data[c(393:399)], na.rm=TRUE) 
+topresourceplot <- topresourceplot[order(-abs(topresourceplot$t)),]
 
-data$cognitive    <- rowMeans(data[c(380:382, 387:388, 393:395)], na.rm=TRUE)
-data$affective    <- rowMeans(data[c(383:384, 389:390, 396:397)], na.rm=TRUE) 
-data$behavioral   <- rowMeans(data[c(385:386, 391:392, 398:399)], na.rm=TRUE) 
-
-######################################################
-
-data$burnout      <- rowMeans(data[c(373:376)], na.rm=TRUE)
-data$stress       <- rowMeans(data[c(377:379)], na.rm=TRUE)
-
-
-r <- corx::corx(data[,405:412],                     ## can extend if needed
-                triangle = "lower",
-                stars = c(0.05, 0.01, 0.001),
-                describe = c(`$M$` = mean, `$SD$` = sd))
-
-papaja::apa_table(r$apa, # apa contains the data.frame needed for apa_table
-                  caption = "Scale intercorrelations (outcome variables).",
-                  note = "* p < 0.05; ** p < 0.01; *** p < 0.001",
+papaja::apa_table(topresourceplot[c(1,4:7)], # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 resources with the highest level of rating variability (t's across knowledge vs. skilled jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}","m{1cm}","m{1cm}"),
                   landscape = TRUE,
                   escape = F)
 
 ```
+
+The top 10 resources with the most variability in ratings yeilded standard deviations of `r min(topresource$sd)` to `r max(topresource$sd)`. T-tests for each of these were conducted and are presented in table XX.
+
+```{r hindrances_variability}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+hindrance <- as.data.frame(t(data[203:287]))           
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$overallmean <- round(rowMeans(hindrance[1:nrow(data)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- hindrance[,-248]   ## attention check
+
+sorthindrance <- hindrance[order(-hindrance$sd),]
+
+tophindrance <- head(sorthindrance, 10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]        
+ 
+
+data$worker[m3$iscoGroup == "1" | m3$iscoGroup == "2"] <- "Knowledge"
+data$worker[m3$iscoGroup == "3" | m3$iscoGroup == "4" | m3$iscoGroup == "5" | m3$iscoGroup == "6" | m3$iscoGroup == "7" | m3$iscoGroup == "8" | m3$iscoGroup == "9"] <- "Skill"
+
+t1 <- t.test(item152~worker,data)
+t2 <- t.test(item146~worker,data)
+t3 <- t.test(item133~worker,data)
+t4 <- t.test(item124~worker,data)
+t5 <- t.test(item125~worker,data)
+t6 <- t.test(item122~worker,data)
+t7 <- t.test(item136~worker,data)
+t8 <- t.test(item132~worker,data)
+t9 <- t.test(item161~worker,data)
+t10 <- t.test(item141~worker,data)
+
+t <- rbind(t1$statistic,t2$statistic,t3$statistic,t4$statistic,t5$statistic,t6$statistic,t7$statistic,t8$statistic,t9$statistic,t10$statistic)
+p <- rbind(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value,t7$p.value,t8$p.value,t9$p.value,t10$p.value)
+Knowledge <- rbind(t1$estimate[[1]],t2$estimate[[1]],t3$estimate[[1]],t4$estimate[[1]],t5$estimate[[1]],t6$estimate[[1]],t7$estimate[[1]],t8$estimate[[1]],t9$estimate[[1]],t10$estimate[[1]])
+Skill <- rbind(t1$estimate[[2]],t2$estimate[[2]],t3$estimate[[2]],t4$estimate[[2]],t5$estimate[[2]],t6$estimate[[2]],t7$estimate[[2]],t8$estimate[[2]],t9$estimate[[2]],t10$estimate[[2]])
+
+write.csv(tophindrance, "tophindrance.csv")
+tophindrance <- read.csv("tophindrance.csv")[2:4]
+
+tophindranceplot <- cbind(tophindrance,t,p,Knowledge,Skill)
+tophindranceplot$p <- round(tophindranceplot$p,3)
+tophindranceplot$Knowledge <- round(tophindranceplot$Knowledge,2)
+tophindranceplot$Skill <- round(tophindranceplot$Skill,2)
+
+tophindranceplot <- tophindranceplot[order(-abs(tophindranceplot$t)),]
+
+papaja::apa_table(tophindranceplot[c(1,4:7)], # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 hindrances with the highest level of rating variability (t's across knowledge vs. skilled jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+```
+
+The top 10 hindrance demands with the most variability in ratings yeilded standard deviations of `r min(tophindrance$sd)` to `r max(tophindrance$sd)`. T-tests for each of these were conducted and are presented in table XX.
+
+```{r challenges_variability}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+challenge <- as.data.frame(t(data[288:372]))           
+
+challenge$description <- labels[c(288:372),1]
+challenge$overallmean <- round(rowMeans(challenge[1:nrow(data)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+challenge <- challenge[,-308]   ## attention check
+
+sortchallenge <- challenge[order(-challenge$sd),]
+
+topchallenge <- head(sortchallenge, 10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]        
+ 
+
+data$worker[m3$iscoGroup == "1" | m3$iscoGroup == "2"] <- "Knowledge"
+data$worker[m3$iscoGroup == "3" | m3$iscoGroup == "4" | m3$iscoGroup == "5" | m3$iscoGroup == "6" | m3$iscoGroup == "7" | m3$iscoGroup == "8" | m3$iscoGroup == "9"] <- "Skill"
+
+t1 <- t.test(item152~worker,data)
+t2 <- t.test(item146~worker,data)
+t3 <- t.test(item133~worker,data)
+t4 <- t.test(item124~worker,data)
+t5 <- t.test(item125~worker,data)
+t6 <- t.test(item122~worker,data)
+t7 <- t.test(item136~worker,data)
+t8 <- t.test(item132~worker,data)
+t9 <- t.test(item161~worker,data)
+t10 <- t.test(item141~worker,data)
+
+t <- rbind(t1$statistic,t2$statistic,t3$statistic,t4$statistic,t5$statistic,t6$statistic,t7$statistic,t8$statistic,t9$statistic,t10$statistic)
+p <- rbind(t1$p.value,t2$p.value,t3$p.value,t4$p.value,t5$p.value,t6$p.value,t7$p.value,t8$p.value,t9$p.value,t10$p.value)
+Knowledge <- rbind(t1$estimate[[1]],t2$estimate[[1]],t3$estimate[[1]],t4$estimate[[1]],t5$estimate[[1]],t6$estimate[[1]],t7$estimate[[1]],t8$estimate[[1]],t9$estimate[[1]],t10$estimate[[1]])
+Skill <- rbind(t1$estimate[[2]],t2$estimate[[2]],t3$estimate[[2]],t4$estimate[[2]],t5$estimate[[2]],t6$estimate[[2]],t7$estimate[[2]],t8$estimate[[2]],t9$estimate[[2]],t10$estimate[[2]])
+
+write.csv(topchallenge, "topchallenge.csv")
+topchallenge <- read.csv("topchallenge.csv")[2:4]
+
+topchallengeplot <- cbind(topchallenge,t,p,Knowledge,Skill)
+topchallengeplot$p <- round(topchallengeplot$p,3)
+topchallengeplot$Knowledge <- round(topchallengeplot$Knowledge,2)
+topchallengeplot$Skill <- round(topchallengeplot$Skill,2)
+
+topchallengeplot <- topchallengeplot[order(-abs(topchallengeplot$t)),]
+
+papaja::apa_table(topchallengeplot[c(1,4:7)], # apa contains the data.frame needed for apa_table
+                  caption = "Top 10 challenges with the highest level of rating variability (t's across knowledge vs. skilled jobs).",
+                  align = c("m{14cm}","m{1cm}","m{1cm}","m{1cm}","m{1cm}"),
+                  landscape = TRUE,
+                  escape = F)
+
+```
+
+The top 10 challenge demands with the most variability in ratings yeilded standard deviations of `r min(topchallenge$sd)` to `r max(topchallenge$sd)`. T-tests for each of these were conducted and are presented in table XX.
 
 ## Study 3
 
