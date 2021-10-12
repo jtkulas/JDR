@@ -4816,12 +4816,11 @@ bottomchars <- bottomchars[tail(names(bottomchars),3)]
 
 library(ggplot2)
 
-ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", 
-           position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip() 
+overall.chars.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
-overall.chars.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+overall.chars.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 #### Service
 
@@ -4844,11 +4843,11 @@ topchars <- topchars[tail(names(topchars),3)]
 bottomchars <- bottomchars[tail(names(bottomchars),3)]  
 
 
-service.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+service.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-service.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+service.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -4871,11 +4870,11 @@ topchars <- topchars[tail(names(topchars),3)]
 bottomchars <- bottomchars[tail(names(bottomchars),3)]  
 
 
-knowledge.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+knowledge.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-knowledge.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+knowledge.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 
 ```
@@ -4904,11 +4903,11 @@ bottomresource <- bottomresource[tail(names(bottomresource),3)]
 
 library(ggplot2)
 
-resource.overall.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+resource.overall.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
-resource.overall.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+resource.overall.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 #### Service
 
@@ -4931,11 +4930,11 @@ topresource <- topresource[tail(names(topresource),3)]
 bottomresource <- bottomresource[tail(names(bottomresource),3)]  
 
 
-resource.service.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+resource.service.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-resource.service.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+resource.service.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -4958,11 +4957,11 @@ topresource <- topresource[tail(names(topresource),3)]
 bottomresource <- bottomresource[tail(names(bottomresource),3)]  
 
 
-resource.knowledge.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+resource.knowledge.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-resource.knowledge.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+resource.knowledge.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ```
 ## Resources - Top 10
@@ -5002,11 +5001,11 @@ bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]
 
 library(ggplot2)
 
-challenge.overall.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+challenge.overall.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
-challenge.overall.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+challenge.overall.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 #### Service
 
@@ -5029,11 +5028,11 @@ topchallenge <- topchallenge[tail(names(topchallenge),3)]
 bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]  
 
 
-challenge.service.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+challenge.service.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-challenge.service.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+challenge.service.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -5056,11 +5055,11 @@ topchallenge <- topchallenge[tail(names(topchallenge),3)]
 bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]  
 
 
-challenge.knowledge.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+challenge.knowledge.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-challenge.knowledge.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+challenge.knowledge.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ```
 
@@ -5102,11 +5101,11 @@ bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]
 
 library(ggplot2)
 
-hindrance.overall.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip() 
+hindrance.overall.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
-hindrance.overall.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + coord_flip()
+hindrance.overall.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Overall") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 #### Service
 
@@ -5129,11 +5128,11 @@ tophindrance <- tophindrance[tail(names(tophindrance),3)]
 bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]  
 
 
-hindrance.service.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+hindrance.service.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
-hindrance.service.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + coord_flip()
+hindrance.service.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -5156,11 +5155,11 @@ tophindrance <- tophindrance[tail(names(tophindrance),3)]
 bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]  
 
 
-hindrance.knowledge.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+hindrance.knowledge.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
-hindrance.knowledge.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_segment(aes(xend=description, yend=1)) + geom_point(size=2, color="blue") + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + coord_flip()
+hindrance.knowledge.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Knowledge") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
 ```
 
@@ -5182,7 +5181,7 @@ Hypothesis 2a predicted that job demands with the greatest variability would be 
 
 Hypothesis 2b predicted that job resources with the greatest variability would be moderated by worker type.
 
-```{r resources_variability}
+```{r resources_variability, eval=FALSE}
 
 labels <- read.csv("truncatedlabels.csv")            
 
@@ -5240,7 +5239,7 @@ papaja::apa_table(topresourceplot[c(1,4:7)], # apa contains the data.frame neede
 
 The top 10 resources with the most variability in ratings yeilded standard deviations of `r min(topresource$sd)` to `r max(topresource$sd)`. T-tests for each of these were conducted and are presented in table XX.
 
-```{r hindrances_variability}
+```{r hindrances_variability, eval=FALSE}
 
 labels <- read.csv("truncatedlabels.csv")            
 
@@ -5298,7 +5297,7 @@ papaja::apa_table(tophindranceplot[c(1,4:7)], # apa contains the data.frame need
 
 The top 10 hindrance demands with the most variability in ratings yeilded standard deviations of `r min(tophindrance$sd)` to `r max(tophindrance$sd)`. T-tests for each of these were conducted and are presented in table XX.
 
-```{r challenges_variability}
+```{r challenges_variability, eval=FALSE}
 
 labels <- read.csv("truncatedlabels.csv")            
 
@@ -5355,6 +5354,92 @@ papaja::apa_table(topchallengeplot[c(1,4:7)], # apa contains the data.frame need
 ```
 
 The top 10 challenge demands with the most variability in ratings yeilded standard deviations of `r min(topchallenge$sd)` to `r max(topchallenge$sd)`. T-tests for each of these were conducted and are presented in table XX.
+
+# Low Variability Demands and Resources
+
+The below graphs present the resources, challenges, and hindrances that are *largely agreed on* as indexed by low standard deviations
+
+```{r resourceslowsd}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+resource <- as.data.frame(t(data[118:202]))           
+
+resource$description <- labels[c(118:202),1]
+resource$mean <- round(rowMeans(resource[1:nrow(data)], na.rm=TRUE),2)
+resource$sd   <- round(apply(resource[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+resource <- resource[,-145]   ## attention check
+resource <- resource[ which(resource$sd > 0), ] 
+
+sortresource <- resource[order(resource$sd),]
+
+topresource <- head(sortresource, 10)
+
+topresource <- topresource[tail(names(topresource),3)]        
+
+library(ggplot2)
+
+ggplot(topresource, aes(x=reorder(description,-sd), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Resources (Agreement)") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
+
+```
+
+```{r challengesagree}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+challenge <- as.data.frame(t(data[288:372]))           
+
+challenge$description <- labels[c(288:372),1]
+challenge$mean <- round(rowMeans(challenge[1:nrow(data)], na.rm=TRUE),2)
+challenge$sd   <- round(apply(challenge[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+
+challenge <- challenge[,-308]   ## attention check
+challenge <- challenge[ which(challenge$sd > 0), ] 
+
+sortchallenge <- challenge[order(challenge$sd),]
+
+topchallenge <- head(sortchallenge, 10)
+
+topchallenge <- topchallenge[tail(names(topchallenge),3)]        
+
+library(ggplot2)
+
+ggplot(topchallenge, aes(x=reorder(description,-sd), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Agreement (Challenges)") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
+
+
+```
+
+```{r hindrancesagree}
+
+labels <- read.csv("truncatedlabels.csv")            
+
+hindrance <- as.data.frame(t(data[203:287]))           
+
+hindrance$description <- labels[c(203:287),1]
+hindrance$mean <- round(rowMeans(hindrance[1:nrow(data)], na.rm=TRUE),2)
+hindrance$sd   <- round(apply(hindrance[1:nrow(data)], 1, sd, na.rm=TRUE),2)
+
+hindrance <- hindrance[,-248]   ## attention check
+hindrance <- hindrance[ which(hindrance$sd > 0), ] 
+
+sorthindrance <- hindrance[order(hindrance$sd),]
+
+tophindrance <- head(sorthindrance, 10)
+
+tophindrance <- tophindrance[tail(names(tophindrance),3)]        
+
+library(ggplot2)
+
+ggplot(tophindrance, aes(x=reorder(description,-sd), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Agreement (Hindrances)") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+
+```
+
+As can be seen by the graphs, there is considerable disagreement regarding the degree to which job elements are considered *hindrances*, with the 10 elements showing the greatest agreement still ranging in standard deviations from `r min(tophindrance$sd)` to `r max(tophindrance$sd)`. What is widely seen as a resource and challenge tends to be more universally agreed upon (range of lowest 10 resource standard deviations is `r min(topresource$sd)` to `r max(topresource$sd)` and the range of lowest 10 challenge standard deviations is `r min(topchallenge$sd)` to `r max(topchallenge$sd)`.
 
 ## Study 3
 
