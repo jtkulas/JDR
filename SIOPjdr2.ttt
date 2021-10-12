@@ -40,16 +40,16 @@ description & \multicolumn{1}{c}{t} & \multicolumn{1}{c}{p} & \multicolumn{1}{c}
 description & \multicolumn{1}{c}{t} & \multicolumn{1}{c}{p} & \multicolumn{1}{c}{Knowledge} & \multicolumn{1}{c}{Skill}\\
 \midrule
 \endhead
-working outdoors, under cover & -3.85 & 0.00 & 2.47 & 3.21\\
-convincing others to buy merchandise/goods or to otherwise change their minds or actions & -2.22 & 0.03 & 2.66 & 3.09\\
-repeating the same physical or mental activities over and over, without stopping & -1.97 & 0.05 & 2.72 & 3.01\\
-written letters and memos & -1.56 & 0.12 & 3.01 & 3.21\\
-performing for people or dealing directly with the public & -1.49 & 0.14 & 3.01 & 3.19\\
-performing physical activities that require considerable use of your arms and legs and moving your whole body & -1.46 & 0.14 & 1.93 & 2.16\\
-decisions that affect other people, the financial resources, and/or the image and reputation of the organization & -1.37 & 0.17 & 2.15 & 2.49\\
-using either control mechanisms or direct physical activity to operate machines or processes & 0.79 & 0.43 & 3.04 & 2.95\\
-use electronic mail & -0.48 & 0.64 & 3.24 & 3.43\\
-wearing common protective or safety equipment & 0.33 & 0.74 & 3.27 & 3.23\\
+convincing others to buy merchandise/goods or to otherwise change their minds or actions & 2.34 & 0.02 & 2.80 & 2.45\\
+decisions that affect other people, the financial resources, and/or the image and reputation of the organization & -1.86 & 0.06 & 2.26 & 2.48\\
+repeating the same physical or mental activities over and over, without stopping & -1.60 & 0.11 & 2.11 & 2.31\\
+written letters and memos & 1.38 & 0.17 & 2.87 & 2.70\\
+performing physical activities that require considerable use of your arms and legs and moving your whole body & 1.33 & 0.19 & 2.76 & 2.40\\
+working outdoors, under cover & 1.11 & 0.27 & 3.11 & 2.89\\
+performing for people or dealing directly with the public & 0.52 & 0.60 & 2.72 & 2.65\\
+use electronic mail & -0.44 & 0.66 & 3.33 & 3.40\\
+using either control mechanisms or direct physical activity to operate machines or processes & -0.30 & 0.77 & 1.96 & 2.00\\
+wearing common protective or safety equipment & 0.24 & 0.81 & 3.64 & 3.58\\
 \bottomrule
 \end{longtable}
 
@@ -69,16 +69,16 @@ description & \multicolumn{1}{c}{t} & \multicolumn{1}{c}{p} & \multicolumn{1}{c}
 description & \multicolumn{1}{c}{t} & \multicolumn{1}{c}{p} & \multicolumn{1}{c}{Knowledge} & \multicolumn{1}{c}{Skill}\\
 \midrule
 \endhead
-wearing specialized protective or safety equipment & -3.85 & 0.00 & 2.47 & 3.21\\
-wearing common protective or safety equipment & -2.22 & 0.03 & 2.66 & 3.09\\
-bending or twisting your body & -1.97 & 0.05 & 2.72 & 3.01\\
-sitting & -1.56 & 0.12 & 3.01 & 3.21\\
-making repetitive motions & -1.49 & 0.14 & 3.01 & 3.19\\
-performing physical activities that require considerable use of your arms and legs and moving your whole body & -1.46 & 0.14 & 1.93 & 2.16\\
-working in a closed vehicle or equipment & -1.37 & 0.17 & 2.15 & 2.49\\
-pace is determined by the speed of equipment or machinery & 0.79 & 0.43 & 3.04 & 2.95\\
-use electronic mail & -0.48 & 0.64 & 3.24 & 3.43\\
-contact with others (face-to-face, by telephone, or otherwise) & 0.33 & 0.74 & 3.27 & 3.23\\
+performing physical activities that require considerable use of your arms and legs and moving your whole body & -2.91 & 0.00 & 3.06 & 3.80\\
+use electronic mail & -2.54 & 0.01 & 3.33 & 3.65\\
+wearing common protective or safety equipment & -2.06 & 0.04 & 2.18 & 2.68\\
+working in a closed vehicle or equipment & -1.63 & 0.10 & 2.52 & 2.84\\
+making repetitive motions & -1.52 & 0.13 & 2.35 & 2.69\\
+wearing specialized protective or safety equipment & -1.35 & 0.18 & 3.26 & 3.53\\
+contact with others (face-to-face, by telephone, or otherwise) & -1.00 & 0.32 & 3.29 & 3.60\\
+bending or twisting your body & -0.31 & 0.76 & 2.27 & 2.32\\
+sitting & 0.18 & 0.86 & 2.88 & 2.86\\
+pace is determined by the speed of equipment or machinery & -0.11 & 0.92 & 3.10 & 3.11\\
 \bottomrule
 \end{longtable}
 

@@ -1,0 +1,324 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  english,
+  man]{apa6}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={O*NET defined demands and resources and associations with stress, burnout, and engagement},
+  pdfauthor={Alicia Stachowski1, Renata Garcia Prieto Palacios Roji2, \& John Kulas2},
+  pdflang={en-EN},
+  pdfkeywords={keywords},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+% Manuscript styling
+\usepackage{upgreek}
+\captionsetup{font=singlespacing,justification=justified}
+
+% Table formatting
+\usepackage{longtable}
+\usepackage{lscape}
+% \usepackage[counterclockwise]{rotating}   % Landscape page setup for large tables
+\usepackage{multirow}		% Table styling
+\usepackage{tabularx}		% Control Column width
+\usepackage[flushleft]{threeparttable}	% Allows for three part tables with a specified notes section
+\usepackage{threeparttablex}            % Lets threeparttable work with longtable
+
+% Create new environments so endfloat can handle them
+% \newenvironment{ltable}
+%   {\begin{landscape}\begin{center}\begin{threeparttable}}
+%   {\end{threeparttable}\end{center}\end{landscape}}
+\newenvironment{lltable}{\begin{landscape}\begin{center}\begin{ThreePartTable}}{\end{ThreePartTable}\end{center}\end{landscape}}
+
+% Enables adjusting longtable caption width to table width
+% Solution found at http://golatex.de/longtable-mit-caption-so-breit-wie-die-tabelle-t15767.html
+\makeatletter
+\newcommand\LastLTentrywidth{1em}
+\newlength\longtablewidth
+\setlength{\longtablewidth}{1in}
+\newcommand{\getlongtablewidth}{\begingroup \ifcsname LT@\roman{LT@tables}\endcsname \global\longtablewidth=0pt \renewcommand{\LT@entry}[2]{\global\advance\longtablewidth by ##2\relax\gdef\LastLTentrywidth{##2}}\@nameuse{LT@\roman{LT@tables}} \fi \endgroup}
+
+% \setlength{\parindent}{0.5in}
+% \setlength{\parskip}{0pt plus 0pt minus 0pt}
+
+% \usepackage{etoolbox}
+\makeatletter
+\patchcmd{\HyOrg@maketitle}
+  {\section{\normalfont\normalsize\abstractname}}
+  {\section*{\normalfont\normalsize\abstractname}}
+  {}{\typeout{Failed to patch abstract.}}
+\patchcmd{\HyOrg@maketitle}
+  {\section{\protect\normalfont{\@title}}}
+  {\section*{\protect\normalfont{\@title}}}
+  {}{\typeout{Failed to patch title.}}
+\makeatother
+\shorttitle{Title}
+\keywords{keywords\newline\indent Word count: X}
+\DeclareDelayedFloatFlavor{ThreePartTable}{table}
+\DeclareDelayedFloatFlavor{lltable}{table}
+\DeclareDelayedFloatFlavor*{longtable}{table}
+\makeatletter
+\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
+\makeatother
+\usepackage{csquotes}
+\ifxetex
+  % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+\else
+  \usepackage[shorthands=off,main=english]{babel}
+\fi
+
+\title{O*NET defined demands and resources and associations with stress, burnout, and engagement}
+\author{Alicia Stachowski\textsuperscript{1}, Renata Garcia Prieto Palacios Roji\textsuperscript{2}, \& John Kulas\textsuperscript{2}}
+\date{}
+
+
+\affiliation{\vspace{0.5cm}\textsuperscript{1} University of Wisconsin - Stout\\\textsuperscript{2} Montclair State University}
+
+\abstract{
+O*NET work characteristics were rated in terms of relevance, perception of demand, and perception as resource.
+}
+
+
+
+\begin{document}
+\maketitle
+
+\hypertarget{materials}{%
+\subsection{Materials}\label{materials}}
+
+\hypertarget{characteristics-demands-and-resources}{%
+\subsubsection{Characteristics, Demands, and Resources}\label{characteristics-demands-and-resources}}
+
+Our analyses are organized by O*NET's classifications of \enquote{work activity}: 1) \emph{Information Input} (5 statements), 2) \emph{Interacting with Others} (17 statements), 3) \emph{Mental Processes} (10 statements), and 4) \emph{Work Output} (9 statements) and \enquote{work context}: 5) \emph{Interpersonal Relationships} (14 statements), 6) \emph{Physical Work Conditions} (30 statements)\footnote{Note that we excluded several statements within the \enquote{Physical Work Conditions} ratings of resources and demands (for example, we did not ask if \enquote{exposure to radiation} was considered a demand or resource). In total there were 11 exclusions from this category when assessing demands and resources.}, and 7) \emph{Structural Job Characteristics} (13 statements).
+
+Other than very minor grammatical editing (for example, changing \enquote{the} to \enquote{you}), we retained the O*NET wording for our item stems. We also administered O*NET's response scales, several of which were unique across items. Subsequent to these descriptions of the respondent's work activity and context, each respondent who agreed that an element had \emph{at least some relevance to their job} was also asked to rate that element in terms of, 1) \ldots this aspect of your job is a resource that can be functional in achieving work goals, reduce job demands, or stimulate personal growth/development, 2) \ldots this aspect of your job is a challenge that can promote mastery, personal growth, or future gains, and 3) \ldots this aspect of your job is a hinderance that can inhibit personal growth, learning, and work goal attainment. Our analyses focus on the extent to which the O*NET work characteristics are viewed as resources, challenges, or hindrances.
+
+\hypertarget{burnout-and-stress}{%
+\subsubsection{Burnout and Stress}\label{burnout-and-stress}}
+
+Were taken from the Copenhagen Psychosocial Questionnaire (Burr et al., 2019). There were 4 burnout items and 3 stress items with current sample \(\alpha\)'s of 0.85 (burnout) and 0.85 (stress).
+
+\hypertarget{engagement}{%
+\subsubsection{Engagement}\label{engagement}}
+
+The 18-item engagement measure was recently developed (Russell, Ossorio Duffoo, Garcia Prieto Palacios Roji, \& Kulas, 2022), with the authors specifying three subscales which yielded current sample \(\alpha\)'s of 0.68 (Absorption) and 0.80 (Vigor), and 0.90 (Dedication). For the purposes of the current study, we focused on an overall engagement score (18 item aggregate, \(\alpha\) = 0.91).
+
+\hypertarget{results}{%
+\section{Results}\label{results}}
+
+Our analyses are grouped by characteristics of work that are percieved as being resources, challenge demands, and hindrance demands.
+
+\hypertarget{resources}{%
+\subsubsection{Resources}\label{resources}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{resource} was 3.77 with a standard deviation of 0.48.
+
+The more a work characteristic was perceived as a resource, the more engaged the respondent was (\(R^2\) = .15, \(F_(7,528)\) = 12.82, \emph{p} \textless{} .001), although there was a only a trivial effect between being viewed as a resource and stress (\(R^2\) = .03, \(F_(7,528)\) = 2.20, \emph{p} \textless{} .05) and no significant association between being viewed as a resource and burnout (\(R^2\) = .01, \(F_(7,528)\) = 1.12, \emph{p} = .35). Note that this is consistent with the predictions of the JD-R.
+
+\hypertarget{hindrances}{%
+\subsubsection{Hindrances}\label{hindrances}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{hindrance} was 2.39 with a standard deviation of 0.78.
+
+There was a marginal association between a work characteristic being percieved as a greater hindrance and lower levels of engagement (\(R^2\) = .07, \(F_(7,528)\) = 5.84, \emph{p} \textless{} .001), with similar effects both between being viewed as a hindrance and increased stress (\(R^2\) = .06, \(F_(7,528)\) = 4.88, \emph{p} \textless{} .001) as well as increased levels of burnout (\(R^2\) = .06, \(F_(7,528)\) = 4.90, \emph{p} \textless{} .001).
+
+\hypertarget{challenges}{%
+\subsubsection{Challenges}\label{challenges}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{challenge} was 3.75 with a standard deviation of 0.50.
+
+The impact of challenging demands on engagement was similar in direction and magnitude to that of resources, as consistent with JD-R predictions (\(R^2\) = .13, \(F_(7,528)\) = 11.03, \emph{p} \textless{} .001), with absent effects for both stress (\(R^2\) = .01, \(F_(7,528)\) = 0.88, \emph{p} = .52) and burnout (\(R^2\) = .02, \(F_(7,528)\) = 1.21, \emph{p} = .30; that is, workplace challenges were predictive of engagement but not self-reported stress or burnout).
+
+\hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+The full correlation table including a simultaneous presentation of resources, challenges, and demands is too large, but we did investigate associations among these characteristics, with the average correlation among average correlation among resources and challenges being .37 (sd=.16), resources and hindrances being -.16 (sd=.08), and average correlation among challenges and hindrances being -.13 (sd=.09)
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationsresource}Scale intercorrelations (resources).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationsresource} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.resource.ii & .10* & -.07 & -.07 & - &  &  &  &  &  & 3.98 & 0.80\\
+5. onet.resource.mp & .16*** & .00 & -.01 & .61*** & - &  &  &  &  & 4.19 & 0.60\\
+6. onet.resource.wo & .14*** & -.02 & -.04 & .46*** & .50*** & - &  &  &  & 3.79 & 0.84\\
+7. onet.resource.io & .25*** & -.05 & -.08 & .49*** & .64*** & .45*** & - &  &  & 4.10 & 0.60\\
+8. onet.resource.ir & .28*** & -.07 & -.07 & .46*** & .55*** & .37*** & .60*** & - &  & 3.80 & 0.61\\
+9. onet.resource.pc & .15*** & -.03 & -.10* & .19*** & .15*** & .32*** & .18*** & .37*** & - & 2.99 & 0.77\\
+10. onet.resource.sc & .33*** & -.07 & -.12** & .43*** & .46*** & .41*** & .45*** & .48*** & .37*** & 3.65 & 0.61\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationschallenge}Scale intercorrelations (challenges).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationschallenge} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.challenge.ii & .08 & -.03 & -.01 & - &  &  &  &  &  & 3.98 & 0.80\\
+5. onet.challenge.mp & .07 & -.02 & -.04 & .65*** & - &  &  &  &  & 4.20 & 0.64\\
+6. onet.challenge.wo & .08 & -.06 & -.06 & .45*** & .49*** & - &  &  &  & 3.65 & 0.88\\
+7. onet.challenge.io & .21*** & -.07 & -.09* & .50*** & .68*** & .43*** & - &  &  & 4.07 & 0.64\\
+8. onet.challenge.ir & .19*** & -.05 & -.05 & .46*** & .60*** & .39*** & .70*** & - &  & 3.85 & 0.63\\
+9. onet.challenge.pc & .13** & .08 & .01 & .14** & .12** & .33*** & .20*** & .31*** & - & 2.85 & 0.79\\
+10. onet.challenge.sc & .35*** & -.03 & -.01 & .36*** & .41*** & .38*** & .51*** & .45*** & .40*** & 3.66 & 0.59\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationshindrance}Scale intercorrelations (hindrances).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationshindrance} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.hindrance.ii & -.04 & .01 & .07 & - &  &  &  &  &  & 2.15 & 1.01\\
+5. onet.hindrance.mp & -.04 & -.02 & .04 & .86*** & - &  &  &  &  & 2.10 & 1.05\\
+6. onet.hindrance.wo & -.08 & .05 & .10* & .66*** & .69*** & - &  &  &  & 2.31 & 1.02\\
+7. onet.hindrance.io & -.06 & .00 & .06 & .79*** & .86*** & .69*** & - &  &  & 2.23 & 1.03\\
+8. onet.hindrance.ir & -.11** & .06 & .12** & .79*** & .80*** & .61*** & .82*** & - &  & 2.35 & 0.89\\
+9. onet.hindrance.pc & -.17*** & .17*** & .14** & .38*** & .33*** & .47*** & .35*** & .47*** & - & 2.66 & 0.83\\
+10. onet.hindrance.sc & -.20*** & .15*** & .18*** & .62*** & .62*** & .56*** & .64*** & .66*** & .45*** & 2.64 & 0.80\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\hypertarget{discussion}{%
+\section{Discussion}\label{discussion}}
+
+There is richer information available within this dataset. Our job elements are grouped by O*NET category, which facilitates broad exploration, however, individual elements likely impact engagement, stress, and burnout, so these individual elements should be explored. For example, the \emph{Work Context} element of \enquote{having to meet strict deadlines} is likely something that is important alone. Incremental variance couldn't look at because of sheer number of IVs.
+
+\newpage
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\begingroup
+\setlength{\parindent}{-0.5in}
+\setlength{\leftskip}{0.5in}
+
+\hypertarget{refs}{}
+\leavevmode\hypertarget{ref-burr_third_2019}{}%
+Burr, H., Berthelsen, H., Moncada, S., Nübling, M., Dupret, E., Demiral, Y., \ldots{} Pohrt, A. (2019). The Third Version of the Copenhagen Psychosocial Questionnaire. \emph{Safety and Health at Work}, \emph{10}(4), 482--503. \url{https://doi.org/10.1016/j.shaw.2019.10.002}
+
+\leavevmode\hypertarget{ref-engage_2022}{}%
+Russell, M., Ossorio Duffoo, C., Garcia Prieto Palacios Roji, R., \& Kulas, J. (2022). Development of an intentional bifactor measure of engagement. In \emph{The seattle edition of siop} (pp. 1--14). SIOP.
+
+\endgroup
+
+
+\end{document}

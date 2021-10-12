@@ -119,9 +119,6 @@
 \makeatletter
 \renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
 \makeatother
-\usepackage{lineno}
-
-\linenumbers
 \usepackage{csquotes}
 \ifxetex
   % Load polyglossia as late as possible: uses bidi with RTL langages (e.g. Hebrew, Arabic)
@@ -262,38 +259,6 @@ burnout and stress components (correlations),
 \emph{Hypothesis 3c}: Job characteristics appraised as hinderance demands will be positively associated with burnout.
 \end{quote}
 
-\begin{lltable}
-
-\begin{TableNotes}[para]
-\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
-\end{TableNotes}
-
-\begin{longtable}{llllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
-\caption{\label{tab:study2}Scale intercorrelations (outcome variables).}\\
-\toprule
- & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
-\midrule
-\endfirsthead
-\caption*{\normalfont{Table \ref{tab:study2} continued}}\\
-\toprule
- & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
-\midrule
-\endhead
-1. absorption & - &  &  &  &  &  &  & 3.80 & 0.80\\
-2. vigor & .66*** & - &  &  &  &  &  & 4.10 & 0.87\\
-3. dedication & .63*** & .66*** & - &  &  &  &  & 4.23 & 1.14\\
-4. cognitive & .76*** & .78*** & .89*** & - &  &  &  & 3.94 & 0.86\\
-5. affective & .80*** & .83*** & .85*** & .83*** & - &  &  & 3.96 & 1.05\\
-6. behavioral & .80*** & .77*** & .74*** & .70*** & .75*** & - &  & 4.25 & 0.79\\
-7. burnout & -.22*** & -.43*** & -.29*** & -.37*** & -.37*** & -.22*** & - & 3.04 & 0.87\\
-8. stress & -.14*** & -.40*** & -.25*** & -.30*** & -.31*** & -.18*** & .70*** & 2.59 & 0.97\\
-\bottomrule
-\addlinespace
-\insertTableNotes
-\end{longtable}
-
-\end{lltable}
-
 \hypertarget{study-3}{%
 \subsection{Study 3}\label{study-3}}
 
@@ -336,35 +301,155 @@ Could be another piece of info onet uses along with descriptions -- could list r
 \hypertarget{characteristics-demands-and-resources}{%
 \subsubsection{Characteristics, Demands, and Resources}\label{characteristics-demands-and-resources}}
 
-We used 98 statements taken from O*NET \href{https://www.O*NETonline.org/find/descriptor/result/4.A.1.b.3}{\enquote{activity} and \enquote{context} classifications}. We retained 41 \enquote{work activity} classifications which O*NET groups into categories of \enquote{Information Input} (5 statements), \enquote{Interacting with Others} (17 statements), \enquote{Mental Processes} (10 statements) and \enquote{Work Output} (9 statements). 57 \enquote{work context} statements grouped into \enquote{Interpersonal Relationships} (14 statements), \enquote{Physical Work Conditions} (30 statements), and \enquote{Structural Job Characteristics} (13 statements).
+Our analyses are organized by O*NET's classifications of \enquote{work activity}: 1) \emph{Information Input} (5 statements), 2) \emph{Interacting with Others} (17 statements), 3) \emph{Mental Processes} (10 statements), and 4) \emph{Work Output} (9 statements) and \enquote{work context}: 5) \emph{Interpersonal Relationships} (14 statements), 6) \emph{Physical Work Conditions} (30 statements)\footnote{Note that we excluded several statements within the \enquote{Physical Work Conditions} ratings of resources and demands (for example, we did not ask if \enquote{exposure to radiation} was considered a demand or resource). In total there were 11 exclusions from this category when assessing demands and resources.}, and 7) \emph{Structural Job Characteristics} (13 statements).
 
-These \enquote{desriptors} have response categories \href{https://www.O*NETonline.org/find/descriptor/result/4.C.1.c.2}{see for example}. We used the O*NET wording to capture characteristics of relevance for each respondent. Subsequent to these self evaluations, each respondent who agreed that the element had \emph{at least some relevance} to their job was also asked to rate that element in terms of, 1) \ldots this aspect of your job is a resource that can be functional in achieving work goals, reduce job demands, or stimulate personal growth/development, 2) \ldots this aspect of your job is a challenge that can promote mastery, personal growth, or future gains, and 3) \ldots this aspect of your job is a hinderance that can inhibit personal growth, learning, and work goal attainment.
-
-Our intent was to use O*NET
+Other than very minor grammatical editing (for example, changing \enquote{the} to \enquote{you}), we retained the O*NET wording for our item stems. We also administered O*NET's response scales, several of which were unique across items. Subsequent to these descriptions of the respondent's work activity and context, each respondent who agreed that an element had \emph{at least some relevance to their job} was also asked to rate that element in terms of, 1) \ldots this aspect of your job is a resource that can be functional in achieving work goals, reduce job demands, or stimulate personal growth/development, 2) \ldots this aspect of your job is a challenge that can promote mastery, personal growth, or future gains, and 3) \ldots this aspect of your job is a hinderance that can inhibit personal growth, learning, and work goal attainment. Our analyses focus on the extent to which the O*NET work characteristics are viewed as resources, challenges, or hindrances.
 
 \hypertarget{burnout-and-stress}{%
 \subsubsection{Burnout and Stress}\label{burnout-and-stress}}
 
-Were taken from the Copenhagen Psychosocial Questionnaire (Burr et al., 2019). There were 4 burnout items and 3 stress items.
+Were taken from the Copenhagen Psychosocial Questionnaire (Burr et al., 2019). There were 4 burnout items and 3 stress items with current sample \(\alpha\)'s of 0.85 (burnout) and 0.85 (stress).
 
-Engagement
-Demographics
+\hypertarget{engagement}{%
+\subsubsection{Engagement}\label{engagement}}
 
-\hypertarget{procedure}{%
-\subsection{Procedure}\label{procedure}}
-
-Qualtrics panel
-
-\hypertarget{data-analysis}{%
-\subsection{Data analysis}\label{data-analysis}}
-
-We used R (Version 4.0.3; R Core Team, 2020) and the R-packages \emph{careless} (Version 1.1.3; Yentes \& Wilhelm, 2021), \emph{labourR} (Version 1.0.0; Kouretsis et al., 2020), \emph{papaja} (Version 0.1.0.9997; Aust \& Barth, 2020), and \emph{tinylabels} (Barth, 2021) for all our analyses.
+The 18-item engagement measure was recently developed (Russell, Ossorio Duffoo, Garcia Prieto Palacios Roji, \& Kulas, 2022), with the authors specifying three subscales which yielded current sample \(\alpha\)'s of 0.68 (Absorption) and 0.80 (Vigor), and 0.90 (Dedication). For the purposes of the current study, we focused on an overall engagement score (18 item aggregate, \(\alpha\) = 0.91).
 
 \hypertarget{results-1}{%
 \section{Results}\label{results-1}}
 
+Our analyses are grouped by characteristics of work that are percieved as being resources, challenge demands, and hindrance demands.
+
+\hypertarget{resources}{%
+\subsubsection{Resources}\label{resources}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{resource} was 3.77 with a standard deviation of 0.48.
+
+The more a work characteristic was perceived as a resource, the more engaged the respondent was (\(R^2\) = .15, \emph{F}\_(7,528) = 12.82, \emph{p} \textless{} .001), although there was a only a trivial effect between being viewed as a resource and stress (\(R^2\) = .03, \emph{F}\_(7,528) = 2.20, \emph{p} \textless{} .05) and no significant association between being viewed as a resource and burnout (\(R^2\) = .01, \emph{F}\_(7,528) = 1.12, \emph{p} = .35). Note that this is consistent with the predictions of the JD-R.
+
+\hypertarget{hindrances}{%
+\subsection{Hindrances}\label{hindrances}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{hindrance} was 2.39 with a standard deviation of 0.78.
+
+\hypertarget{challenges}{%
+\subsection{Challenges}\label{challenges}}
+
+Across all items, the average perception that an O*NET job element could be considered a \emph{challenge} was 3.75 with a standard deviation of 0.50.
+
+\hypertarget{summary}{%
+\subsection{Summary}\label{summary}}
+
+Looking within the noted categories gives us a deeper exploration into the specific elements (e.g., SC on engagement)
+
+The full correlation table including a simultaneous presentation of resources, challenges, and demands is too large, but we did investigate associations among these characteristics, with the average correlation among average correlation among resources and challenges being .37 (sd=.16), resources and hindrances being -.16 (sd=.08), and average correlation among challenges and resources being -.13 (sd=.09)
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationsresource}Scale intercorrelations (resources).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationsresource} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.resource.ii & .10* & -.07 & -.07 & - &  &  &  &  &  & 3.98 & 0.80\\
+5. onet.resource.mp & .16*** & .00 & -.01 & .61*** & - &  &  &  &  & 4.19 & 0.60\\
+6. onet.resource.wo & .14*** & -.02 & -.04 & .46*** & .50*** & - &  &  &  & 3.79 & 0.84\\
+7. onet.resource.io & .25*** & -.05 & -.08 & .49*** & .64*** & .45*** & - &  &  & 4.10 & 0.60\\
+8. onet.resource.ir & .28*** & -.07 & -.07 & .46*** & .55*** & .37*** & .60*** & - &  & 3.80 & 0.61\\
+9. onet.resource.pc & .15*** & -.03 & -.10* & .19*** & .15*** & .32*** & .18*** & .37*** & - & 2.99 & 0.77\\
+10. onet.resource.sc & .33*** & -.07 & -.12** & .43*** & .46*** & .41*** & .45*** & .48*** & .37*** & 3.65 & 0.61\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationschallenge}Scale intercorrelations (challenges).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationschallenge} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.challenge.ii & .08 & -.03 & -.01 & - &  &  &  &  &  & 3.98 & 0.80\\
+5. onet.challenge.mp & .07 & -.02 & -.04 & .65*** & - &  &  &  &  & 4.20 & 0.64\\
+6. onet.challenge.wo & .08 & -.06 & -.06 & .45*** & .49*** & - &  &  &  & 3.65 & 0.88\\
+7. onet.challenge.io & .21*** & -.07 & -.09* & .50*** & .68*** & .43*** & - &  &  & 4.07 & 0.64\\
+8. onet.challenge.ir & .19*** & -.05 & -.05 & .46*** & .60*** & .39*** & .70*** & - &  & 3.85 & 0.63\\
+9. onet.challenge.pc & .13** & .08 & .01 & .14** & .12** & .33*** & .20*** & .31*** & - & 2.85 & 0.79\\
+10. onet.challenge.sc & .35*** & -.03 & -.01 & .36*** & .41*** & .38*** & .51*** & .45*** & .40*** & 3.66 & 0.59\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
+\begin{lltable}
+
+\begin{TableNotes}[para]
+\normalsize{\textit{Note.} * p < 0.05; ** p < 0.01; *** p < 0.001}
+\end{TableNotes}
+
+\begin{longtable}{llllllllllll}\noalign{\getlongtablewidth\global\LTcapwidth=\longtablewidth}
+\caption{\label{tab:correlationshindrance}Scale intercorrelations (hindrances).}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endfirsthead
+\caption*{\normalfont{Table \ref{tab:correlationshindrance} continued}}\\
+\toprule
+ & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} & \multicolumn{1}{c}{5} & \multicolumn{1}{c}{6} & \multicolumn{1}{c}{7} & \multicolumn{1}{c}{8} & \multicolumn{1}{c}{9} & \multicolumn{1}{c}{$M$} & \multicolumn{1}{c}{$SD$}\\
+\midrule
+\endhead
+1. engagement & - &  &  &  &  &  &  &  &  & 4.04 & 0.83\\
+2. burnout & -.35*** & - &  &  &  &  &  &  &  & 3.04 & 0.87\\
+3. stress & -.30*** & .70*** & - &  &  &  &  &  &  & 2.59 & 0.97\\
+4. onet.hindrance.ii & -.04 & .01 & .07 & - &  &  &  &  &  & 2.15 & 1.01\\
+5. onet.hindrance.mp & -.04 & -.02 & .04 & .86*** & - &  &  &  &  & 2.10 & 1.05\\
+6. onet.hindrance.wo & -.08 & .05 & .10* & .66*** & .69*** & - &  &  &  & 2.31 & 1.02\\
+7. onet.hindrance.io & -.06 & .00 & .06 & .79*** & .86*** & .69*** & - &  &  & 2.23 & 1.03\\
+8. onet.hindrance.ir & -.11** & .06 & .12** & .79*** & .80*** & .61*** & .82*** & - &  & 2.35 & 0.89\\
+9. onet.hindrance.pc & -.17*** & .17*** & .14** & .38*** & .33*** & .47*** & .35*** & .47*** & - & 2.66 & 0.83\\
+10. onet.hindrance.sc & -.20*** & .15*** & .18*** & .62*** & .62*** & .56*** & .64*** & .66*** & .45*** & 2.64 & 0.80\\
+\bottomrule
+\addlinespace
+\insertTableNotes
+\end{longtable}
+
+\end{lltable}
+
 \hypertarget{discussion-1}{%
 \section{Discussion}\label{discussion-1}}
+
+There is richer information available within this dataset. Our job elements are grouped by O*NET category, which facilitates broad exploration, however, individual elements likely impact engagement, stress, and burnout, so these individual elements should be explored. For example, the \emph{Work Context} element of \enquote{having to meet strict deadlines} is likely something that is important alone. Incremental variance couldn't look at because of sheer number of IVs.
 
 \newpage
 
@@ -378,9 +463,6 @@ We used R (Version 4.0.3; R Core Team, 2020) and the R-packages \emph{careless} 
 \hypertarget{refs}{}
 \leavevmode\hypertarget{ref-abbas2019challenge}{}%
 Abbas, M., \& Raja, U. (2019). Challenge-hindrance stressors and job outcomes: The moderating role of conscientiousness. \emph{Journal of Business and Psychology}, \emph{34}(2), 189--201.
-
-\leavevmode\hypertarget{ref-R-papaja}{}%
-Aust, F., \& Barth, M. (2020). \emph{papaja: Create APA manuscripts with R Markdown}. Retrieved from \url{https://github.com/crsh/papaja}
 
 \leavevmode\hypertarget{ref-bakker2014job}{}%
 Bakker, A. B., \& Demerouti, E. (2014). Job demands--resources theory. \emph{Wellbeing: A Complete Reference Guide}, 1--28.
@@ -396,9 +478,6 @@ Bakker, A. B., \& Sanz-Vergel, A. I. (2013). Weekly work engagement and flourish
 
 \leavevmode\hypertarget{ref-bakker2003dual}{}%
 Bakker, A., Demerouti, E., \& Schaufeli, W. (2003). Dual processes at work in a call centre: An application of the job demands--resources model. \emph{European Journal of Work and Organizational Psychology}, \emph{12}(4), 393--417.
-
-\leavevmode\hypertarget{ref-R-tinylabels}{}%
-Barth, M. (2021). \emph{tinylabels: Lightweight variable labels}. Retrieved from \url{https://github.com/mariusbarth/tinylabels}
 
 \leavevmode\hypertarget{ref-burr_third_2019}{}%
 Burr, H., Berthelsen, H., Moncada, S., Nübling, M., Dupret, E., Demiral, Y., \ldots{} Pohrt, A. (2019). The Third Version of the Copenhagen Psychosocial Questionnaire. \emph{Safety and Health at Work}, \emph{10}(4), 482--503. \url{https://doi.org/10.1016/j.shaw.2019.10.002}
@@ -451,11 +530,11 @@ Peterson, N. G., Mumford, M. D., Borman, W. C., Jeanneret, P. R., Fleishman, E. 
 \leavevmode\hypertarget{ref-podsakoff2007differential}{}%
 Podsakoff, N. P., LePine, J. A., \& LePine, M. A. (2007). Differential challenge stressor-hindrance stressor relationships with job attitudes, turnover intentions, turnover, and withdrawal behavior: A meta-analysis. \emph{Journal of Applied Psychology}, \emph{92}(2), 438.
 
-\leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. (2020). \emph{R: A language and environment for statistical computing}. Vienna, Austria: R Foundation for Statistical Computing. Retrieved from \url{https://www.R-project.org/}
-
 \leavevmode\hypertarget{ref-rodell2009can}{}%
 Rodell, J. B., \& Judge, T. A. (2009). Can ``good'' stressors spark ``bad'' behaviors? The mediating role of emotions in links of challenge and hindrance stressors with citizenship and counterproductive behaviors. \emph{Journal of Applied Psychology}, \emph{94}(6), 1438.
+
+\leavevmode\hypertarget{ref-engage_2022}{}%
+Russell, M., Ossorio Duffoo, C., Garcia Prieto Palacios Roji, R., \& Kulas, J. (2022). Development of an intentional bifactor measure of engagement. In \emph{The seattle edition of siop} (pp. 1--14). SIOP.
 
 \leavevmode\hypertarget{ref-schmitz_interpreting_2019}{}%
 Schmitz, L. L., McCluney, C. L., Sonnega, A., \& Hicken, M. T. (2019). Interpreting Subjective and Objective Measures of Job Resources: The Importance of Sociodemographic Context. \emph{International Journal of Environmental Research and Public Health}, \emph{16}(17), 3058. \url{https://doi.org/10.3390/ijerph16173058}

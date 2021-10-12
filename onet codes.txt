@@ -1,0 +1,56 @@
+Subsections - do regressions within each section, engage, burnout, stress
+
+Information input:
+
+77:81 
+162:166 (Resource)
+246:247,249:252
+332:336
+
+Mental processes:
+
+82:91
+167:176
+252:261
+337:346
+
+Work output:
+
+92:100
+177:185
+262:270
+347:355
+
+Interacting with others:
+
+101:117
+186:202
+271:287
+356:372
+
+###########
+###########
+
+Interpersonal relationships:
+
+63:76
+149:161
+233:245
+319:331
+
+Physical work conditions:
+
+32:62
+128:144,146:148
+213:232
+298:318
+
+Structural job characteristics:
+
+19:31
+118:127
+203:212
+288:297
+
+
+
