@@ -4844,10 +4844,10 @@ bottomchars <- bottomchars[tail(names(bottomchars),3)]
 
 
 service.t <- ggplot(topchars, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 service.b <- ggplot(bottomchars, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="black", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -4931,10 +4931,10 @@ bottomresource <- bottomresource[tail(names(bottomresource),3)]
 
 
 resource.service.t <- ggplot(topresource, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="blue", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,6))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,6))
 
 resource.service.b <- ggplot(bottomresource, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="blue", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -5029,10 +5029,10 @@ bottomchallenge <- bottomchallenge[tail(names(bottomchallenge),3)]
 
 
 challenge.service.t <- ggplot(topchallenge, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="orange", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,6))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,6))
 
 challenge.service.b <- ggplot(bottomchallenge, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="orange", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
@@ -5129,10 +5129,10 @@ bottomhindrance <- bottomhindrance[tail(names(bottomhindrance),3)]
 
 
 hindrance.service.t <- ggplot(tophindrance, aes(x=reorder(description,mean), y=mean)) + geom_bar(stat="identity", color="red", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5)) 
 
 hindrance.service.b <- ggplot(bottomhindrance, aes(x=reorder(description,-mean), y=mean)) + geom_bar(stat="identity", color="red", position=position_dodge()) + theme_bw() +
-  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Service") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
+  scale_x_discrete(labels = function(x) lapply(strwrap(x, width = 60, simplify = FALSE), paste, collapse="\n")) + xlab("") + ylab("Skill") + geom_errorbar(aes(ymin=mean-sd, ymax=mean+sd), width=.2, position=position_dodge(.9)) + coord_flip(ylim=c(1,5))
 
 ## Knowledge
 
