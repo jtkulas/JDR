@@ -92,7 +92,7 @@ library(labourR)
 
 use$id <- 1:nrow(use) #adds unique identifier to satisfy inane requirement of classify_occupation()
 
-ISCO <- classify_occupation(use, text_col = 'item400', isco_level = 1) 
+ISCO <- classify_occupation(use, text_col = 'item400', isco_level = 2) 
 
 m3 <-merge(use, ISCO, by.x = "id", by.y = "id", all.x = TRUE)
 
@@ -100,11 +100,28 @@ descr::freq(m3$preferredLabel)
 
 
 
+##### RENATA trying to change the classifications
 
+use$id <- 1:nrow(use) #adds unique identifier to satisfy inane requirement of classify_occupation()
 
+ISCO <- classify_occupation(use, text_col = 'item400', isco_level = 2) 
 
+job_groups <- table(ISCO$iscoGroup)
+as.numeric(ISCO$iscoGroup)
 
+table(ISCO$iscoGroup)
+hist(ISCO$iscoGroup)
 
+#1 (Managers): 99
+#2 (Professionals): 278
+#3 (Technicians and associate professionals):184 
+#4 (Clerical support workers):19
+#5 (Service and sales workers): 26
+#6 (Skilled agricultural, forest and fishery workers): 2
+#7 (Craft and relate trades workers): 9
+#8 (Plant and machine operators and assemblers):19
+#9 (Elementary occupations): 3
+#0 (Armed forces occupations): 0
 
 
 
